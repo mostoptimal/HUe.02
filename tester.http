@@ -1,0 +1,7 @@
+POST /user HTTP/2
+host: localhost:3000
+content-type: application/json
+###
+
+###
+GET localhost:3000/users

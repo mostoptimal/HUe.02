@@ -1,0 +1,55 @@
+<html lang="de">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title>Hausuebung 2</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+
+    <script src="/main.ts"></script>
+</head>
+
+<body>
+
+<!---Form--->
+<div class="container" style="padding: 2%;">
+    <div class="jumbotron" style="background-color: cadetblue">
+        <form>
+            <div class="form-floating mb-3 required" id="formNewUser">
+                <label for="vorName">First Name</label>
+                <input type="text" class="form-control required" id="vorName" placeholder="First Name">
+            </div>
+            <div class="form-floating mb-3">
+                <label for="nachName">Last Name</label>
+                <input type="text" class="form-control required" id="nachName" placeholder="Last Name">
+            </div>
+            <div class="form-floating mb-3 required">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            </div>
+            <div class="form-floating">
+                <label for="passWort">Password</label>
+                <input type="password" class="form-control required" id="passWort" placeholder="Password">
+            </div>
+        </form>
+        <button class="btn primary" style="background-color: darkcyan" id="myBtn" onclick="loadDoc()" value="Submit">Send</button>
+
+    </div>
+</div>
+<!---Form End--->
+
+<div class="container" align="center">
+    <div class="jumbotron" style="padding: 2%">
+    <button id="readContent" class="btn" style="background-color: darkcyan" onclick="readContent()">Read</button>
+    </div>
+</div>
+
+<!--Table-->
+<br><br>
+<table id="usersTable">
+
+</table>
+<!--Table End-->
+</body>
+
+</html>

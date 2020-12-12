@@ -11,6 +11,7 @@
             crossorigin="anonymous"></script>
     <title>Hausuebung 2</title>
     <link href="/public/stylesheets/style.css" type="text/css">
+    <script type="application/javascript" src="public/users.json" ></script>
     <!--<script src="main.ts" type="application/javascript"></script>-->
 </head>
 
@@ -19,7 +20,7 @@
 <!---Form--->
 <div class="container" style="padding: 2%;">
     <div class="jumbotron" style="background-color: cadetblue">
-        <form>
+        <form action="users.json">
             <div class="form-floating mb-3 required" id="formNewUser">
                 <label for="vorName">First Name</label>
                 <input type="text" class="form-control required" id="vorName" placeholder="First Name" required>
@@ -37,9 +38,7 @@
                 <input type="password" class="form-control required" id="passWort" placeholder="Password" required>
             </div>
         </form>
-        <button class="btn primary" style="background-color: darkcyan" id="myBtn" onclick="loadDoc()" onkeypress="loadDoc()" value="Submit">
-            Send
-        </button>
+        <input type="submit" class="btn primary" style="background-color: darkcyan" id="myBtn" value="Submit">
 
     </div>
 </div>
@@ -64,11 +63,13 @@
 <script>
     var users = [];//public Array
     var fName, lName, email, password;//public String Variables
+    var usersJson =JSON.parse(users);
     function loadDoc() {
         fName = document.getElementById("vorName").value;
         lName = document.getElementById("nachName").value;
         email = document.getElementById("email").value;
         password = document.getElementById("passWort").value;
+        usersJson.parse(fName,lName,email,password);
         if(fName==""||lName==""||email==""||password==""){
             alert("Missing Values please input all Details");
         }else{

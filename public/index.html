@@ -1,12 +1,17 @@
 <html lang="de">
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
     <title>Hausuebung 2</title>
-    <link rel="stylesheet" href="/public/stylesheets/style.css">
-
-    <script src="/main.ts"></script>
+    <link href="/public/stylesheets/style.css" type="text/css">
+    <!--<script src="main.ts" type="application/javascript"></script>-->
 </head>
 
 <body>
@@ -17,22 +22,24 @@
         <form>
             <div class="form-floating mb-3 required" id="formNewUser">
                 <label for="vorName">First Name</label>
-                <input type="text" class="form-control required" id="vorName" placeholder="First Name">
+                <input type="text" class="form-control required" id="vorName" placeholder="First Name" required>
             </div>
             <div class="form-floating mb-3">
                 <label for="nachName">Last Name</label>
-                <input type="text" class="form-control required" id="nachName" placeholder="Last Name">
+                <input type="text" class="form-control required" id="nachName" placeholder="Last Name" required>
             </div>
             <div class="form-floating mb-3 required">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
             </div>
             <div class="form-floating">
                 <label for="passWort">Password</label>
-                <input type="password" class="form-control required" id="passWort" placeholder="Password">
+                <input type="password" class="form-control required" id="passWort" placeholder="Password" required>
             </div>
         </form>
-        <button class="btn primary" style="background-color: darkcyan" id="myBtn" onclick="loadDoc()" value="Submit">Send</button>
+        <button class="btn primary" style="background-color: darkcyan" id="myBtn" onclick="loadDoc()" onkeypress="loadDoc()" value="Submit">
+            Send
+        </button>
 
     </div>
 </div>
@@ -40,16 +47,52 @@
 
 <div class="container" align="center">
     <div class="jumbotron" style="padding: 2%">
-    <button id="readContent" class="btn" style="background-color: darkcyan" onclick="readContent()">Read</button>
+        <button id="readButton" class="btn" style="background-color: darkcyan" onclick="readContent()">Read</button>
     </div>
 </div>
 
 <!--Table-->
 <br><br>
-<table id="usersTable">
+<div class="jumbotron" style="padding: 2%">
+    <table id="usersTable" class="table">
 
-</table>
+    </table>
+</div>
+<br><br><br><br><br>
 <!--Table End-->
+
+<script>
+    var users = [];//public Array
+    var fName, lName, email, password;//public String Variables
+    function loadDoc() {
+        fName = document.getElementById("vorName").value;
+        lName = document.getElementById("nachName").value;
+        email = document.getElementById("email").value;
+        password = document.getElementById("passWort").value;
+        if(fName==""||lName==""||email==""||password==""){
+            alert("Missing Values please input all Details");
+        }else{
+        users.push([fName, lName, email, password]);
+        document.getElementById("vorName").value = "";
+        document.getElementById("nachName").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("passWort").value = "";
+        alert("submitted "+fName);
+        }
+    }
+
+    /**/
+    function readContent() {
+        var i;
+        var table = "<thead><tr><th scope='col-4'>Vorname</th><th scope='col-4'>Nachname</th><th scope='col-4'>email</th></tr></thead><tbody>";
+        for (i = 0; i < users.length; i++) {
+            table += "<tr><tr><td>" + users[i][0] + "</td><td >" + users[i][1] + "</td ></tr>"+"</td><td >" + users[i][2] + "</td></tr>";
+        }
+        table+="</tbody>";
+        console.log(table);
+        document.getElementById("usersTable").innerHTML = table;
+    }
+</script>
 </body>
 
 </html>

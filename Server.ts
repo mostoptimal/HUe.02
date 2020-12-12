@@ -21,16 +21,6 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
     res.sendFile(__dirname + "/views/index.html");
 });
 
-app.post("/",(req,res)=>{
-    console.log("Ho Ho Ho");
-
-});
-
 app.get("/users",(req,res)=>{
  res.json(users);
 });
-/*
-app.put("/users:",(req,res)=>{
-
-});
-*/

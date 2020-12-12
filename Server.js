@@ -15,14 +15,6 @@ app.get("/public/index.html", function (req, res) {
     res.status(200);
     res.sendFile(__dirname + "/views/index.html");
 });
-app.post("/", function (req, res) {
-    console.log("Ho Ho Ho");
-});
 app.get("/users", function (req, res) {
     res.json(users);
 });
-/*
-app.put("/users:",(req,res)=>{
-
-});
-*/

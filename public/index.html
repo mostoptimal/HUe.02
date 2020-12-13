@@ -1,9 +1,15 @@
 <html lang="de">
 
 <head>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
@@ -11,7 +17,7 @@
             crossorigin="anonymous"></script>
     <title>Hausuebung 2</title>
     <link href="/public/stylesheets/style.css" type="text/css">
-    <script type="application/javascript" src="public/users.json" ></script>
+    <script type="application/javascript" src="public/users.json"></script>
     <!--<script src="main.ts" type="application/javascript"></script>-->
 </head>
 
@@ -20,8 +26,8 @@
 <!---Form--->
 <div class="container" style="padding: 2%;">
     <div class="jumbotron" style="background-color: cadetblue">
-        <form action="users.json">
-            <div class="form-floating mb-3 required" id="formNewUser">
+        <form id="formNewUser" method="get">
+            <div class="form-floating mb-3">
                 <label for="vorName">First Name</label>
                 <input type="text" class="form-control required" id="vorName" placeholder="First Name" required>
             </div>
@@ -38,8 +44,8 @@
                 <input type="password" class="form-control required" id="passWort" placeholder="Password" required>
             </div>
         </form>
-        <input type="submit" class="btn primary" style="background-color: darkcyan" id="myBtn" value="Submit">
-
+        <button type="submit" class="btn primary" style="background-color: darkcyan;" id="submitBtn" value="Send"
+                form="formNewUser"></button>
     </div>
 </div>
 <!---Form End--->
@@ -61,24 +67,26 @@
 <!--Table End-->
 
 <script>
+    import * as usersJson from "path";
+
     var users = [];//public Array
     var fName, lName, email, password;//public String Variables
-    var usersJson =JSON.parse(users);
     function loadDoc() {
         fName = document.getElementById("vorName").value;
         lName = document.getElementById("nachName").value;
         email = document.getElementById("email").value;
         password = document.getElementById("passWort").value;
-        usersJson.parse(fName,lName,email,password);
-        if(fName==""||lName==""||email==""||password==""){
+
+        if (fName === "" || lName === "" || email === "" || password === "") {
             alert("Missing Values please input all Details");
-        }else{
-        users.push([fName, lName, email, password]);
-        document.getElementById("vorName").value = "";
-        document.getElementById("nachName").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("passWort").value = "";
-        alert("submitted "+fName);
+        } else {
+            users.push([fName, lName, email, password]);
+            usersJson.parse(users);
+            document.getElementById("vorName").value = "";
+            document.getElementById("nachName").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("passWort").value = "";
+            alert("submitted " + fName);
         }
     }
 
@@ -87,9 +95,9 @@
         var i;
         var table = "<thead><tr><th scope='col-4'>Vorname</th><th scope='col-4'>Nachname</th><th scope='col-4'>email</th></tr></thead><tbody>";
         for (i = 0; i < users.length; i++) {
-            table += "<tr><tr><td>" + users[i][0] + "</td><td >" + users[i][1] + "</td ></tr>"+"</td><td >" + users[i][2] + "</td></tr>";
+            table += "<tr><tr><td>" + users[i][0] + "</td><td >" + users[i][1] + "</td ></tr>" + "</td><td >" + users[i][2] + "</td></tr>";
         }
-        table+="</tbody>";
+        table += "</tbody>";
         console.log(table);
         document.getElementById("usersTable").innerHTML = table;
     }

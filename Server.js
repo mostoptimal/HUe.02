@@ -18,3 +18,14 @@ app.get("/public/index.html", function (req, res) {
 app.get("/users", function (req, res) {
     res.json(users);
 });
+app.post('/users', function (req, res) {
+    var newUser = {
+        vorName: req.body.vorName,
+        nachName: req.body.nachName,
+        email: req.body.email,
+        passWort: req.body.passWort,
+        status: 'active'
+    };
+    users.push(newUser);
+    res.json(users);
+});

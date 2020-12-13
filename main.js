@@ -23,24 +23,23 @@ function submitttng(){
 var Users = [
     {
         vorName: "Alice",
-        nacNname: "kirrold",
+        nacName: "kirrold",
         email: "a@b.cd",
         passWort: "1222"
     },
     {
         vorName: "Tim",
-        nacNname: "Chriss",
+        nacName: "Chriss",
         email: "d@v.nl",
         passWort: "333222"
     },
     {
         vorName: "Kevin",
-        nacNname: "Schroeder",
+        nacName: "Schroeder",
         email: "kev90qgmx.de",
         passWort: "zocken"
     }
 ];
-//let userMaps= new Map([["vorName","Alice"],["nacNname","kirrold"],["email","a@b.cd"],["passWort","1222"],["vorName","Tim"], ["nacNname","Chriss"], ["email","d@v.nl"],["passWort","333222"],["vorName","Kevin"],["nacNname","Schroeder"],["email","kev90qgmx.de"],["passWort","zocken"]]);
 module.exports = Users;
 function readContent() {
     var xmlhttp = new XMLHttpRequest();

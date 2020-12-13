@@ -5,3 +5,12 @@ content-type: application/json
 
 ###
 GET localhost:3000/users
+###
+POST localhost:3000/users
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.v",
+"passWort":"dg"
+}

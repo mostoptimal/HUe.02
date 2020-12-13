@@ -1,5 +1,46 @@
 GET http://localhost:3000/users
 
+###
+
+POST http://localhost:3000/users
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.v",
+"passWort":"dg"
+}
+
+<> 2020-12-13T104151.200.json
+
+###
+
+POST http://localhost:3000/users
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.v",
+"passWort":"dg"
+}
+
+###
+
+POST http://localhost:3000/users
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.v",
+"passWort":"dg"
+}
+
+<> 2020-12-13T103719.200.json
+
+###
+
+GET http://localhost:3000/users
+
 <> 2020-12-11T014500.200.json
 
 ###

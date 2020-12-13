@@ -24,3 +24,15 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
 app.get("/users",(req,res)=>{
  res.json(users);
 });
+
+app.post('/users',(req,res)=>{
+    const newUser={
+        vorName: req.body.vorName,
+        nachName: req.body.nachName,
+        email: req.body.email,
+        passWort: req.body.passWort,
+        status:'active'
+    }
+    users.push(newUser);
+    res.json(users);
+});

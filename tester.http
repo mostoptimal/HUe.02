@@ -11,6 +11,17 @@ POST localhost:3000/users
 {
 "vorName":"jojo",
 "nachName":"gg",
-"email":"a@b.v",
+"email":"a@b.veee",
 "passWort":"dg"
+}
+###
+GET localhost:3000/users/a@b.cd
+
+###
+PUT localhost:3000/users/a@b.cd
+
+{
+"vorName": "tt",
+"nachName": "bb",
+"email": "www@email.cd"
 }

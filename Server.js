@@ -4,6 +4,7 @@ var express = require("express");
 var app = express();
 var users = require("./main");
 var PORT = 3000;
+var members = require("./public/users.json");
 app.listen(PORT, function () {
     console.log("Server auf http://localhost:3000 gestartet");
 });
@@ -17,8 +18,18 @@ app.get("/public/index.html", function (req, res) {
 });
 app.get("/users", function (req, res) {
     res.json(users);
+    members.json(res.json(users));
 });
-app.post('/users', function (req, res) {
+app.get("/users/:email", function (req, res) {
+    var found = users.some(function (user) { return user.email === req.params.email; });
+    if (found) {
+        res.json(users.filter(function (user) { return user.email === req.params.email; }));
+    }
+    else {
+        res.status(400).json({ msg: "member is not found" });
+    }
+});
+app.post('/users/:', function (req, res) {
     var newUser = {
         vorName: req.body.vorName,
         nachName: req.body.nachName,
@@ -28,4 +39,22 @@ app.post('/users', function (req, res) {
     };
     users.push(newUser);
     res.json(users);
+    members.push(newUser);
+});
+//user update
+app.put("/users/:email", function (req, res) {
+    var found = users.some(function (user) { return user.email === req.params.email; });
+    if (found) {
+        var updUser = req.body;
+        users.forEach(function (user) {
+            if (user.email === req.body.email) {
+                user.vorName = req.body.vorName;
+                user.nacName = req.body.nachName;
+                res.json({ msg: 'member is updated' });
+            }
+        });
+    }
+    else {
+        res.status(400).json({ msg: "member is not found" });
+    }
 });

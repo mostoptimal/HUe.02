@@ -3,8 +3,7 @@ import * as express from "express";
 const app = express();
 const users= require("./main");
 const PORT=3000;
-
-
+const members = require("./public/users.json");
 
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
@@ -22,10 +21,21 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
 });
 
 app.get("/users",(req,res)=>{
- res.json(users);
+    res.json(users);
+    members.json(res.json(users));
 });
 
-app.post('/users',(req,res)=>{
+app.get("/users/:email",(req,res)=>{
+ const found = users.some(user => user.email === req.params.email);
+ if(found){
+     res.json(users.filter(user => user.email === req.params.email));
+ }else{
+     res.status(400).json({msg: "member is not found"});
+ }
+
+});
+
+app.post('/users/:',(req,res)=>{
     const newUser={
         vorName: req.body.vorName,
         nachName: req.body.nachName,
@@ -35,4 +45,27 @@ app.post('/users',(req,res)=>{
     }
     users.push(newUser);
     res.json(users);
+    members.push(newUser);
+});
+
+
+
+//user update
+
+app.put("/users/:email",(req,res)=>{
+    const found = users.some(user => user.email === req.params.email);
+    if(found){
+        const updUser = req.body;
+        users.forEach(user => {
+            if(user.email === req.body.email){
+                user.vorName= req.body.vorName;
+                user.nacName= req.body.nachName;
+
+                res.json({msg: 'member is updated'});
+            }
+        });
+    }else{
+        res.status(400).json({msg: "member is not found"});
+    }
+
 });

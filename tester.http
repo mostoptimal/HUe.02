@@ -6,7 +6,9 @@ content-type: application/json
 ###
 GET localhost:3000/users
 ###
-POST localhost:3000/users
+GET localhost:3000/public/index.html
+###
+POST localhost:3000/users/a@b.veee
 
 {
 "vorName":"jojo",

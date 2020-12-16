@@ -29,7 +29,8 @@ app.get("/users/:email", function (req, res) {
         res.status(400).json({ msg: "member is not found" });
     }
 });
-app.post('/users/:', function (req, res) {
+//New User !funktioniert nicht
+app.post('/users/:email', function (req, res) {
     var newUser = {
         vorName: req.body.vorName,
         nachName: req.body.nachName,
@@ -37,9 +38,10 @@ app.post('/users/:', function (req, res) {
         passWort: req.body.passWort,
         status: 'active'
     };
-    users.push(newUser);
+    req.json(newUser);
+    //users.push(newUser);
     res.json(users);
-    members.push(newUser);
+    //members.push(newUser);
 });
 //user update
 app.put("/users/:email", function (req, res) {
@@ -56,5 +58,11 @@ app.put("/users/:email", function (req, res) {
     }
     else {
         res.status(400).json({ msg: "member is not found" });
+    }
+});
+//delete User
+app.delete("/users/:email", function (req, res) {
+    var found = users.some(function (user) { return user.email === req.params.email; });
+    if (found) {
     }
 });

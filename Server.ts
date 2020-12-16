@@ -35,7 +35,8 @@ app.get("/users/:email",(req,res)=>{
 
 });
 
-app.post('/users/:',(req,res)=>{
+//New User !funktioniert nicht
+app.post('/users/:email',(req,res)=>{
     const newUser={
         vorName: req.body.vorName,
         nachName: req.body.nachName,
@@ -43,15 +44,15 @@ app.post('/users/:',(req,res)=>{
         passWort: req.body.passWort,
         status:'active'
     }
-    users.push(newUser);
+    req.json(newUser);
+    //users.push(newUser);
     res.json(users);
-    members.push(newUser);
+    //members.push(newUser);
 });
 
 
 
 //user update
-
 app.put("/users/:email",(req,res)=>{
     const found = users.some(user => user.email === req.params.email);
     if(found){
@@ -68,4 +69,12 @@ app.put("/users/:email",(req,res)=>{
         res.status(400).json({msg: "member is not found"});
     }
 
+});
+
+//delete User
+app.delete("/users/:email",(req,res)=>{
+    const found = users.some(user => user.email === req.params.email);
+    if (found){
+
+    }
 });

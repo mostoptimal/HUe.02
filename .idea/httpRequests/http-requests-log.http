@@ -1,3 +1,61 @@
+POST http://localhost:3000/users/a@b.veee
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.veee",
+"passWort":"dg"
+}
+
+<> 2020-12-16T112722.404.html
+
+###
+
+POST http://localhost:3000/users
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.veee",
+"passWort":"dg"
+}
+
+<> 2020-12-16T112705.404.html
+
+###
+
+GET http://localhost:3000/users/a@b.cd
+
+<> 2020-12-16T112653.200.json
+
+###
+
+GET http://localhost:3000/public/index.html
+
+<> 2020-12-16T111429.404.html
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-16T111320.200.json
+
+###
+
+POST http://localhost:3000/user
+host: localhost:3000
+content-type: application/json
+
+<> 2020-12-16T111303.404.html
+
+###
+
+POST http://localhost:3000/user
+host: localhost:3000
+content-type: application/json
+
+###
+
 GET http://localhost:3000/users/a@b.cd
 
 <> 2020-12-15T022234.200.json

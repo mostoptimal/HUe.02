@@ -7,6 +7,55 @@ POST http://localhost:3000/users/a@b.veee
 "passWort":"dg"
 }
 
+<> 2020-12-16T121830.500.html
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-16T121826.200.json
+
+###
+
+PUT http://localhost:3000/users/a@b.cd
+
+{
+"vorName": "tt",
+"nachName": "bb",
+"email": "www@email.cd"
+}
+
+###
+
+PUT http://localhost:3000/users/a@b.cd
+
+{
+"vorName": "tt",
+"nachName": "bb",
+"email": "www@email.cd"
+}
+
+###
+
+PUT http://localhost:3000/users/a@b.cd
+
+{
+"vorName": "tt",
+"nachName": "bb",
+"email": "www@email.cd"
+}
+
+###
+
+POST http://localhost:3000/users/a@b.veee
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.veee",
+"passWort":"dg"
+}
+
 <> 2020-12-16T112722.404.html
 
 ###

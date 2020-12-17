@@ -44,8 +44,9 @@
                 <input type="password" class="form-control " id="passWort" placeholder="Password" required>
             </div>
         </form>
-        <button type="submit" class="btn btn-secondary two"  id="submitBtn" value="Send"
-                form="formNewUser">send</button>
+        <button type="submit" class="btn btn-secondary two" id="submitBtn" value="Send"
+                form="formNewUser">send
+        </button>
     </div>
 </div>
 <!---Form End--->
@@ -68,7 +69,7 @@
 
 <script>
     import * as usersJson from "path";
-/// path funktioniert gut
+    // path funktioniert gut
     var users = [];//public Array
     var fName, lName, email, password;//public String Variables
     function loadDoc() {
@@ -76,7 +77,6 @@
         lName = document.getElementById("nachName").value;
         email = document.getElementById("email").value;
         password = document.getElementById("passWort").value;
-
         if (fName === "" || lName === "" || email === "" || password === "") {
             alert("Missing Values please input all Details");
         } else {

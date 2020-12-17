@@ -1,3 +1,43 @@
+POST http://localhost:3000/users
+
+{
+"vorName": "tt",
+"nachName": "bb",
+"email": "www@email.cd"
+"passWort":"fegege"
+}
+
+<> 2020-12-17T052334.400.json
+
+###
+
+GET http://localhost:3000/users/a@b.cd
+
+<> 2020-12-17T052329.200.json
+
+###
+
+POST http://localhost:3000/users
+Host: localhost:3000
+Content-type : application/json
+
+{
+ vorName:"Kevin",
+ nachName:"Schroeder",
+ email:"kev90qgmx.de",
+ passWort:"zocken"
+ }
+
+<> 2020-12-17T052321.400.json
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-17T052315.200.json
+
+###
+
 POST http://localhost:3000/users/a@b.veee
 
 {

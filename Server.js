@@ -69,8 +69,8 @@ app.put("/users/:email", function (req, res) {
 //delete User
 app.delete("/users/:email", function (req, res) {
     var found = users.some(function (user) { return user.email === req.params.email; });
-    var index = users.indexOf(function (user) { return user.email == req.params.email; });
-    console.log(users.indexOf(index));
+    var index = users.filter(function (user) { return user.email == req.params.email; });
+    console.log();
     if (found) {
     }
 });

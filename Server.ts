@@ -37,7 +37,7 @@ app.get("/users/:email", (req, res) => {
 
 });
 //New User !funktioniert nicht
-app.post('/users', (req, res) => {
+app.post('/users', (req :express.Request, res : express.Response) => {
     const newUser = {
         vorName: req.body.vorName,
         nachName: req.body.nachName,

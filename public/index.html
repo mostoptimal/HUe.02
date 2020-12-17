@@ -53,7 +53,7 @@
 
 <div class="container" align="center">
     <div class="jumbotron" style="padding: 2%">
-        <button id="readButton" class="btn" style="background-color: skyblue" onclick="readContent()">Read</button>
+        <button type="button" onclick="readContent()">Read</button>
     </div>
 </div>
 
@@ -68,8 +68,6 @@
 <!--Table End-->
 
 <script>
-    import * as usersJson from "path";
-    // path funktioniert gut
     var users = [];//public Array
     var fName, lName, email, password;//public String Variables
     function loadDoc() {
@@ -92,14 +90,8 @@
 
     /**/
     function readContent() {
-        var i;
-        var table = "<thead><tr><th scope='col-4'>Vorname</th><th scope='col-4'>Nachname</th><th scope='col-4'>email</th></tr></thead><tbody>";
-        for (i = 0; i < users.length; i++) {
-            table += "<tr><tr><td>" + users[i][0] + "</td><td >" + users[i][1] + "</td ></tr>" + "</td><td >" + users[i][2] + "</td></tr>";
-        }
-        table += "</tbody>";
-        console.log(table);
-        document.getElementById("usersTable").innerHTML = table;
+        const i=0;
+        document.getElementById("usersTable").innerHTML = "<tr><th>Vorname</th><th>Nachname</th><th>Email</th></tr>";
     }
 </script>
 </body>

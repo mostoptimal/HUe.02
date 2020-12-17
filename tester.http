@@ -8,9 +8,7 @@ GET localhost:3000/users
 ###
 GET localhost:3000/
 ###
-POST /users HTTP/2
-Host: localhost:3000
-Content-type : application/json
+POST localhost:3000/users
 
 {
  vorName:"Kevin",

@@ -1,6 +1,60 @@
 POST http://localhost:3000/users
 
 {
+ vorName:"Kevin",
+ nachName:"Schroeder",
+ email:"kev90qgmx.de",
+ passWort:"zocken"
+ }
+
+<> 2020-12-17T070304.400.json
+
+###
+
+POST http://localhost:3000/users
+Host: localhost:3000
+Content-type : application/json
+
+{
+ vorName:"Kevin",
+ nachName:"Schroeder",
+ email:"kev90qgmx.de",
+ passWort:"zocken"
+ }
+
+<> 2020-12-17T070225.400.json
+
+###
+
+POST http://localhost:3000/users
+
+{
+"vorName": "tt",
+"nachName": "bb",
+"email": "www@email.cd"
+"passWort":"fegege"
+}
+
+<> 2020-12-17T070212.400.json
+
+###
+
+POST http://localhost:3000/users
+
+{
+"vorName": "tt",
+"nachName": "bb",
+"email": "www@email.cd"
+"passWort":"fegege"
+}
+
+<> 2020-12-17T065946.400.json
+
+###
+
+POST http://localhost:3000/users
+
+{
 "vorName": "tt",
 "nachName": "bb",
 "email": "www@email.cd"

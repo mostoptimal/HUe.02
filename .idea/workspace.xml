@@ -23,9 +23,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester.http" beforeDir="false" afterPath="$PROJECT_DIR$/tester.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.19.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="10.17.48" />
+    <property name="javascript.nodejs.core.library.typings.version" value="10.17.49" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -70,14 +70,7 @@
           <option name="urlBase" value="http://localhost:3000/users" />
           <option name="urlPath" value="" />
           <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{&#10;&quot;vorName&quot;: &quot;tt&quot;,&#10;&quot;nachName&quot;: &quot;bb&quot;,&#10;&quot;email&quot;: &quot;www@email.cd&quot;&#10;&quot;passWort&quot;:&quot;fegege&quot;&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:3000/users/a@b.cd" />
-          <option name="urlPath" value="" />
-          <option name="textToSend" value="" />
+          <option name="textToSend" value="{&#10; vorName:&quot;Kevin&quot;,&#10; nachName:&quot;Schroeder&quot;,&#10; email:&quot;kev90qgmx.de&quot;,&#10; passWort:&quot;zocken&quot;&#10; }" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -98,6 +91,21 @@
           </option>
           <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10; vorName:&quot;Kevin&quot;,&#10; nachName:&quot;Schroeder&quot;,&#10; email:&quot;kev90qgmx.de&quot;,&#10; passWort:&quot;zocken&quot;&#10; }" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000/users" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;vorName&quot;: &quot;tt&quot;,&#10;&quot;nachName&quot;: &quot;bb&quot;,&#10;&quot;email&quot;: &quot;www@email.cd&quot;&#10;&quot;passWort&quot;:&quot;fegege&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000/users/a@b.cd" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -341,10 +349,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.tester#7">
-    <configuration name="tester#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="2" runType="Run single request">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="HTTP Request.tester#4">
     <configuration name="tester#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="4" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -357,13 +362,16 @@
     <configuration name="tester#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="7" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="Server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Server.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.tester#7" />
-        <item itemvalue="HTTP Request.tester#6" />
-        <item itemvalue="HTTP Request.tester#5" />
         <item itemvalue="HTTP Request.tester#4" />
-        <item itemvalue="HTTP Request.tester#2" />
+        <item itemvalue="HTTP Request.tester#6" />
+        <item itemvalue="Node.js.Server.js" />
+        <item itemvalue="HTTP Request.tester#7" />
+        <item itemvalue="HTTP Request.tester#5" />
       </list>
     </recent_temporary>
   </component>
@@ -386,6 +394,7 @@
       <workItem from="1608035147731" duration="3780000" />
       <workItem from="1608112132253" duration="6363000" />
       <workItem from="1608195290113" duration="12855000" />
+      <workItem from="1608227898973" duration="2030000" />
     </task>
     <task id="LOCAL-00001" summary="Nothing Yet">
       <created>1607691966664</created>
@@ -436,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608221704149</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="delete Methode(User)">
+      <created>1608222453830</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608222453830</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,22 +501,22 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="470" y="78" width="415" height="577" key="Github.UntrackedFilesDialog/0.0.1366.741@0.0.1366.741" timestamp="1607691917914" />
-    <state width="1326" height="178" key="GridCell.Tab.0.bottom" timestamp="1608222219144">
+    <state width="1326" height="178" key="GridCell.Tab.0.bottom" timestamp="1608228672691">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1608222219144" />
-    <state width="1326" height="178" key="GridCell.Tab.0.center" timestamp="1608222219143">
+    <state width="1326" height="178" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1608228672691" />
+    <state width="1326" height="178" key="GridCell.Tab.0.center" timestamp="1608228672691">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1608222219143" />
-    <state width="1326" height="178" key="GridCell.Tab.0.left" timestamp="1608222219143">
+    <state width="1326" height="178" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1608228672691" />
+    <state width="1326" height="178" key="GridCell.Tab.0.left" timestamp="1608228672690">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1608222219143" />
-    <state width="1326" height="178" key="GridCell.Tab.0.right" timestamp="1608222219144">
+    <state width="1326" height="178" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1608228672690" />
+    <state width="1326" height="178" key="GridCell.Tab.0.right" timestamp="1608228672691">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1608222219144" />
+    <state width="1326" height="178" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1608228672691" />
     <state width="1346" height="222" key="GridCell.Tab.1.bottom" timestamp="1607853242635">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
@@ -557,10 +573,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1608219353152" />
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1608221870885">
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1608222458705">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1608221870885" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1608222458705" />
     <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608117061518">
       <screen x="0" y="0" width="1366" height="741" />
     </state>

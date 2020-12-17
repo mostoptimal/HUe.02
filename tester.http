@@ -6,24 +6,29 @@ content-type: application/json
 ###
 GET localhost:3000/users
 ###
-GET localhost:3000/public/index.html
+GET localhost:3000/
 ###
-POST localhost:3000/users/a@b.veee
+POST /users HTTP/2
+Host: localhost:3000
+Content-type : application/json
 
 {
-"vorName":"jojo",
-"nachName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
+ vorName:"Kevin",
+ nachName:"Schroeder",
+ email:"kev90qgmx.de",
+ passWort:"zocken"
+ }
 ###
 GET localhost:3000/users/a@b.cd
 
 ###
-PUT localhost:3000/users/a@b.cd
+POST localhost:3000/users
 
 {
 "vorName": "tt",
 "nachName": "bb",
 "email": "www@email.cd"
+"passWort":"fegege"
 }
+###
+DELETE localhost:3000/users/a@b.cd

@@ -21,31 +21,6 @@ function submitttng(){
     newUser = document.getElementById("formNewUser").textContent;
 }
 */
-const Users=[
-    {
-        vorName:"Alice",
-        nacName:"kirrold",
-        email:"a@b.cd",
-        passWort:"1222"
-    },
-    {
-        vorName:"Tim",
-        nacName:"Chriss",
-        email:"d@v.nl",
-        passWort:"333222"
-    },
-    {
-        vorName:"Kevin",
-        nacName:"Schroeder",
-        email:"kev90qgmx.de",
-        passWort:"zocken"
-    }
-];
-
-module.exports = Users;
-
-
-
 
 function readContent() {
     var xmlhttp = new XMLHttpRequest();

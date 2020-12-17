@@ -1,381 +1,3 @@
-POST http://localhost:3000/users
-Host: localhost:3000
-Content-type : application/json
-
-{ vorName:"Kevin",
- nachName:"Schroeder",
- email:"kev90qgmx.de",
- passWort:"zocken"
- }
-
-<> 2020-12-17T125214.400.json
-
-###
-
-POST http://localhost:3000/users
-Host: localhost:3000
-Content-type : application/json
-
-{vorName:"Kevin",nachName:"Schroeder",email:"kev90qgmx.de",passWort:"zocken"}
-
-<> 2020-12-17T125129.400.json
-
-###
-
-POST http://localhost:3000/users
-Host: localhost:3000
-Content-type : application/json
-
-{
-"vorName":"jojo",
-"nachName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-17T125028.400.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName": "tt",
-"nachName": "bb",
-"email": "www@email.cd"
-"passWort":"fegege"
-}
-
-<> 2020-12-17T124924.400.json
-
-###
-
-POST http://localhost:3000/users
-Host: localhost:3000
-Content-type : application/json
-
-{
-"vorName":"jojo",
-"nacName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-17T124414.400.json
-
-###
-
-POST http://localhost:3000/users
-Host: localhost:3000
-Content-type : application/json
-
-{
-"vorName":"jojo",
-"nacName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-17T124244.200.json
-
-###
-
-POST http://localhost:3000/users
-Host: localhost:3000
-Content-type : application/json
-
-{
-"vorName":"jojo",
-"nacName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-17T124053.400.json
-
-###
-
-POST http://localhost:3000/users
-Host: localhost:3000
-Content-type : application/json
-
-{
-"vorName":"jojo",
-"nacName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-17T123759.400.json
-
-###
-
-GET http://localhost:3000
-
-<> 2020-12-17T123737.404.html
-
-###
-
-GET http://localhost:3000
-
-<> 2020-12-17T123700.404.html
-
-###
-
-GET http://localhost:3000
-
-<> 2020-12-17T123636.404.html
-
-###
-
-GET http://localhost:3000
-
-<> 2020-12-17T123628.404.html
-
-###
-
-GET http://localhost:3000/public/index.html
-
-<> 2020-12-17T123618.404.html
-
-###
-
-GET http://localhost:3000/users
-
-<> 2020-12-17T123607.200.json
-
-###
-
-POST http://localhost:3000/users
-Host: localhost:3000
-Content-type : application/json
-
-{
-"vorName":"jojo",
-"nacName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-###
-
-POST http://localhost:3000/users
-Host: localhost:3000
-Content-type : application/json
-
-{
-"vorName":"jojo",
-"nacName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-17T121640.200.json
-
-###
-
-POST http://localhost:3000/user
-host: localhost:3000
-content-type: application/json
-
-<> 2020-12-17T121622.404.html
-
-###
-
-POST http://localhost:3000/users
-Host: localhost:3000
-Content-type : application/json
-
-{
-"vorName":"jojo",
-"nacName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-17T121605.200.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName":"jojo",
-"nacName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-17T121232.200.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName":"jojo",
-"nacName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-17T111548.200.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName":"jojo",
-"nacName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-17T111348.200.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-vorName:"jojo",
-nacName:"gg",
-email:"a@b.veee",
-passWort:"dg"
-}
-
-<> 2020-12-17T111231.200.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-vorName:"jojo",
-nacName:"gg",
-email:"a@b.veee",
-passWort:"dg"
-}
-
-<> 2020-12-17T110729.400.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-vorName:"jojo",
-nacName:"gg",
-email:"a@b.veee",
-passWort:"dg"
-}
-
-<> 2020-12-17T104235.400.json
-
-###
-
-POST http://localhost:3000/users
-{:
-vorName: "jojo",
-nacName: "gg",
-email: "a@b.veee",
-passWort: "dg"
-}:
-
-###
-
-POST http://localhost:3000/users
-
-{
-vorName:"jojo",
-nacName:"gg",
-email:"a@b.veee",
-passWort:"dg"
-}
-
-<> 2020-12-17T104210.400.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-vorName:"jojo",
-nachName:"gg",
-email:"a@b.veee",
-passWort:"dg"
-}
-
-<> 2020-12-17T104057.400.json
-
-###
-
-POST http://localhost:3000/users/a@b.veee
-
-{
-vorName:"jojo",
-nachName:"gg",
-email:"a@b.veee",
-passWort:"dg"
-}
-
-<> 2020-12-17T104000.400.json
-
-###
-
-POST http://localhost:3000/users/a@b.veee
-
-{
-vorName:"jojo",
-nachName:"gg",
-email:"a@b.veee",
-passWort:"dg"
-}
-
-<> 2020-12-17T102840.200.json
-
-###
-
-POST http://localhost:3000/users/a@b.veee
-
-{
-vorName:"jojo",
-nachName:"gg",
-email:"a@b.veee",
-passWort:"dg"
-}
-
-<> 2020-12-17T100909.500.html
-
-###
-
-POST http://localhost:3000/users/a@b.veee
-
-{
-vorName:"jojo",
-nachName:"gg",
-email:"a@b.veee",
-passWort:"dg"
-}
-
-<> 2020-12-17T100546.500.html
-
-###
-
-POST http://localhost:3000/users/a@b.veee
-
-{
-"vorName":"jojo",
-"nachName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-17T100454.500.html
-
-###
-
 POST http://localhost:3000/users/a@b.veee
 
 {
@@ -543,6 +165,225 @@ POST http://localhost:3000/users
 GET http://localhost:3000/users
 
 <> 2020-12-15T015503.200.json
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-15T015423.404.html
+
+###
+
+PUT http://localhost:3000/users/a@b.cd
+
+{
+"vorName": "tt",
+"nachName": "bb",
+"email": "www@email.cd"
+}
+
+<> 2020-12-15T015324.404.html
+
+###
+
+PUT http://localhost:3000/users/a@b.cd
+
+{
+"vorName": "tt",
+"nachName": "bb",
+"email": "www@email.cd"
+}
+
+###
+
+PUT http://localhost:3000/users/a@b.cd
+
+{
+"vorName": "tt",
+"nachName": "bb",
+"email": "www@email.cd"
+}
+
+###
+
+POST http://localhost:3000/users
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.veee",
+"passWort":"dg"
+}
+
+<> 2020-12-15T014954.200.json
+
+###
+
+POST http://localhost:3000/users
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.v",
+"passWort":"dg"
+}
+
+<> 2020-12-15T014946.200.json
+
+###
+
+GET http://localhost:3000/users
+
+###
+
+POST http://localhost:3000/users
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.v",
+"passWort":"dg"
+}
+
+<> 2020-12-13T104151.200.json
+
+###
+
+POST http://localhost:3000/users
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.v",
+"passWort":"dg"
+}
+
+###
+
+POST http://localhost:3000/users
+
+{
+"vorName":"jojo",
+"nachName":"gg",
+"email":"a@b.v",
+"passWort":"dg"
+}
+
+<> 2020-12-13T103719.200.json
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-11T014500.200.json
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-11T105442.200.json
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-11T104136.200.json
+
+###
+
+POST http://localhost:3000/user
+host: localhost:3000
+content-type: application/json
+
+<> 2020-12-11T104039.404.html
+
+###
+
+POST http://localhost:3000
+host: localhost:3000
+Content-Type: application/json
+
+{
+"vorname": "m",
+  "nachname": "a",
+  "email": "a@b.com" ,
+  "password": "111"
+}
+
+###
+
+POST https://localhost:3000
+Content-Type: application/json
+
+###
+
+POST https://localhost:3000
+Content-Type: application/json
+
+{
+"vorname": "Ali",
+"Nachname": "Schredd",
+  "email": "a@b.com"
+"password": "123"
+}
+
+###
+
+POST https://localhost:3000
+Content-Type: application/json
+
+{
+"vorname": "Ali",
+"Nachname": "Schredd",
+  "email": "a@b.com"
+
+}
+
+###
+
+POST http://localhost:3000/user
+host: localhost:3000
+content-type: application/json
+
+###
+
+POST http://localhost:3000/user
+host: localhost:3000
+content-type: application/json
+
+<> 2020-12-10T112317.404.html
+
+###
+
+POST http://localhost:8080/user
+host: localhost:8080
+content-type: application/json
+
+<> 2020-12-10T111858.400.txt
+
+###
+
+POST http://localhost:8080/user
+host: localhost:8080
+content-type: application/json
+
+<> 2020-12-10T111824.400.txt
+
+###
+
+POST http://localhost:8080/user
+host: localhost:8080
+content-type: application/json
+
+<> 2020-12-10T111443.400.txt
+
+###
+
+POST http://localhost:8080/user
+host: localhost:8080
+content-type: application/json
+
+<> 2020-12-10T012029.400.txt
 
 ###
 

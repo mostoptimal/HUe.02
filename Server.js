@@ -43,7 +43,7 @@ app.post('/users/:email', function (req, res) {
     res.json(users);
     //members.push(newUser);
 });
-//user update
+//user update firstname and lastname
 app.put("/users/:email", function (req, res) {
     var found = users.some(function (user) { return user.email === req.params.email; });
     if (found) {
@@ -60,9 +60,14 @@ app.put("/users/:email", function (req, res) {
         res.status(400).json({ msg: "member is not found" });
     }
 });
-//delete User
+//delete User by finding Email
 app.delete("/users/:email", function (req, res) {
     var found = users.some(function (user) { return user.email === req.params.email; });
+    var index = users.filter(function (user) { return user.email === req.params.email; });
     if (found) {
+        users.remove(users[index]);
+    }
+    else {
+        res.JSON({ msg: "This Email is for user not found" });
     }
 });

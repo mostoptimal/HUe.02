@@ -51,7 +51,7 @@ function bringTable(xml) {
     document.getElementById("usersTable").innerHTML = table;
 }
 
-/*
+
 class User{
     vorName:String;
     nachName: String;
@@ -64,5 +64,6 @@ class User{
         this.password=pass;
     }
 }
-*/
+
+const usersArray= new Array<User>();
 

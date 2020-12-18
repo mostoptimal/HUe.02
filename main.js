@@ -47,17 +47,13 @@ function bringTable(xml) {
     }
     document.getElementById("usersTable").innerHTML = table;
 }
-/*
-class User{
-    vorName:String;
-    nachName: String;
-    email:String;
-    password:String;
-    constructor (vorname:String,lname:String,email:String,pass:String) {
-        this.vorName=vorname;
-        this.nachName=lname;
-        this.email=email;
-        this.password=pass;
+var User = /** @class */ (function () {
+    function User(vorname, lname, email, pass) {
+        this.vorName = vorname;
+        this.nachName = lname;
+        this.email = email;
+        this.password = pass;
     }
-}
-*/
+    return User;
+}());
+var usersArray = new Array();

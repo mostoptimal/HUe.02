@@ -52,7 +52,7 @@ app.post('/users/:email',(req,res)=>{
 
 
 
-//user update
+//user update firstname and lastname
 app.put("/users/:email",(req,res)=>{
     const found = users.some(user => user.email === req.params.email);
     if(found){
@@ -71,10 +71,13 @@ app.put("/users/:email",(req,res)=>{
 
 });
 
-//delete User
+//delete User by finding Email
 app.delete("/users/:email",(req,res)=>{
     const found = users.some(user => user.email === req.params.email);
+    const index = users.filter(user => user.email === req.params.email);
     if (found){
-
+        users.remove(users[index]);
+    }else{
+        res.JSON({msg: "This Email is for user not found"});
     }
 });

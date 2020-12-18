@@ -79,7 +79,7 @@
             alert("Missing Values please input all Details");
         } else {
             users.push([fName, lName, email, password]);
-            usersJson.parse(users);
+            JSON.parse(users);
             document.getElementById("vorName").value = "";
             document.getElementById("nachName").value = "";
             document.getElementById("email").value = "";
@@ -90,8 +90,15 @@
 
     /**/
     function readContent() {
-        const i=0;
-        document.getElementById("usersTable").innerHTML = "<tr><th>Vorname</th><th>Nachname</th><th>Email</th></tr>";
+        var table="<tr><th>Vorname</th><th>Nachname</th><th>Email</th></tr>";
+        for (var i=0; i < users.length; i++){
+            table += "<tr><td>"+
+                users[i][0]+"</td><td>"+
+                users[i][1]+"</td><td>"+
+                users[i][2]+"</td></tr>"
+        }
+
+        document.getElementById("usersTable").innerHTML = table;
     }
 </script>
 </body>

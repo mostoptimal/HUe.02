@@ -44,16 +44,15 @@
                 <input type="password" class="form-control " id="passWort" placeholder="Password" required>
             </div>
         </form>
-        <button type="submit" class="btn btn-secondary two" id="submitBtn" value="Send"
-                form="formNewUser">send
-        </button>
+        <button type="submit" class="btn btn-secondary two"  id="submitBtn" value="Send"
+                form="formNewUser">send</button>
     </div>
 </div>
 <!---Form End--->
 
 <div class="container" align="center">
     <div class="jumbotron" style="padding: 2%">
-        <button type="button" onclick="readContent()">Read</button>
+        <button id="readButton" class="btn" style="background-color: skyblue" onclick="readContent()">Read</button>
     </div>
 </div>
 
@@ -68,6 +67,8 @@
 <!--Table End-->
 
 <script>
+    import * as usersJson from "path";
+/// path funktioniert gut
     var users = [];//public Array
     var fName, lName, email, password;//public String Variables
     function loadDoc() {
@@ -75,11 +76,12 @@
         lName = document.getElementById("nachName").value;
         email = document.getElementById("email").value;
         password = document.getElementById("passWort").value;
+
         if (fName === "" || lName === "" || email === "" || password === "") {
             alert("Missing Values please input all Details");
         } else {
             users.push([fName, lName, email, password]);
-            JSON.parse(users);
+            usersJson.parse(users);
             document.getElementById("vorName").value = "";
             document.getElementById("nachName").value = "";
             document.getElementById("email").value = "";
@@ -90,14 +92,13 @@
 
     /**/
     function readContent() {
-        var table="<tr><th>Vorname</th><th>Nachname</th><th>Email</th></tr>";
-        for (var i=0; i < users.length; i++){
-            table += "<tr><td>"+
-                users[i][0]+"</td><td>"+
-                users[i][1]+"</td><td>"+
-                users[i][2]+"</td></tr>"
+        var i;
+        var table = "<thead><tr><th scope='col-4'>Vorname</th><th scope='col-4'>Nachname</th><th scope='col-4'>email</th></tr></thead><tbody>";
+        for (i = 0; i < users.length; i++) {
+            table += "<tr><tr><td>" + users[i][0] + "</td><td >" + users[i][1] + "</td ></tr>" + "</td><td >" + users[i][2] + "</td></tr>";
         }
-
+        table += "</tbody>";
+        console.log(table);
         document.getElementById("usersTable").innerHTML = table;
     }
 </script>

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 */
 
 function loadDoc() {
-    var fName,lName,email,password;
+    let fName,lName,email,password;
     fName=document.getElementById("vorName").textContent;
     lName=document.getElementById("nachName").textContent;
     email=document.getElementById("email").textContent;
@@ -23,7 +23,7 @@ function submitttng(){
 */
 
 function readContent() {
-    var xmlhttp = new XMLHttpRequest();
+    let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             bringTable(this);
@@ -35,10 +35,10 @@ function readContent() {
     alert("your Data has been submitted!");
 }
 function bringTable(xml) {
-    var i;
-    var xmlDoc = xml.responseXML;
-    var table="<tr><th>Vorname</th><th>Nachname</th><th>email</th></tr>";
-    var x = xmlDoc.getElementsByTagName("User");
+    let i;
+    let xmlDoc = xml.responseXML;
+    let table="<tr><th>Vorname</th><th>Nachname</th><th>email</th></tr>";
+    let x = xmlDoc.getElementsByTagName("User");
     for (i = 0; i <x.length; i++) {
         console.log(x[i].getElementsByTagName("Vorname")[0].childNodes[0].nodeValue);
         console.log(x[i].getElementsByTagName("Nachname")[0].childNodes[0].nodeValue);

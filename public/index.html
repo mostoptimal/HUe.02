@@ -44,19 +44,17 @@
                 <input type="password" class="form-control " id="passWort" placeholder="Password" required>
             </div>
         </form>
-        <button type="submit" class="btn btn-secondary two"  id="submitBtn" value="Send"
-        >create</button>
-        <button class="btn btn-secondary two"  id="updateBtn" value="update">update</button>
-
+        <button type="submit" class="btn btn-secondary two"  id="submitBtn" value="Send" onclick="readContent()">create</button>
+        <button onclick="updateUser()" class="btn btn-secondary two"  id="updateBtn" value="update">update</button>
         <button  class="btn btn-secondary two"  id="deleteBtn" value="delete">delete</button>
 
     </div>
 </div>
-<!---Form End--->
 
+<!---Form End--->
 <div class="container" align="center">
     <div class="jumbotron" style="padding: 2%">
-        <button id="readButton" style="background-color: skyblue" onclick="readContent()" >Show Users Infos</button>
+        <button id="readButton" style="background-color: skyblue"  >Show Users Infos</button>
     </div>
 </div>
 
@@ -72,7 +70,7 @@
 <!--Table End-->
 <!--script-->
 <script>
-    import * as usersJson from "path";
+
 /// path funktioniert gut
     var users = [];//public Array
     var fName, lName, email, password;//public String Variables
@@ -86,7 +84,7 @@
             alert("Missing Values please input all Details");
         } else {
             users.push([fName, lName, email, password]);
-            usersJson.parse(users);
+            JSON.parse(users);
             document.getElementById("vorName").value = "";
             document.getElementById("nachName").value = "";
             document.getElementById("email").value = "";
@@ -95,14 +93,35 @@
         }
     }
 
-    /**/
+    /*braucht bearbeiten*/
     function readContent() {
+        document.getElementById('formNewUser').value = '';
         var i;
-        var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th >Last</th><th>Email</th></tr></thead></table>";
-
-
+        var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
+        for (var i=0; i<users.length;i++){
+            table +="<tr><td>"+users[i][0]+"</td><td>"+users[i][1]+"</td><td>"+users[i][2]+"</td></tr>";
+        }
+        table += "</table>";
         console.log(table);
         document.getElementById("usersTable").innerHTML = table;
+
+    }
+
+    /*Update Firstname and Lastname if the user exists*/
+    function updateUser(){
+        var fname,lname,email;
+        fname=document.getElementById("vorName").value;
+        lname=document.getElementById("nachName").value;
+        email=document.getElementById("email").value;
+        for(var i in usersArray){
+            if(email===usersArray[i].email){
+                usersArray[i].vorName=fname;
+                usersArray[i].nachName=lname;
+                alert("user " + usersArray[i].vorName + "has been updated");
+            }else {
+                alert("the User is not Exist");
+            }
+        }
     }
 </script>
 </body>

@@ -67,3 +67,6 @@ class User{
 
 const usersArray= new Array<User>();
 
+export {usersArray};
+export {User};
+

@@ -1,9 +1,12 @@
 import * as express from "express";
-
+import {usersArray} from "./main"; //import users Array (Array of (user)Objects)
+import {User} from "./main"; //import User class
 const app = express();
-const users= require("./main");
-const PORT=3000;
+const users = require("./main");
+const PORT = 3000;
 const members = require("./public/users.json");
+//const usrArry = require("usersArray");
+
 
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
@@ -20,64 +23,66 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
     res.sendFile(__dirname + "/views/index.html");
 });
 
-app.get("/users",(req,res)=>{
+app.get("/users", (req, res) => {
     res.json(users);
     members.json(res.json(users));
 });
 
-app.get("/users/:email",(req,res)=>{
- const found = users.some(user => user.email === req.params.email);
- if(found){
-     res.json(users.filter(user => user.email === req.params.email));
- }else{
-     res.status(400).json({msg: "member is not found"});
- }
+app.get("/users/:email", (req, res) => {
+    const found = users.some(user => user.email === req.params.email);
+    if (found) {
+        res.json(users.filter(user => user.email === req.params.email));
+    } else {
+        res.status(400).json({msg: "member is not found"});
+    }
 
 });
 
 //New User !funktioniert nicht
-app.post('/users/:email',(req,res)=>{
-    const newUser={
+app.post('/users/:email', (req, res) => {
+    const newUser = {
         vorName: req.body.vorName,
         nachName: req.body.nachName,
         email: req.body.email,
         passWort: req.body.passWort,
-        status:'active'
+        status: 'active'
     }
+
     req.json(newUser);
+    usersArray.push(new User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
+    res.json(usersArray);
     //users.push(newUser);
     res.json(users);
     //members.push(newUser);
 });
 
 
-
 //user update firstname and lastname
-app.put("/users/:email",(req,res)=>{
+app.put("/users/:email", (req, res) => {
     const found = users.some(user => user.email === req.params.email);
-    if(found){
+    if (found) {
         const updUser = req.body;
         users.forEach(user => {
-            if(user.email === req.body.email){
-                user.vorName= req.body.vorName;
-                user.nacName= req.body.nachName;
+            if (user.email === req.body.email) {
+                user.vorName = req.body.vorName;
+                user.nacName = req.body.nachName;
 
                 res.json({msg: 'member is updated'});
             }
         });
-    }else{
+    } else {
         res.status(400).json({msg: "member is not found"});
     }
 
 });
 
 //delete User by finding Email
-app.delete("/users/:email",(req,res)=>{
+app.delete("/users/:email", (req, res) => {
     const found = users.some(user => user.email === req.params.email);
     const index = users.filter(user => user.email === req.params.email);
-    if (found){
+    if (found) {
         users.remove(users[index]);
-    }else{
+    } else {
         res.JSON({msg: "This Email is for user not found"});
     }
 });

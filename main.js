@@ -1,9 +1,12 @@
+"use strict";
 /*
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log("Document fully Loaded...");
     loadDoc();
 });
 */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.User = exports.usersArray = void 0;
 function loadDoc() {
     var fName, lName, email, password;
     fName = document.getElementById("vorName").textContent;
@@ -56,4 +59,6 @@ var User = /** @class */ (function () {
     }
     return User;
 }());
+exports.User = User;
 var usersArray = new Array();
+exports.usersArray = usersArray;

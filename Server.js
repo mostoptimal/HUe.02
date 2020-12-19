@@ -1,10 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
+var main_1 = require("./main"); //import users Array (Array of (user)Objects)
+var main_2 = require("./main"); //import User class
 var app = express();
 var users = require("./main");
 var PORT = 3000;
 var members = require("./public/users.json");
+//const usrArry = require("usersArray");
 app.listen(PORT, function () {
     console.log("Server auf http://localhost:3000 gestartet");
 });
@@ -39,6 +42,8 @@ app.post('/users/:email', function (req, res) {
         status: 'active'
     };
     req.json(newUser);
+    main_1.usersArray.push(new main_2.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
+    res.json(main_1.usersArray);
     //users.push(newUser);
     res.json(users);
     //members.push(newUser);

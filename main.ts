@@ -1,9 +1,9 @@
-
+/*
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log("Document fully Loaded...");
     loadDoc();
 });
-
+*/
 
 function submitttng(){
     var newUser;
@@ -47,7 +47,7 @@ function loadDoc() {
 
 /*braucht bearbeiten*/
 function readContent() {
-    document.getElementById('formNewUser').value = '';
+    (<HTMLInputElement>document.getElementById("formNewUser")).value = '';
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (var i=0; i<users.length;i++){
         table +="<tr><td>"+users[i][0]+"</td><td>"+users[i][1]+"</td><td>"+users[i][2]+"</td></tr>";
@@ -61,23 +61,27 @@ function readContent() {
 /*Update Firstname and Lastname if the user exists*/
 function updateUser(){
     var fname,lname,email;
-    fname=document.getElementById("vorName").value;
-    lname=document.getElementById("nachName").value;
-    email=document.getElementById("email").value;
+    fname=(<HTMLInputElement>document.getElementById("vorName")).value;
+    lname=(<HTMLInputElement>document.getElementById("nachName")).value;
+    email=(<HTMLInputElement>document.getElementById("email")).value;
     if(!fname ||!lname ||!email){
-        alert("please input the Firstname Lstname and the email");
+        alert("please input the Firstname Lastname and the email");
     }else{
+        var found;
         for(var i=0; i< users.length; i++){
             if(email===users[i].email){
                 users[i].vorName=fname;
                 users[i].nachName=lname;
                 alert("user " + users[i].vorName + "has been updated");
-                document.getElementById("vorName").value="";
-                document.getElementById("nachName").value="";
-                document.getElementById("email").value="";
-            }else {
-                alert("the User is not Exist");
+                (<HTMLInputElement>document.getElementById("vorName")).value="";
+                (<HTMLInputElement>document.getElementById("nachName")).value="";
+                (<HTMLInputElement>document.getElementById("email")).value="";
+                found=true;
+            }else{
+                found=false;
             }
         }
+    }if (!found){
+        alert("user doesn't exist");
     }
 }

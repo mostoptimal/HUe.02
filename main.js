@@ -1,7 +1,9 @@
-document.addEventListener('DOMContentLoaded', function (event) {
+/*
+document.addEventListener('DOMContentLoaded', (event) => {
     console.log("Document fully Loaded...");
     loadDoc();
 });
+*/
 function submitttng() {
     var newUser;
     newUser = document.getElementById("formNewUser").textContent;
@@ -37,7 +39,7 @@ function loadDoc() {
 }
 /*braucht bearbeiten*/
 function readContent() {
-    document.getElementById('formNewUser').value = '';
+    document.getElementById("formNewUser").value = '';
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (var i = 0; i < users.length; i++) {
         table += "<tr><td>" + users[i][0] + "</td><td>" + users[i][1] + "</td><td>" + users[i][2] + "</td></tr>";
@@ -53,9 +55,10 @@ function updateUser() {
     lname = document.getElementById("nachName").value;
     email = document.getElementById("email").value;
     if (!fname || !lname || !email) {
-        alert("please input the Firstname Lstname and the email");
+        alert("please input the Firstname Lastname and the email");
     }
     else {
+        var found;
         for (var i = 0; i < users.length; i++) {
             if (email === users[i].email) {
                 users[i].vorName = fname;
@@ -64,10 +67,14 @@ function updateUser() {
                 document.getElementById("vorName").value = "";
                 document.getElementById("nachName").value = "";
                 document.getElementById("email").value = "";
+                found = true;
             }
             else {
-                alert("the User is not Exist");
+                found = false;
             }
         }
+    }
+    if (!found) {
+        alert("user doesn't exist");
     }
 }

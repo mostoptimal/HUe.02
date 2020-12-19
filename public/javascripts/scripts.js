@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.users = exports.User = void 0;
+var Users_1 = require("./Users");
+var Users_2 = require("./Users");
 document.addEventListener("DOMContentLoaded", function (event) {
     alert("loaded");
 });
@@ -8,19 +9,6 @@ function submitttng() {
     var newUser;
     newUser = document.getElementById("formNewUser").textContent;
 }
-//User is an Object contains the Data FirstName ,Lastname, Email, Password
-var User = /** @class */ (function () {
-    function User(vorname, lname, email, pass) {
-        this.vorName = vorname;
-        this.nachName = lname;
-        this.email = email;
-        this.password = pass;
-    }
-    return User;
-}());
-exports.User = User;
-var users = new Array();
-exports.users = users;
 var fName, lName, email, password; //public String Variables
 function loadDoc() {
     fName = document.getElementById("vorName").value;
@@ -31,8 +19,8 @@ function loadDoc() {
         alert("Missing Values please input all Details");
     }
     else {
-        users.push(new User(fName, lName, email, password));
-        JSON.stringify(users);
+        Users_2.users.push(new Users_1.User(fName, lName, email, password));
+        JSON.stringify(Users_2.users);
         document.getElementById("vorName").value = "";
         document.getElementById("nachName").value = "";
         email = document.getElementById("email").value = "";
@@ -44,8 +32,8 @@ function loadDoc() {
 function readContent() {
     document.getElementById("formNewUser").value = '';
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
-    for (var i = 0; i < users.length; i++) {
-        table += "<tr><td>" + users[i][0] + "</td><td>" + users[i][1] + "</td><td>" + users[i][2] + "</td></tr>";
+    for (var i = 0; i < Users_2.users.length; i++) {
+        table += "<tr><td>" + Users_2.users[i][0] + "</td><td>" + Users_2.users[i][1] + "</td><td>" + Users_2.users[i][2] + "</td></tr>";
     }
     table += "</table>";
     console.log(table);
@@ -62,11 +50,11 @@ function updateUser() {
     }
     else {
         var found;
-        for (var i = 0; i < users.length; i++) {
-            if (email === users[i].email) {
-                users[i].vorName = fname;
-                users[i].nachName = lname;
-                alert("user " + users[i].vorName + "has been updated");
+        for (var i = 0; i < Users_2.users.length; i++) {
+            if (email === Users_2.users[i].email) {
+                Users_2.users[i].vorName = fname;
+                Users_2.users[i].nachName = lname;
+                alert("user " + Users_2.users[i].vorName + "has been updated");
                 document.getElementById("vorName").value = "";
                 document.getElementById("nachName").value = "";
                 document.getElementById("email").value = "";

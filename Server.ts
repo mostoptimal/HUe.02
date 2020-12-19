@@ -1,11 +1,10 @@
 import * as express from "express";
 //import {users} from "./main"; //import users Array (Array of (user)Objects)
-import {User} from "./main"; //import User class
+import {User} from "./public/javascripts/scripts"; //import User class
 const app = express();
 //const users = require("./main");
 const PORT = 3000;
 const users = require("./public/users.json");
-
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
 });

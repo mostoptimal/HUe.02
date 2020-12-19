@@ -1,3 +1,6 @@
+import {User} from "./Users";
+import {users} from "./Users";
+
 document.addEventListener("DOMContentLoaded", function(event){
     alert("loaded");
 });
@@ -7,23 +10,6 @@ function submitttng(){
     var newUser;
     newUser = document.getElementById("formNewUser").textContent;
 }
-//User is an Object contains the Data FirstName ,Lastname, Email, Password
-class User{
-    vorName:String;
-    nachName: String;
-    email:String;
-    password:String;
-    constructor (vorname:String,lname:String,email:String,pass:String) {
-        this.vorName=vorname;
-        this.nachName=lname;
-        this.email=email;
-        this.password=pass;
-    }
-}
-
-const users= new Array<User>();
-export {User};
-export {users};
 
 var fName, lName, email, password;//public String Variables
 function loadDoc() {

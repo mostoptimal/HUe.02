@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 //import {users} from "./main"; //import users Array (Array of (user)Objects)
-var main_1 = require("./main"); //import User class
+var scripts_1 = require("./public/javascripts/scripts"); //import User class
 var app = express();
 //const users = require("./main");
 var PORT = 3000;
@@ -43,7 +43,7 @@ app.post('/users/', function (req, res) {
     };
     console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
     res.send("post Requested id ");
-    users.push(new main_1.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
+    users.push(new scripts_1.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
     //res.json(usersArray);
     users.push(newUser);
     res.json(users);

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
+var Users_1 = require("./public/javascripts/Users"); //import User class
 //import {users} from "./main"; //import users Array (Array of (user)Objects)
-var scripts_1 = require("./public/javascripts/scripts"); //import User class
 var app = express();
 //const users = require("./main");
 var PORT = 3000;
@@ -43,11 +43,9 @@ app.post('/users/', function (req, res) {
     };
     console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
     res.send("post Requested id ");
-    users.push(new scripts_1.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
-    //res.json(usersArray);
+    users.push(new Users_1.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
     users.push(newUser);
-    res.json(users);
-    //members.push(newUser);
+    res.send(users);
 });
 //user update firstname and lastname
 app.put("/users/:email", function (req, res) {

@@ -1,6 +1,6 @@
 import * as express from "express";
+import {User} from "./public/javascripts/Users"; //import User class
 //import {users} from "./main"; //import users Array (Array of (user)Objects)
-import {User} from "./public/javascripts/scripts"; //import User class
 const app = express();
 //const users = require("./main");
 const PORT = 3000;
@@ -46,10 +46,8 @@ app.post('/users/', (req: express.Request, res: express.Response) => {
     console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
     res.send("post Requested id ");
     users.push(new User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
-    //res.json(usersArray);
     users.push(newUser);
-    res.json(users);
-    //members.push(newUser);
+    res.send(users);
 });
 
 //user update firstname and lastname

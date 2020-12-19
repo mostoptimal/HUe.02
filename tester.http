@@ -8,7 +8,7 @@ GET localhost:3000/users
 ###
 GET localhost:3000/
 ###
-POST /users/d@v.nl
+POST /users/
 host:localhost:3000
 Content-Type: application/json
 Accept: application/json
@@ -32,4 +32,8 @@ POST localhost:3000/users
 "passWort":"fegege"
 }
 ###
-DELETE localhost:3000/users/a@b.cd
+DELETE localhost:3000/users/qs@eee.cefd
+
+{
+"email":"qs@eee.cefd"
+}

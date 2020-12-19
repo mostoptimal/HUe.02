@@ -1,6 +1,7 @@
 import * as express from "express";
 import {User} from "./public/javascripts/Users"; //import User class
-import {users} from "./public/javascripts/Users"; //import users Array (Array of (user)Objects)
+import {users} from "./public/javascripts/Users";
+import {json} from "express"; //import users Array (Array of (user)Objects)
 const app = express();
 //const users = require("./main");
 const PORT = 3000;
@@ -48,22 +49,26 @@ app.post('/users/', (req: express.Request, res: express.Response) => {
         email: req.body.email,
         passWort: req.body.passWort,
     }
-    console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
-    res.send("post Requested id ");
-    users.push(new User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
-    users.push(newUser);
-    res.send(users);
+    if(!newUser.vorName||!newUser.nachName||!newUser.email||!newUser.passWort) {
+        console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
+        res.send("post Requested id ");
+        users.push(new User(newUser.vorName, newUser.nachName, newUser.email, newUser.passWort));
+        console.log(JSON.stringify(users));
+    }else{
+        console.log("User Data can not be empty!!");
+        res.status(400);
+    }
 });
 
 //user update firstname and lastname
 app.put("/users/:email", (req, res) => {
-    const found = users.some(user => user.email === req.params.email);
+    const found = users.some(user => user.email === req.body.email);
     if (found) {
         const updUser = req.body;
         users.forEach(user => {
             if (user.email === req.body.email) {
                 user.vorName = req.body.vorName;
-                user.nacName = req.body.nachName;
+                user.nachName = req.body.nachName;
                 res.json({msg: 'member is updated'});
             }
         });
@@ -74,11 +79,16 @@ app.put("/users/:email", (req, res) => {
 
 //delete User by finding Email
 app.delete("/users/:email", (req, res) => {
-    const found = users.some(user => user.email === req.params.email);
-    const index = users.filter(user => user.email === req.params.email);
-    if (found) {
-        users.remove(users[index]);
-    } else {
-        res.JSON({msg: "This Email is for user not found"});
+    const found = users.some(user => user.email === req.body.email);
+    for(var i=0; i<users.length;i++){
+        if(users[i].email===req.body.email){
+            users.splice(i,1);
+            res.status(200);
+        }else{
+            console.log("user not found");
+            res.status(400);
+        }
     }
+    console.log(users);
+
 });

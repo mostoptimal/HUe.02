@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var Users_1 = require("./public/javascripts/Users"); //import User class
-var Users_2 = require("./public/javascripts/Users"); //import users Array (Array of (user)Objects)
+var Users_2 = require("./public/javascripts/Users");
 var app = express();
 //const users = require("./main");
 var PORT = 3000;
@@ -46,21 +46,26 @@ app.post('/users/', function (req, res) {
         email: req.body.email,
         passWort: req.body.passWort,
     };
-    console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
-    res.send("post Requested id ");
-    Users_2.users.push(new Users_1.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
-    Users_2.users.push(newUser);
-    res.send(Users_2.users);
+    if (!newUser.vorName || !newUser.nachName || !newUser.email || !newUser.passWort) {
+        console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
+        res.send("post Requested id ");
+        Users_2.users.push(new Users_1.User(newUser.vorName, newUser.nachName, newUser.email, newUser.passWort));
+        console.log(JSON.stringify(Users_2.users));
+    }
+    else {
+        console.log("User Data can not be empty!!");
+        res.status(400);
+    }
 });
 //user update firstname and lastname
 app.put("/users/:email", function (req, res) {
-    var found = Users_2.users.some(function (user) { return user.email === req.params.email; });
+    var found = Users_2.users.some(function (user) { return user.email === req.body.email; });
     if (found) {
         var updUser = req.body;
         Users_2.users.forEach(function (user) {
             if (user.email === req.body.email) {
                 user.vorName = req.body.vorName;
-                user.nacName = req.body.nachName;
+                user.nachName = req.body.nachName;
                 res.json({ msg: 'member is updated' });
             }
         });
@@ -71,12 +76,16 @@ app.put("/users/:email", function (req, res) {
 });
 //delete User by finding Email
 app.delete("/users/:email", function (req, res) {
-    var found = Users_2.users.some(function (user) { return user.email === req.params.email; });
-    var index = Users_2.users.filter(function (user) { return user.email === req.params.email; });
-    if (found) {
-        Users_2.users.remove(Users_2.users[index]);
+    var found = Users_2.users.some(function (user) { return user.email === req.body.email; });
+    for (var i = 0; i < Users_2.users.length; i++) {
+        if (Users_2.users[i].email === req.body.email) {
+            Users_2.users.splice(i, 1);
+            res.status(200);
+        }
+        else {
+            console.log("user not found");
+            res.status(400);
+        }
     }
-    else {
-        res.JSON({ msg: "This Email is for user not found" });
-    }
+    console.log(Users_2.users);
 });

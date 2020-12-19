@@ -8,13 +8,16 @@ GET localhost:3000/users
 ###
 GET localhost:3000/
 ###
-POST localhost:3000/users
+POST /users/d@v.nl
+host:localhost:3000
+Content-Type: application/json
+Accept: application/json
 
 {
- vorName:"Kevin",
- nachName:"Schroeder",
- email:"kev90qgmx.de",
- passWort:"zocken"
+ "vorName":"Kevin",
+ "nachName":"Schroeder",
+ "email":"kev90qgmx.de",
+ "passWort":"zocken"
  }
 ###
 GET localhost:3000/users/a@b.cd

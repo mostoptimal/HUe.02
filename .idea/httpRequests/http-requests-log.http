@@ -1,3 +1,62 @@
+POST http://localhost:3000/users/d@v.nl
+host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+ "vorName":"Kevin",
+ "nachName":"Schroeder",
+ "email":"kev90qgmx.de",
+ "passWort":"zocken"
+ }
+
+<> 2020-12-19T111422.500.html
+
+###
+
+POST http://localhost:3000/users
+host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+ "vorName":"Kevin",
+ "nachName":"Schroeder",
+ "email":"kev90qgmx.de",
+ "passWort":"zocken"
+ }
+
+<> 2020-12-19T111319.404.html
+
+###
+
+POST http://localhost:3000/users
+host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+ "vorName":"Kevin",
+ "nachName":"Schroeder",
+ "email":"kev90qgmx.de",
+ "passWort":"zocken"
+ }
+
+###
+
+POST http://localhost:3000/users
+
+{
+ vorName:"Kevin",
+ nachName:"Schroeder",
+ email:"kev90qgmx.de",
+ passWort:"zocken"
+ }
+
+<> 2020-12-19T111116.404.html
+
+###
+
 POST http://localhost:3000/users
 
 {
@@ -473,44 +532,6 @@ GET http://localhost:3000/users
 GET http://localhost:3000/users
 
 <> 2020-12-11T104136.200.json
-
-###
-
-POST http://localhost:3000/user
-host: localhost:3000
-content-type: application/json
-
-<> 2020-12-11T104039.404.html
-
-###
-
-POST http://localhost:3000
-host: localhost:3000
-Content-Type: application/json
-
-{
-"vorname": "m",
-  "nachname": "a",
-  "email": "a@b.com" ,
-  "password": "111"
-}
-
-###
-
-POST https://localhost:3000
-Content-Type: application/json
-
-###
-
-POST https://localhost:3000
-Content-Type: application/json
-
-{
-"vorname": "Ali",
-"Nachname": "Schredd",
-  "email": "a@b.com"
-"password": "123"
-}
 
 ###
 

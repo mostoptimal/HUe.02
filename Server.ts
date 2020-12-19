@@ -1,12 +1,10 @@
 import * as express from "express";
-import {users} from "./main"; //import users Array (Array of (user)Objects)
+//import {users} from "./main"; //import users Array (Array of (user)Objects)
 import {User} from "./main"; //import User class
 const app = express();
 //const users = require("./main");
 const PORT = 3000;
 const users = require("./public/users.json");
-//const usrArry = require("usersArray");
-
 
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
@@ -39,22 +37,21 @@ app.get("/users/:email", (req, res) => {
 });
 
 //New User !funktioniert nicht
-app.post('/users/', (req :express.Request, res:express.Response) => {
+app.post('/users/', (req: express.Request, res: express.Response) => {
     const newUser = {
         vorName: req.body.vorName,
         nachName: req.body.nachName,
         email: req.body.email,
         passWort: req.body.passWort,
     }
-    console.log(req.body.vorName,req.body.nachName,req.body.email,req.body.passWort);
+    console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
     res.send("post Requested id ");
-    usersArray.push(new User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
+    users.push(new User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
     //res.json(usersArray);
     users.push(newUser);
     res.json(users);
     //members.push(newUser);
 });
-
 
 //user update firstname and lastname
 app.put("/users/:email", (req, res) => {
@@ -65,14 +62,12 @@ app.put("/users/:email", (req, res) => {
             if (user.email === req.body.email) {
                 user.vorName = req.body.vorName;
                 user.nacName = req.body.nachName;
-
                 res.json({msg: 'member is updated'});
             }
         });
     } else {
         res.status(400).json({msg: "member is not found"});
     }
-
 });
 
 //delete User by finding Email

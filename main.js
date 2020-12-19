@@ -1,13 +1,14 @@
-/*
-document.addEventListener('DOMContentLoaded', (event) => {
-    console.log("Document fully Loaded...");
-    loadDoc();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.users = exports.User = void 0;
+document.addEventListener("DOMContentLoaded", function (event) {
+    alert("loaded");
 });
-*/
 function submitttng() {
     var newUser;
     newUser = document.getElementById("formNewUser").textContent;
 }
+//User is an Object contains the Data FirstName ,Lastname, Email, Password
 var User = /** @class */ (function () {
     function User(vorname, lname, email, pass) {
         this.vorName = vorname;
@@ -17,7 +18,9 @@ var User = /** @class */ (function () {
     }
     return User;
 }());
+exports.User = User;
 var users = new Array();
+exports.users = users;
 var fName, lName, email, password; //public String Variables
 function loadDoc() {
     fName = document.getElementById("vorName").value;

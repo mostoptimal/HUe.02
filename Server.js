@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
+//import {users} from "./main"; //import users Array (Array of (user)Objects)
 var main_1 = require("./main"); //import User class
 var app = express();
 //const users = require("./main");
 var PORT = 3000;
 var users = require("./public/users.json");
-//const usrArry = require("usersArray");
 app.listen(PORT, function () {
     console.log("Server auf http://localhost:3000 gestartet");
 });
@@ -43,7 +43,7 @@ app.post('/users/', function (req, res) {
     };
     console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
     res.send("post Requested id ");
-    usersArray.push(new main_1.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
+    users.push(new main_1.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
     //res.json(usersArray);
     users.push(newUser);
     res.json(users);

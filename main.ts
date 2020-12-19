@@ -1,15 +1,13 @@
-/*
-document.addEventListener('DOMContentLoaded', (event) => {
-    console.log("Document fully Loaded...");
-    loadDoc();
+document.addEventListener("DOMContentLoaded", function(event){
+    alert("loaded");
 });
-*/
+
 
 function submitttng(){
     var newUser;
     newUser = document.getElementById("formNewUser").textContent;
 }
-
+//User is an Object contains the Data FirstName ,Lastname, Email, Password
 class User{
     vorName:String;
     nachName: String;
@@ -24,6 +22,8 @@ class User{
 }
 
 const users= new Array<User>();
+export {User};
+export {users};
 
 var fName, lName, email, password;//public String Variables
 function loadDoc() {

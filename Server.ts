@@ -1,10 +1,10 @@
 import * as express from "express";
 import {User} from "./public/javascripts/Users"; //import User class
-//import {users} from "./main"; //import users Array (Array of (user)Objects)
+import {users} from "./public/javascripts/Users"; //import users Array (Array of (user)Objects)
 const app = express();
 //const users = require("./main");
 const PORT = 3000;
-const users = require("./public/users.json");
+//const users = require("./public/users.json");
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
 });
@@ -22,7 +22,6 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
 //get all users
 app.get("/users", (req, res) => {
     res.json(users);
-    users.json(res.json(users));
 });
 //get one user per email
 app.get("/users/:email", (req, res) => {
@@ -35,6 +34,12 @@ app.get("/users/:email", (req, res) => {
 
 });
 
+const u1= new User("Momo","LL","q@@.cd","defw");
+const u2= new User("Moegemo","LdgegeL","qs@eee.cefd","def56gujhw");
+const u3= new User("OOOITTRJ7PPP","SMSM","q3rfw3s@hotm.de","876544rtg");
+users.push(u1);
+users.push(u2);
+users.push(u3);
 //New User !funktioniert nicht
 app.post('/users/', (req: express.Request, res: express.Response) => {
     const newUser = {

@@ -1,3 +1,9 @@
+GET http://localhost:3000/users
+
+<> 2020-12-19T052533.200.json
+
+###
+
 POST http://localhost:3000/users/d@v.nl
 host: localhost:3000
 Content-Type: application/json
@@ -526,12 +532,6 @@ GET http://localhost:3000/users
 GET http://localhost:3000/users
 
 <> 2020-12-11T105442.200.json
-
-###
-
-GET http://localhost:3000/users
-
-<> 2020-12-11T104136.200.json
 
 ###
 

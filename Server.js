@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var Users_1 = require("./public/javascripts/Users"); //import User class
-//import {users} from "./main"; //import users Array (Array of (user)Objects)
+var Users_2 = require("./public/javascripts/Users"); //import users Array (Array of (user)Objects)
 var app = express();
 //const users = require("./main");
 var PORT = 3000;
-var users = require("./public/users.json");
+//const users = require("./public/users.json");
 app.listen(PORT, function () {
     console.log("Server auf http://localhost:3000 gestartet");
 });
@@ -20,19 +20,24 @@ app.get("/public/index.html", function (req, res) {
 });
 //get all users
 app.get("/users", function (req, res) {
-    res.json(users);
-    users.json(res.json(users));
+    res.json(Users_2.users);
 });
 //get one user per email
 app.get("/users/:email", function (req, res) {
-    var found = users.some(function (user) { return user.email === req.params.email; });
+    var found = Users_2.users.some(function (user) { return user.email === req.params.email; });
     if (found) {
-        res.json(users.filter(function (user) { return user.email === req.params.email; }));
+        res.json(Users_2.users.filter(function (user) { return user.email === req.params.email; }));
     }
     else {
         res.status(400).json({ msg: "member is not found" });
     }
 });
+var u1 = new Users_1.User("Momo", "LL", "q@@.cd", "defw");
+var u2 = new Users_1.User("Moegemo", "LdgegeL", "qs@eee.cefd", "def56gujhw");
+var u3 = new Users_1.User("OOOITTRJ7PPP", "SMSM", "q3rfw3s@hotm.de", "876544rtg");
+Users_2.users.push(u1);
+Users_2.users.push(u2);
+Users_2.users.push(u3);
 //New User !funktioniert nicht
 app.post('/users/', function (req, res) {
     var newUser = {
@@ -43,16 +48,16 @@ app.post('/users/', function (req, res) {
     };
     console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
     res.send("post Requested id ");
-    users.push(new Users_1.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
-    users.push(newUser);
-    res.send(users);
+    Users_2.users.push(new Users_1.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
+    Users_2.users.push(newUser);
+    res.send(Users_2.users);
 });
 //user update firstname and lastname
 app.put("/users/:email", function (req, res) {
-    var found = users.some(function (user) { return user.email === req.params.email; });
+    var found = Users_2.users.some(function (user) { return user.email === req.params.email; });
     if (found) {
         var updUser = req.body;
-        users.forEach(function (user) {
+        Users_2.users.forEach(function (user) {
             if (user.email === req.body.email) {
                 user.vorName = req.body.vorName;
                 user.nacName = req.body.nachName;
@@ -66,10 +71,10 @@ app.put("/users/:email", function (req, res) {
 });
 //delete User by finding Email
 app.delete("/users/:email", function (req, res) {
-    var found = users.some(function (user) { return user.email === req.params.email; });
-    var index = users.filter(function (user) { return user.email === req.params.email; });
+    var found = Users_2.users.some(function (user) { return user.email === req.params.email; });
+    var index = Users_2.users.filter(function (user) { return user.email === req.params.email; });
     if (found) {
-        users.remove(users[index]);
+        Users_2.users.remove(Users_2.users[index]);
     }
     else {
         res.JSON({ msg: "This Email is for user not found" });

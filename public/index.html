@@ -44,7 +44,7 @@
                 <input type="password" class="form-control " id="passWort" placeholder="Password" required>
             </div>
         </form>
-        <button type="submit" class="btn btn-secondary two"  id="submitBtn" value="Send" onclick="readContent()">create</button>
+        <button class="btn btn-secondary "  id="submitBtn" value="Send" onclick="loadDoc()">Submit</button>
         <button onclick="updateUser()" class="btn btn-secondary two"  id="updateBtn" value="update">update</button>
         <button  class="btn btn-secondary two"  id="deleteBtn" value="delete">delete</button>
 
@@ -69,9 +69,7 @@
 <br><br><br><br><br>
 <!--Table End-->
 <!--script-->
-<script>
-
-/// path funktioniert gut
+<script language="javascript" type="text/javascript">
     var users = [];//public Array
     var fName, lName, email, password;//public String Variables
     function loadDoc() {

@@ -4,9 +4,9 @@ var express = require("express");
 var main_1 = require("./main"); //import users Array (Array of (user)Objects)
 var main_2 = require("./main"); //import User class
 var app = express();
-var users = require("./main");
+//const users = require("./main");
 var PORT = 3000;
-var members = require("./public/users.json");
+var users = require("./public/users.json");
 //const usrArry = require("usersArray");
 app.listen(PORT, function () {
     console.log("Server auf http://localhost:3000 gestartet");
@@ -19,10 +19,12 @@ app.get("/public/index.html", function (req, res) {
     res.status(200);
     res.sendFile(__dirname + "/views/index.html");
 });
+//get all users
 app.get("/users", function (req, res) {
     res.json(users);
-    members.json(res.json(users));
+    users.json(res.json(users));
 });
+//get one user per email
 app.get("/users/:email", function (req, res) {
     var found = users.some(function (user) { return user.email === req.params.email; });
     if (found) {
@@ -33,18 +35,18 @@ app.get("/users/:email", function (req, res) {
     }
 });
 //New User !funktioniert nicht
-app.post('/users/:email', function (req, res) {
+app.post('/users/', function (req, res) {
     var newUser = {
         vorName: req.body.vorName,
         nachName: req.body.nachName,
         email: req.body.email,
         passWort: req.body.passWort,
-        status: 'active'
     };
-    req.json(newUser);
+    console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
+    res.send("post Requested id ");
     main_1.usersArray.push(new main_2.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
-    res.json(main_1.usersArray);
-    //users.push(newUser);
+    //res.json(usersArray);
+    users.push(newUser);
     res.json(users);
     //members.push(newUser);
 });

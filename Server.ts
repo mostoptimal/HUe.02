@@ -2,9 +2,9 @@ import * as express from "express";
 import {usersArray} from "./main"; //import users Array (Array of (user)Objects)
 import {User} from "./main"; //import User class
 const app = express();
-const users = require("./main");
+//const users = require("./main");
 const PORT = 3000;
-const members = require("./public/users.json");
+const users = require("./public/users.json");
 //const usrArry = require("usersArray");
 
 
@@ -22,12 +22,12 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
     res.status(200);
     res.sendFile(__dirname + "/views/index.html");
 });
-
+//get all users
 app.get("/users", (req, res) => {
     res.json(users);
-    members.json(res.json(users));
+    users.json(res.json(users));
 });
-
+//get one user per email
 app.get("/users/:email", (req, res) => {
     const found = users.some(user => user.email === req.params.email);
     if (found) {
@@ -39,19 +39,18 @@ app.get("/users/:email", (req, res) => {
 });
 
 //New User !funktioniert nicht
-app.post('/users/:email', (req, res) => {
+app.post('/users/', (req :express.Request, res:express.Response) => {
     const newUser = {
         vorName: req.body.vorName,
         nachName: req.body.nachName,
         email: req.body.email,
         passWort: req.body.passWort,
-        status: 'active'
     }
-
-    req.json(newUser);
+    console.log(req.body.vorName,req.body.nachName,req.body.email,req.body.passWort);
+    res.send("post Requested id ");
     usersArray.push(new User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
-    res.json(usersArray);
-    //users.push(newUser);
+    //res.json(usersArray);
+    users.push(newUser);
     res.json(users);
     //members.push(newUser);
 });

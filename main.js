@@ -1,54 +1,10 @@
-"use strict";
-/*
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', function (event) {
     console.log("Document fully Loaded...");
     loadDoc();
 });
-*/
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = exports.usersArray = void 0;
-function loadDoc() {
-    var fName, lName, email, password;
-    fName = document.getElementById("vorName").textContent;
-    lName = document.getElementById("nachName").textContent;
-    email = document.getElementById("email").textContent;
-    password = document.getElementById("passWort").textContent;
-    alert("submitted");
-    //put(fName,lName,email,password);
-    //document.getElementById("formNewUser").submit();
-}
-/*
-function submitttng(){
+function submitttng() {
     var newUser;
     newUser = document.getElementById("formNewUser").textContent;
-}
-*/
-function readContent() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            bringTable(this);
-        }
-    };
-    xmlhttp.open("GET", "Users.xml", true);
-    xmlhttp.send();
-    alert("your Data has been submitted!");
-}
-function bringTable(xml) {
-    var i;
-    var xmlDoc = xml.responseXML;
-    var table = "<tr><th>Vorname</th><th>Nachname</th><th>email</th></tr>";
-    var x = xmlDoc.getElementsByTagName("User");
-    for (i = 0; i < x.length; i++) {
-        console.log(x[i].getElementsByTagName("Vorname")[0].childNodes[0].nodeValue);
-        console.log(x[i].getElementsByTagName("Nachname")[0].childNodes[0].nodeValue);
-        table += "<tr><td>" +
-            x[i].getElementsByTagName("Vorname")[0].childNodes[0].nodeValue +
-            "</td><td>" +
-            x[i].getElementsByTagName("Nachname")[0].childNodes[0].nodeValue +
-            "</td></tr>";
-    }
-    document.getElementById("usersTable").innerHTML = table;
 }
 var User = /** @class */ (function () {
     function User(vorname, lname, email, pass) {
@@ -59,6 +15,59 @@ var User = /** @class */ (function () {
     }
     return User;
 }());
-exports.User = User;
-var usersArray = new Array();
-exports.usersArray = usersArray;
+var users = new Array();
+var fName, lName, email, password; //public String Variables
+function loadDoc() {
+    fName = document.getElementById("vorName").value;
+    lName = document.getElementById("nachName").value;
+    email = document.getElementById("email").value;
+    password = document.getElementById("passWort").value;
+    if (fName === "" || lName === "" || email === "" || password === "") {
+        alert("Missing Values please input all Details");
+    }
+    else {
+        users.push(new User(fName, lName, email, password));
+        JSON.stringify(users);
+        document.getElementById("vorName").value = "";
+        document.getElementById("nachName").value = "";
+        email = document.getElementById("email").value = "";
+        document.getElementById("passWort").value = "";
+        alert("submitted " + fName);
+    }
+}
+/*braucht bearbeiten*/
+function readContent() {
+    document.getElementById('formNewUser').value = '';
+    var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
+    for (var i = 0; i < users.length; i++) {
+        table += "<tr><td>" + users[i][0] + "</td><td>" + users[i][1] + "</td><td>" + users[i][2] + "</td></tr>";
+    }
+    table += "</table>";
+    console.log(table);
+    document.getElementById("usersTable").innerHTML = table;
+}
+/*Update Firstname and Lastname if the user exists*/
+function updateUser() {
+    var fname, lname, email;
+    fname = document.getElementById("vorName").value;
+    lname = document.getElementById("nachName").value;
+    email = document.getElementById("email").value;
+    if (!fname || !lname || !email) {
+        alert("please input the Firstname Lstname and the email");
+    }
+    else {
+        for (var i = 0; i < users.length; i++) {
+            if (email === users[i].email) {
+                users[i].vorName = fname;
+                users[i].nachName = lname;
+                alert("user " + users[i].vorName + "has been updated");
+                document.getElementById("vorName").value = "";
+                document.getElementById("nachName").value = "";
+                document.getElementById("email").value = "";
+            }
+            else {
+                alert("the User is not Exist");
+            }
+        }
+    }
+}

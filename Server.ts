@@ -1,5 +1,5 @@
 import * as express from "express";
-import {usersArray} from "./main"; //import users Array (Array of (user)Objects)
+import {users} from "./main"; //import users Array (Array of (user)Objects)
 import {User} from "./main"; //import User class
 const app = express();
 //const users = require("./main");

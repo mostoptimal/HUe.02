@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
-var main_1 = require("./main"); //import users Array (Array of (user)Objects)
-var main_2 = require("./main"); //import User class
+var main_1 = require("./main"); //import User class
 var app = express();
 //const users = require("./main");
 var PORT = 3000;
@@ -44,7 +43,7 @@ app.post('/users/', function (req, res) {
     };
     console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
     res.send("post Requested id ");
-    main_1.usersArray.push(new main_2.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
+    usersArray.push(new main_1.User(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort));
     //res.json(usersArray);
     users.push(newUser);
     res.json(users);

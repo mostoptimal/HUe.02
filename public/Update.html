@@ -1,5 +1,5 @@
-<html lang="de">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -15,13 +15,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
-    <title>Hausuebung 2</title>
+    <title>Update user</title>
     <link href="/public/stylesheets/style.css" type="text/css">
-    <!--<script src="scripts.ts" type="application/javascript"></script>-->
 </head>
-
 <body>
-<!---Form--->
+
 <div class="container" style="padding: 2%;">
     <div class="jumbotron" style="background-color: cadetblue">
         <form id="formNewUser" method="get">
@@ -37,37 +35,11 @@
                 <label for="email">Email address</label>
                 <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
             </div>
-            <div class="form-floating">
-                <label for="passWort">Password</label>
-                <input type="password" class="form-control " id="passWort" placeholder="Password" required>
-            </div>
         </form>
-        <button class="btn btn-secondary "  id="submitBtn" value="Send" onclick="loadDoc()">Submit</button>
-        <button class="btn btn-secondary"  id="updateBtn" value="update" onclick="window.location.href='Update.html'">update</button>
-        <button  class="btn btn-secondary"  id="deleteBtn" value="delete">delete</button>
-
+        <button onclick="updateUser()" class="btn btn-secondary"  id="updateBtn" value="update">update</button>
     </div>
 </div>
 
-<!---Form End--->
-<div class="container" align="center">
-    <div class="jumbotron" style="padding: 2%">
-        <button onclick="readContent()" id="readButton" style="background-color: skyblue"  >Show Users Infos</button>
-    </div>
-</div>
 
-<!--Table-->
-<br><br>
-<div class="jumbotron" style="padding: 2%">
-    <table id="usersTable" class="table">
-        <tr><td>Vorname</td><td>Nachname</td><td>Email</td></tr>
-
-    </table>
-</div>
-<br><br><br><br><br>
-<!--Table End-->
-<!--script-->
-<script src="javascripts/scripts.js"></script>
-<!--script End-->
 </body>
 </html>

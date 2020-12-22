@@ -1,13 +1,21 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Users_1 = require("./Users");
-var Users_2 = require("./Users");
+//import {User} from "./Users";
+//import {users} from "./Users";
 window.addEventListener('DOMContentLoaded', function (event) {
     console.log('DOM fully loaded and parsed');
     loadDoc();
     readContent();
     updateUser();
 });
+var User = /** @class */ (function () {
+    function User(vorname, lname, email, pass) {
+        this.vorName = vorname;
+        this.nachName = lname;
+        this.email = email;
+        this.password = pass;
+    }
+    return User;
+}());
+var users = new Array();
 /*
 function submitttng(){
     var newUser;
@@ -24,8 +32,9 @@ function loadDoc() {
         alert("Missing Values please input all Details");
     }
     else {
-        Users_2.users.push(new Users_1.User(fName, lName, email, password));
-        JSON.stringify(Users_2.users);
+        users.push(new User(fName, lName, email, password));
+        console.log(users);
+        JSON.stringify(users);
         document.getElementById("vorName").value = "";
         document.getElementById("nachName").value = "";
         email = document.getElementById("email").value = "";
@@ -37,8 +46,8 @@ function loadDoc() {
 function readContent() {
     document.getElementById("formNewUser").value = '';
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
-    for (var i = 0; i < Users_2.users.length; i++) {
-        table += "<tr><td>" + Users_2.users[i][0] + "</td><td>" + Users_2.users[i][1] + "</td><td>" + Users_2.users[i][2] + "</td></tr>";
+    for (var i = 0; i < users.length; i++) {
+        table += "<tr><td>" + users[i].vorName + "</td><td>" + users[i].nachName + "</td><td>" + users[i].email + "</td></tr>";
     }
     table += "</table>";
     console.log(table);
@@ -55,11 +64,11 @@ function updateUser() {
         alert("please input the Firstname Lastname and the email");
     }
     else {
-        for (var i = 0; i < Users_2.users.length; i++) {
-            if (email === Users_2.users[i].email) {
-                Users_2.users[i].vorName = fname;
-                Users_2.users[i].nachName = lname;
-                alert("user " + Users_2.users[i].vorName + "has been updated");
+        for (var i = 0; i < users.length; i++) {
+            if (email === users[i].email) {
+                users[i].vorName = fname;
+                users[i].nachName = lname;
+                alert("user " + users[i].vorName + "has been updated");
                 document.getElementById("vorName").value = "";
                 document.getElementById("nachName").value = "";
                 document.getElementById("email").value = "";
@@ -74,3 +83,4 @@ function updateUser() {
         alert("user doesn't exist");
     }
 }
+//# sourceMappingURL=scripts.js.map

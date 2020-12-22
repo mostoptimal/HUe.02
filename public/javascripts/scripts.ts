@@ -1,5 +1,5 @@
-import {User} from "./Users";
-import {users} from "./Users";
+//import {User} from "./Users";
+//import {users} from "./Users";
 
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
@@ -8,6 +8,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
     updateUser();
 });
 
+
+class User{
+    vorName:String;
+    nachName: String;
+    email:String;
+    password:String;
+    constructor (vorname:String,lname:String,email:String,pass:String) {
+        this.vorName=vorname;
+        this.nachName=lname;
+        this.email=email;
+        this.password=pass;
+    }
+}
+const users= new Array<User>();
 
 /*
 function submitttng(){
@@ -27,6 +41,7 @@ function loadDoc() {
         alert("Missing Values please input all Details");
     } else {
         users.push(new User(fName,lName,email,password));
+        console.log(users);
         JSON.stringify(users);
         (<HTMLInputElement>document.getElementById("vorName")).value = "";
         (<HTMLInputElement>document.getElementById("nachName")).value = "";
@@ -41,7 +56,7 @@ function readContent() {
     (<HTMLInputElement>document.getElementById("formNewUser")).value = '';
     let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (let i=0; i<users.length;i++){
-        table +="<tr><td>"+users[i][0]+"</td><td>"+users[i][1]+"</td><td>"+users[i][2]+"</td></tr>";
+        table +="<tr><td>"+users[i].vorName+"</td><td>"+users[i].nachName+"</td><td>"+users[i].email+"</td></tr>";
     }
     table += "</table>";
     console.log(table);

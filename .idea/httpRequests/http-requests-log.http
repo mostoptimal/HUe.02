@@ -1,3 +1,27 @@
+GET http://localhost:3000/users/
+
+<> 2020-12-22T095834.200.json
+
+###
+
+GET http://localhost:3000/users/jamiku@jp.co
+
+<> 2020-12-22T095812.200.json
+
+###
+
+GET http://localhost:3000/users/a@b.cd
+
+<> 2020-12-22T095730.400.json
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-22T095715.200.json
+
+###
+
 POST http://localhost:3000/users
 
 {
@@ -487,43 +511,6 @@ POST http://localhost:3000/users
 GET http://localhost:3000/users
 
 <> 2020-12-15T021744.200.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName":"jojo",
-"nachName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-15T015512.200.json
-
-###
-
-GET http://localhost:3000/users
-
-<> 2020-12-15T015503.200.json
-
-###
-
-GET http://localhost:3000/users
-
-<> 2020-12-15T015423.404.html
-
-###
-
-PUT http://localhost:3000/users/a@b.cd
-
-{
-"vorName": "tt",
-"nachName": "bb",
-"email": "www@email.cd"
-}
-
-<> 2020-12-15T015324.404.html
 
 ###
 

@@ -21,7 +21,10 @@ Accept: application/json
  }
 ###
 GET localhost:3000/users/a@b.cd
-
+###
+GET localhost:3000/users/
+###
+GET localhost:3000/users/jamiku@jp.co
 ###
 POST localhost:3000/users
 

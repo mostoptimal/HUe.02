@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="Some Order for the Files">
+    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="post funtioniert mit Postman">
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Server.js" afterDir="false" />
@@ -76,11 +76,24 @@
     <option name="REQUEST_HISTORY">
       <list>
         <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:3000/users" />
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000/users/" />
           <option name="urlPath" value="" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{&#10;&quot;vorName&quot;: &quot;tt&quot;,&#10;&quot;nachName&quot;: &quot;bb&quot;,&#10;&quot;email&quot;: &quot;www@email.cd&quot;&#10;&quot;passWort&quot;:&quot;fegege&quot;&#10;}" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000/users/jamiku@jp.co" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000/users/a@b.cd" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -88,6 +101,14 @@
           <option name="urlBase" value="http://localhost:3000/users" />
           <option name="urlPath" value="" />
           <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000/users" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;vorName&quot;: &quot;tt&quot;,&#10;&quot;nachName&quot;: &quot;bb&quot;,&#10;&quot;email&quot;: &quot;www@email.cd&quot;&#10;&quot;passWort&quot;:&quot;fegege&quot;&#10;}" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -164,13 +185,6 @@
           </option>
           <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10; vorName:&quot;Kevin&quot;,&#10; nachName:&quot;Schroeder&quot;,&#10; email:&quot;kev90qgmx.de&quot;,&#10; passWort:&quot;zocken&quot;&#10; }" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:3000/users/a@b.cd" />
-          <option name="urlPath" value="" />
-          <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -407,17 +421,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.tester#4">
+  <component name="RunManager" selected="HTTP Request.tester#6">
     <configuration name="tester#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="2" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="tester#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="4" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="tester#6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="6" runType="Run single request">
+    <configuration name="tester#5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="5" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="tester#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="7" runType="Run single request">
+    <configuration name="tester#6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="6" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="Server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Server.js" working-dir="$PROJECT_DIR$">
@@ -425,11 +439,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.tester#4" />
-        <item itemvalue="Node.js.Server.js" />
         <item itemvalue="HTTP Request.tester#6" />
-        <item itemvalue="HTTP Request.tester#7" />
+        <item itemvalue="HTTP Request.tester#5" />
         <item itemvalue="HTTP Request.tester#2" />
+        <item itemvalue="Node.js.Server.js" />
+        <item itemvalue="HTTP Request.tester#4" />
       </list>
     </recent_temporary>
   </component>
@@ -456,7 +470,8 @@
       <workItem from="1608325290803" duration="282000" />
       <workItem from="1608325987840" duration="2900000" />
       <workItem from="1608366994295" duration="11223000" />
-      <workItem from="1608386160166" duration="12542000" />
+      <workItem from="1608386160166" duration="13102000" />
+      <workItem from="1608627222441" duration="726000" />
     </task>
     <task id="LOCAL-00001" summary="Nothing Yet">
       <created>1607691966664</created>
@@ -619,7 +634,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608395155927</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="post funtioniert mit Postman">
+      <created>1608404617223</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1608404617223</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +677,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="update Button function" />
     <MESSAGE value="Some Order for the Files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some Order for the Files" />
+    <MESSAGE value="post funtioniert mit Postman" />
+    <option name="LAST_COMMIT_MESSAGE" value="post funtioniert mit Postman" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="44" width="687" height="645" key="#Options" timestamp="1608116565299">
@@ -678,22 +701,22 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="470" y="78" width="415" height="577" key="Github.UntrackedFilesDialog/0.0.1366.741@0.0.1366.741" timestamp="1607691917914" />
-    <state width="1326" height="178" key="GridCell.Tab.0.bottom" timestamp="1608404464172">
+    <state width="1326" height="178" key="GridCell.Tab.0.bottom" timestamp="1608627514090">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1608404464172" />
-    <state width="1326" height="178" key="GridCell.Tab.0.center" timestamp="1608404464170">
+    <state width="1326" height="178" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1608627514090" />
+    <state width="1326" height="178" key="GridCell.Tab.0.center" timestamp="1608627514090">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1608404464170" />
-    <state width="1326" height="178" key="GridCell.Tab.0.left" timestamp="1608404464170">
+    <state width="1326" height="178" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1608627514090" />
+    <state width="1326" height="178" key="GridCell.Tab.0.left" timestamp="1608627514089">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1608404464170" />
-    <state width="1326" height="178" key="GridCell.Tab.0.right" timestamp="1608404464171">
+    <state width="1326" height="178" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1608627514089" />
+    <state width="1326" height="178" key="GridCell.Tab.0.right" timestamp="1608627514090">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1608404464171" />
+    <state width="1326" height="178" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1608627514090" />
     <state width="1346" height="222" key="GridCell.Tab.1.bottom" timestamp="1607853242635">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
@@ -750,10 +773,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1608219353152" />
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1608395159266">
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1608404622947">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1608395159266" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1608404622947" />
     <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608379026792">
       <screen x="0" y="0" width="1366" height="741" />
     </state>

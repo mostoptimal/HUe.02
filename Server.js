@@ -35,9 +35,11 @@ app.get("/users/:email", function (req, res) {
 var u1 = new Users_1.User("Momo", "LL", "q@@.cd", "defw");
 var u2 = new Users_1.User("Moegemo", "LdgegeL", "qs@eee.cefd", "def56gujhw");
 var u3 = new Users_1.User("OOOITTRJ7PPP", "SMSM", "q3rfw3s@hotm.de", "876544rtg");
+var u4 = new Users_1.User("jamiku", "soko", "jamiku@jp.co", "slfhewiwefpiew321");
 Users_2.users.push(u1);
 Users_2.users.push(u2);
 Users_2.users.push(u3);
+Users_2.users.push(u4);
 //New User !funktioniert nicht
 app.post('/users/', function (req, res) {
     var newUser = {

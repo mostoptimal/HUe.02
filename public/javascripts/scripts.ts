@@ -1,10 +1,12 @@
-import {User} from "./Users";
-import {users} from "./Users";
-
-document.addEventListener("DOMContentLoaded", function(event){
-    alert("loaded");
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    loadDoc();
+    readContent();
+    updateUser();
 });
 
+import {User} from "./Users";
+import {users} from "./Users";
 
 function submitttng(){
     var newUser;
@@ -12,6 +14,7 @@ function submitttng(){
 }
 
 var fName, lName, email, password;//public String Variables
+
 function loadDoc() {
     fName = (<HTMLInputElement>document.getElementById("vorName")).value;
     lName = (<HTMLInputElement>document.getElementById("nachName")).value;

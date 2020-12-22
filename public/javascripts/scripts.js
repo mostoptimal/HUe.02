@@ -1,10 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+window.addEventListener('DOMContentLoaded', function (event) {
+    console.log('DOM fully loaded and parsed');
+    loadDoc();
+    readContent();
+    updateUser();
+});
 var Users_1 = require("./Users");
 var Users_2 = require("./Users");
-document.addEventListener("DOMContentLoaded", function (event) {
-    alert("loaded");
-});
 function submitttng() {
     var newUser;
     newUser = document.getElementById("formNewUser").textContent;

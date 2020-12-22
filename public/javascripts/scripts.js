@@ -1,17 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Users_1 = require("./Users");
+var Users_2 = require("./Users");
 window.addEventListener('DOMContentLoaded', function (event) {
     console.log('DOM fully loaded and parsed');
     loadDoc();
     readContent();
     updateUser();
 });
-var Users_1 = require("./Users");
-var Users_2 = require("./Users");
-function submitttng() {
+/*
+function submitttng(){
     var newUser;
     newUser = document.getElementById("formNewUser").textContent;
 }
+*/
 var fName, lName, email, password; //public String Variables
 function loadDoc() {
     fName = document.getElementById("vorName").value;
@@ -45,6 +47,7 @@ function readContent() {
 /*Update Firstname and Lastname if the user exists*/
 function updateUser() {
     var fname, lname, email;
+    var found;
     fname = document.getElementById("vorName").value;
     lname = document.getElementById("nachName").value;
     email = document.getElementById("email").value;
@@ -52,7 +55,6 @@ function updateUser() {
         alert("please input the Firstname Lastname and the email");
     }
     else {
-        var found;
         for (var i = 0; i < Users_2.users.length; i++) {
             if (email === Users_2.users[i].email) {
                 Users_2.users[i].vorName = fname;

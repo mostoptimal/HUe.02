@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
     submitNewUser();
     showAllUsersInTable();
     updateUser();
+    deleteUser();
 });
 document.addEventListener('keypress', function (event) {
     if (event.keyCode === 13) {
@@ -52,6 +53,7 @@ function submitNewUser() {
         alert("submitted " + fName);
     }
 }
+//show the Table of Users
 function showAllUsersInTable() {
     document.getElementById("formNewUser").value = '';
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
@@ -98,6 +100,10 @@ function deleteUser() {
         if (email == users[i].email) {
             users.splice(i, 1);
         }
+        else {
+            alert('The Entered Email is not for any Registered User');
+        }
     }
+    console.log(users);
 }
 //# sourceMappingURL=scripts.js.map

@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     submitNewUser();
     showAllUsersInTable();
     updateUser();
+    deleteUser();
 });
 
 document.addEventListener('keypress', (event) => {
@@ -61,7 +62,7 @@ function submitNewUser() {
     }
 }
 
-
+//show the Table of Users
 function showAllUsersInTable() {
     (<HTMLInputElement>document.getElementById("formNewUser")).value = '';
     let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
@@ -107,6 +108,9 @@ function deleteUser(){
     for (let i=0; i<users.length; i++){
         if (email==users[i].email){
             users.splice(i,1);
+        }else{
+            alert('The Entered Email is not for any Registered User');
         }
     }
+    console.log(users);
 }

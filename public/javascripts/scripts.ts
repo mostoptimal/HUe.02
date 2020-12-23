@@ -1,11 +1,19 @@
 //import {User} from "./Users";
 //import {users} from "./Users";
-
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     loadDoc();
     readContent();
     updateUser();
+});
+
+document.addEventListener('keypress', (event) => {
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("submitBtn").click();
+    }
 });
 
 
@@ -22,6 +30,7 @@ class User{
     }
 }
 const users= new Array<User>();
+
 
 /*
 function submitttng(){

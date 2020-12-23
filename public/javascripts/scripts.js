@@ -6,6 +6,14 @@ window.addEventListener('DOMContentLoaded', function (event) {
     readContent();
     updateUser();
 });
+document.addEventListener('keypress', function (event) {
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("submitBtn").click();
+    }
+});
 var User = /** @class */ (function () {
     function User(vorname, lname, email, pass) {
         this.vorName = vorname;

@@ -2,8 +2,8 @@
 //import {users} from "./Users";
 window.addEventListener('DOMContentLoaded', function (event) {
     console.log('DOM fully loaded and parsed');
-    loadDoc();
-    readContent();
+    submitNewUser();
+    showAllUsersInTable();
     updateUser();
 });
 document.addEventListener('keypress', function (event) {
@@ -14,6 +14,7 @@ document.addEventListener('keypress', function (event) {
         document.getElementById("submitBtn").click();
     }
 });
+//User Object
 var User = /** @class */ (function () {
     function User(vorname, lname, email, pass) {
         this.vorName = vorname;
@@ -23,6 +24,7 @@ var User = /** @class */ (function () {
     }
     return User;
 }());
+//Array from Object User
 var users = new Array();
 /*
 function submitttng(){
@@ -31,7 +33,7 @@ function submitttng(){
 }
 */
 var fName, lName, email, password; //public String Variables
-function loadDoc() {
+function submitNewUser() {
     fName = document.getElementById("vorName").value;
     lName = document.getElementById("nachName").value;
     email = document.getElementById("email").value;
@@ -50,8 +52,7 @@ function loadDoc() {
         alert("submitted " + fName);
     }
 }
-/*braucht bearbeiten*/
-function readContent() {
+function showAllUsersInTable() {
     document.getElementById("formNewUser").value = '';
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (var i = 0; i < users.length; i++) {
@@ -89,6 +90,14 @@ function updateUser() {
     }
     if (!found) {
         alert("user doesn't exist");
+    }
+}
+function deleteUser() {
+    email = document.getElementById("email").value;
+    for (var i = 0; i < users.length; i++) {
+        if (email == users[i].email) {
+            users.splice(i, 1);
+        }
     }
 }
 //# sourceMappingURL=scripts.js.map

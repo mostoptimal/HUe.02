@@ -2,8 +2,8 @@
 //import {users} from "./Users";
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
-    loadDoc();
-    readContent();
+    submitNewUser();
+    showAllUsersInTable();
     updateUser();
 });
 
@@ -16,7 +16,7 @@ document.addEventListener('keypress', (event) => {
     }
 });
 
-
+//User Object
 class User{
     vorName:String;
     nachName: String;
@@ -29,6 +29,7 @@ class User{
         this.password=pass;
     }
 }
+//Array from Object User
 const users= new Array<User>();
 
 
@@ -40,7 +41,7 @@ function submitttng(){
 */
 let fName, lName, email, password;//public String Variables
 
-function loadDoc() {
+function submitNewUser() {
     fName = (<HTMLInputElement>document.getElementById("vorName")).value;
     lName = (<HTMLInputElement>document.getElementById("nachName")).value;
     email = (<HTMLInputElement>document.getElementById("email")).value;
@@ -60,8 +61,8 @@ function loadDoc() {
     }
 }
 
-/*braucht bearbeiten*/
-function readContent() {
+
+function showAllUsersInTable() {
     (<HTMLInputElement>document.getElementById("formNewUser")).value = '';
     let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (let i=0; i<users.length;i++){
@@ -98,5 +99,14 @@ function updateUser(){
         }
     }if (!found){
         alert("user doesn't exist");
+    }
+}
+
+function deleteUser(){
+    email = (<HTMLInputElement>document.getElementById("email")).value;
+    for (let i=0; i<users.length; i++){
+        if (email==users[i].email){
+            users.splice(i,1);
+        }
     }
 }

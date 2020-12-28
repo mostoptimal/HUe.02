@@ -100,6 +100,7 @@ function updateUser(){
 }
 
 function deleteUser(){
+
     email = (<HTMLInputElement>document.getElementById("email")).value;
     for (let i=0; i<users.length; i++){
         if (email==users[i].email){
@@ -147,4 +148,12 @@ function getDataFromServer(){
     let responseTextAsJSON=JSON.stringify(xhr.responseText);
     console.log(responseTextAsJSON);
     return responseTextAsJSON;
+}
+//Update (POST) Request
+function updateDataIntoServer(){
+    //Postman
+}
+//Delete Request
+function deleteDataFromServer(){
+    //postman
 }

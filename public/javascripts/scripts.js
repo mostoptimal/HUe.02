@@ -139,4 +139,12 @@ function getDataFromServer() {
     console.log(responseTextAsJSON);
     return responseTextAsJSON;
 }
+//Update (POST) Request
+function updateDataIntoServer() {
+    //Postman
+}
+//Delete Request
+function deleteDataFromServer() {
+    //postman
+}
 //# sourceMappingURL=scripts.js.map

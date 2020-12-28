@@ -80,7 +80,7 @@ app.post('/users/', (req: express.Request, res: express.Response) => {
 });
 
 //user update firstname and lastname
-app.put("/users/:email", (req, res) => {
+app.post("/users/:email", (req, res) => {
     const found = users.some(user => user.email === req.body.email);
     if (found) {
         const updUser = req.body;

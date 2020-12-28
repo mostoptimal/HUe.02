@@ -20,12 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="delte User function on the way">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Update.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/Update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/Users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/Users.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/scripts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/scripts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tester.http" beforeDir="false" afterPath="$PROJECT_DIR$/tester.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,12 +79,52 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public/javascripts" />
     </key>
   </component>
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000/users" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000/users/" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="host" />
+                <option name="value" value="localhost:3000" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10; &quot;vorName&quot;:&quot;Kevin&quot;,&#10; &quot;nachName&quot;:&quot;Schroeder&quot;,&#10; &quot;email&quot;:&quot;kev90qgmx.de&quot;,&#10; &quot;passWort&quot;:&quot;zocken&quot;&#10; }" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:3000/users/" />
@@ -99,13 +142,6 @@
         <RestClientRequest>
           <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:3000/users/a@b.cd" />
-          <option name="urlPath" value="" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:3000/users" />
           <option name="urlPath" value="" />
           <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
@@ -276,13 +312,6 @@
         </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:3000" />
-          <option name="urlPath" value="" />
-          <option name="textToSend" value="" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:3000/public/index.html" />
           <option name="urlPath" value="" />
           <option name="textToSend" value="" />
@@ -428,43 +457,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.bin/www">
-    <configuration name="tester#5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="5" runType="Run single request">
+  <component name="RunManager" selected="Node.js.Server.js">
+    <configuration name="tester#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="tester#6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="6" runType="Run single request">
+    <configuration name="tester#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="3" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="Users.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/public/javascripts/Users.js" working-dir="$PROJECT_DIR$/public/javascripts">
+    <configuration name="tester#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="4" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
+    <configuration name="Server.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Server.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
+    <configuration name="Server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="Server.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.Users.js" />
-        <item itemvalue="npm.build" />
-        <item itemvalue="npm.start" />
-        <item itemvalue="HTTP Request.tester#6" />
-        <item itemvalue="HTTP Request.tester#5" />
+        <item itemvalue="HTTP Request.tester#4" />
+        <item itemvalue="HTTP Request.tester#3" />
+        <item itemvalue="HTTP Request.tester#2" />
+        <item itemvalue="Node.js.Server.js" />
+        <item itemvalue="Node.js.Server.js (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -493,7 +508,12 @@
       <workItem from="1608366994295" duration="11223000" />
       <workItem from="1608386160166" duration="13102000" />
       <workItem from="1608627222441" duration="13177000" />
-      <workItem from="1608759302578" duration="3254000" />
+      <workItem from="1608759302578" duration="3282000" />
+      <workItem from="1608830578164" duration="1442000" />
+      <workItem from="1608895063113" duration="12742000" />
+      <workItem from="1608972977876" duration="2678000" />
+      <workItem from="1609097929935" duration="5934000" />
+      <workItem from="1609145008614" duration="477000" />
     </task>
     <task id="LOCAL-00001" summary="Nothing Yet">
       <created>1607691966664</created>
@@ -726,17 +746,24 @@
       <option name="project" value="LOCAL" />
       <updated>1608761554312</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="delte User function on the way">
+      <created>1608764557238</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1608764557238</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Server.js" />
         <option value="$PROJECT_DIR$/public/javascripts/Users.js" />
         <option value="$PROJECT_DIR$/public/javascripts/Users.js.map" />
         <option value="$PROJECT_DIR$/public/javascripts/scripts.js.map" />
+        <option value="$PROJECT_DIR$/Server.js" />
       </list>
     </option>
   </component>
@@ -794,85 +821,85 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="470" y="78" width="415" height="577" key="Github.UntrackedFilesDialog/0.0.1366.741@0.0.1366.741" timestamp="1607691917914" />
-    <state width="1326" height="222" key="GridCell.Tab.0.bottom" timestamp="1608656550115">
+    <state width="1326" height="178" key="GridCell.Tab.0.bottom" timestamp="1609145129013">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1608656550115" />
-    <state width="1326" height="222" key="GridCell.Tab.0.center" timestamp="1608656550115">
+    <state width="1326" height="178" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609145129013" />
+    <state width="1326" height="178" key="GridCell.Tab.0.center" timestamp="1609145129013">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1608656550115" />
-    <state width="1326" height="222" key="GridCell.Tab.0.left" timestamp="1608656550114">
+    <state width="1326" height="178" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1609145129013" />
+    <state width="1326" height="178" key="GridCell.Tab.0.left" timestamp="1609145129013">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1608656550114" />
-    <state width="1326" height="222" key="GridCell.Tab.0.right" timestamp="1608656550115">
+    <state width="1326" height="178" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1609145129013" />
+    <state width="1326" height="178" key="GridCell.Tab.0.right" timestamp="1609145129013">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1608656550115" />
-    <state width="1326" height="222" key="GridCell.Tab.1.bottom" timestamp="1608656550116">
+    <state width="1326" height="178" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1609145129013" />
+    <state width="1326" height="222" key="GridCell.Tab.1.bottom" timestamp="1609106925804">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.1.bottom/0.0.1366.741@0.0.1366.741" timestamp="1608656550116" />
-    <state width="1326" height="222" key="GridCell.Tab.1.center" timestamp="1608656550115">
+    <state width="1326" height="222" key="GridCell.Tab.1.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609106925804" />
+    <state width="1326" height="222" key="GridCell.Tab.1.center" timestamp="1609106925804">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.1.center/0.0.1366.741@0.0.1366.741" timestamp="1608656550115" />
-    <state width="1326" height="222" key="GridCell.Tab.1.left" timestamp="1608656550115">
+    <state width="1326" height="222" key="GridCell.Tab.1.center/0.0.1366.741@0.0.1366.741" timestamp="1609106925804" />
+    <state width="1326" height="222" key="GridCell.Tab.1.left" timestamp="1609106925804">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.1.left/0.0.1366.741@0.0.1366.741" timestamp="1608656550115" />
-    <state width="1326" height="222" key="GridCell.Tab.1.right" timestamp="1608656550116">
+    <state width="1326" height="222" key="GridCell.Tab.1.left/0.0.1366.741@0.0.1366.741" timestamp="1609106925804" />
+    <state width="1326" height="222" key="GridCell.Tab.1.right" timestamp="1609106925804">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.1.right/0.0.1366.741@0.0.1366.741" timestamp="1608656550116" />
-    <state width="1326" height="222" key="GridCell.Tab.2.bottom" timestamp="1608656550117">
+    <state width="1326" height="222" key="GridCell.Tab.1.right/0.0.1366.741@0.0.1366.741" timestamp="1609106925804" />
+    <state width="1326" height="222" key="GridCell.Tab.2.bottom" timestamp="1609106925805">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.2.bottom/0.0.1366.741@0.0.1366.741" timestamp="1608656550117" />
-    <state width="1326" height="222" key="GridCell.Tab.2.center" timestamp="1608656550116">
+    <state width="1326" height="222" key="GridCell.Tab.2.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609106925805" />
+    <state width="1326" height="222" key="GridCell.Tab.2.center" timestamp="1609106925805">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.2.center/0.0.1366.741@0.0.1366.741" timestamp="1608656550116" />
-    <state width="1326" height="222" key="GridCell.Tab.2.left" timestamp="1608656550116">
+    <state width="1326" height="222" key="GridCell.Tab.2.center/0.0.1366.741@0.0.1366.741" timestamp="1609106925805" />
+    <state width="1326" height="222" key="GridCell.Tab.2.left" timestamp="1609106925805">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.2.left/0.0.1366.741@0.0.1366.741" timestamp="1608656550116" />
-    <state width="1326" height="222" key="GridCell.Tab.2.right" timestamp="1608656550116">
+    <state width="1326" height="222" key="GridCell.Tab.2.left/0.0.1366.741@0.0.1366.741" timestamp="1609106925805" />
+    <state width="1326" height="222" key="GridCell.Tab.2.right" timestamp="1609106925805">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.2.right/0.0.1366.741@0.0.1366.741" timestamp="1608656550116" />
-    <state width="1326" height="222" key="GridCell.Tab.3.bottom" timestamp="1608656550117">
+    <state width="1326" height="222" key="GridCell.Tab.2.right/0.0.1366.741@0.0.1366.741" timestamp="1609106925805" />
+    <state width="1326" height="222" key="GridCell.Tab.3.bottom" timestamp="1609106925806">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.3.bottom/0.0.1366.741@0.0.1366.741" timestamp="1608656550117" />
-    <state width="1326" height="222" key="GridCell.Tab.3.center" timestamp="1608656550117">
+    <state width="1326" height="222" key="GridCell.Tab.3.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609106925806" />
+    <state width="1326" height="222" key="GridCell.Tab.3.center" timestamp="1609106925805">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.3.center/0.0.1366.741@0.0.1366.741" timestamp="1608656550117" />
-    <state width="1326" height="222" key="GridCell.Tab.3.left" timestamp="1608656550117">
+    <state width="1326" height="222" key="GridCell.Tab.3.center/0.0.1366.741@0.0.1366.741" timestamp="1609106925805" />
+    <state width="1326" height="222" key="GridCell.Tab.3.left" timestamp="1609106925805">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.3.left/0.0.1366.741@0.0.1366.741" timestamp="1608656550117" />
-    <state width="1326" height="222" key="GridCell.Tab.3.right" timestamp="1608656550117">
+    <state width="1326" height="222" key="GridCell.Tab.3.left/0.0.1366.741@0.0.1366.741" timestamp="1609106925805" />
+    <state width="1326" height="222" key="GridCell.Tab.3.right" timestamp="1609106925806">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="222" key="GridCell.Tab.3.right/0.0.1366.741@0.0.1366.741" timestamp="1608656550117" />
-    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog" timestamp="1608113439064">
+    <state width="1326" height="222" key="GridCell.Tab.3.right/0.0.1366.741@0.0.1366.741" timestamp="1609106925806" />
+    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog" timestamp="1609106766920">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog/0.0.1366.741@0.0.1366.741" timestamp="1608113439064" />
+    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog/0.0.1366.741@0.0.1366.741" timestamp="1609106766920" />
     <state x="187" y="4" key="SettingsEditor" timestamp="1608653440753">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1608653440753" />
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1608761560317">
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1608764561383">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1608761560317" />
-    <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608379026792">
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1608764561383" />
+    <state x="492" y="286" width="382" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609102978126">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.741@0.0.1366.741" timestamp="1608379026792" />
+    <state x="492" y="286" width="382" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.741@0.0.1366.741" timestamp="1609102978126" />
   </component>
 </project>

@@ -2,10 +2,10 @@
 //import {users} from "./Users";
 window.addEventListener('DOMContentLoaded', function (event) {
     console.log('DOM fully loaded and parsed');
-    submitNewUser();
-    showAllUsersInTable();
-    updateUser();
-    deleteUser();
+    //submitNewUser();
+    //showAllUsersInTable();
+    //updateUser();
+    //deleteUser();
 });
 document.addEventListener('keypress', function (event) {
     if (event.keyCode === 13) {

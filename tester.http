@@ -6,7 +6,7 @@ content-type: application/json
 ###
 GET localhost:3000/users
 ###
-GET localhost:3000/
+GET localhost:3000/uernames
 ###
 POST /users/
 host:localhost:3000

@@ -1,3 +1,61 @@
+GET http://localhost:3000
+
+<> 2020-12-28T094453.404.html
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-28T094449.200.json
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-28T094442.200.json
+
+###
+
+GET http://localhost:3000
+
+<> 2020-12-28T094417.404.html
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-28T094405.200.json
+
+###
+
+GET http://localhost:3000
+
+<> 2020-12-27T095854.404.html
+
+###
+
+GET http://localhost:3000/users
+
+<> 2020-12-27T095850.200.json
+
+###
+
+POST http://localhost:3000/users/
+host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+ "vorName":"Kevin",
+ "nachName":"Schroeder",
+ "email":"kev90qgmx.de",
+ "passWort":"zocken"
+ }
+
+<> 2020-12-25T053901.404.html
+
+###
+
 GET http://localhost:3000/users/
 
 <> 2020-12-22T095834.200.json
@@ -424,93 +482,6 @@ content-type: application/json
 GET http://localhost:3000/users/a@b.cd
 
 <> 2020-12-15T022234.200.json
-
-###
-
-PUT http://localhost:3000/users/a@b.cd
-
-{
-"vorName": "tt",
-"nachName": "bb",
-"email": "www@email.cd"
-}
-
-<> 2020-12-15T021904.404.html
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName":"jojo",
-"nachName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-15T021859.200.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName":"jojo",
-"nachName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-15T021852.200.json
-
-###
-
-GET http://localhost:3000/users
-
-<> 2020-12-15T021849.200.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName":"jojo",
-"nachName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName":"jojo",
-"nachName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-15T021755.200.json
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName":"jojo",
-"nachName":"gg",
-"email":"a@b.veee",
-"passWort":"dg"
-}
-
-<> 2020-12-15T021747.200.json
-
-###
-
-GET http://localhost:3000/users
-
-<> 2020-12-15T021744.200.json
 
 ###
 

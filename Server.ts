@@ -54,8 +54,16 @@ app.post('/users/', (req: express.Request, res: express.Response) => {
     if(!newUser.vorName||!newUser.nachName||!newUser.email||!newUser.passWort) {
         console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
         res.send("post Requested id ");
-        users.push(new User(newUser.vorName, newUser.nachName, newUser.email, newUser.passWort));
-        console.log(JSON.stringify(users));
+        //check with Email if the User exists
+        const found = users.some(user => user.email === req.params.email);
+        if(found){
+            alert('the Email Adress is already exists');
+        }else {
+            //if the User not exists //push him in the Array
+            users.push(new User(newUser.vorName, newUser.nachName, newUser.email, newUser.passWort));
+            console.log(JSON.stringify(users));
+        }
+
     }else{
         console.log("User Data can not be empty!!");
         res.status(400);

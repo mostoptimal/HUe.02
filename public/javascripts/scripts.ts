@@ -121,7 +121,7 @@ function sendDataToServer(user1:User){
             console.log(this.responseText);
         }
     });
-    xhr.open("POST", "localhost:3000/users/");
+    xhr.open("POST", "http://localhost:3000/users/");
     console.log('xhr.open');
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify(data));

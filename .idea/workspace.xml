@@ -20,13 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="return to FrontEnd">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/scripts.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +65,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -511,7 +505,7 @@
       <workItem from="1608895063113" duration="12742000" />
       <workItem from="1608972977876" duration="2678000" />
       <workItem from="1609097929935" duration="5934000" />
-      <workItem from="1609145008614" duration="5666000" />
+      <workItem from="1609145008614" duration="6389000" />
     </task>
     <task id="LOCAL-00001" summary="Nothing Yet">
       <created>1607691966664</created>
@@ -758,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609145539531</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="return to FrontEnd">
+      <created>1609152205700</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1609152205700</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -895,14 +896,14 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog/0.0.1366.741@0.0.1366.741" timestamp="1609106766920" />
-    <state x="187" y="4" key="SettingsEditor" timestamp="1609149561721">
+    <state x="187" y="4" key="SettingsEditor" timestamp="1609152921784">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1609149561721" />
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1608764561383">
+    <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1609152921784" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1609152211668">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1608764561383" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609152211668" />
     <state x="492" y="286" width="382" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609102978126">
       <screen x="0" y="0" width="1366" height="741" />
     </state>

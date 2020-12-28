@@ -19,13 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="POST and GET per AJAX">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/Users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/Users.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/scripts.ts" afterDir="false" />
+    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="GET method imporovments">
+      <change afterPath="$PROJECT_DIR$/Notes/Notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +66,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -514,7 +510,7 @@
       <workItem from="1608972977876" duration="2678000" />
       <workItem from="1609097929935" duration="5934000" />
       <workItem from="1609145008614" duration="7164000" />
-      <workItem from="1609186585174" duration="3571000" />
+      <workItem from="1609186585174" duration="3897000" />
     </task>
     <task id="LOCAL-00001" summary="Nothing Yet">
       <created>1607691966664</created>
@@ -782,7 +778,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609153540897</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="GET method imporovments">
+      <created>1609190324237</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1609190324237</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -829,7 +832,8 @@
     <MESSAGE value="delte User function on the way" />
     <MESSAGE value="return to FrontEnd" />
     <MESSAGE value="POST and GET per AJAX" />
-    <option name="LAST_COMMIT_MESSAGE" value="POST and GET per AJAX" />
+    <MESSAGE value="GET method imporovments" />
+    <option name="LAST_COMMIT_MESSAGE" value="GET method imporovments" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="44" width="687" height="645" key="#Options" timestamp="1608116565299">
@@ -856,22 +860,22 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="470" y="78" width="415" height="577" key="Github.UntrackedFilesDialog/0.0.1366.741@0.0.1366.741" timestamp="1607691917914" />
-    <state width="1326" height="178" key="GridCell.Tab.0.bottom" timestamp="1609188757285">
+    <state width="1326" height="172" key="GridCell.Tab.0.bottom" timestamp="1609190352544">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609188757285" />
-    <state width="1326" height="178" key="GridCell.Tab.0.center" timestamp="1609188757285">
+    <state width="1326" height="172" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609190352544" />
+    <state width="1326" height="172" key="GridCell.Tab.0.center" timestamp="1609190352544">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1609188757285" />
-    <state width="1326" height="178" key="GridCell.Tab.0.left" timestamp="1609188757284">
+    <state width="1326" height="172" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1609190352544" />
+    <state width="1326" height="172" key="GridCell.Tab.0.left" timestamp="1609190352543">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1609188757284" />
-    <state width="1326" height="178" key="GridCell.Tab.0.right" timestamp="1609188757285">
+    <state width="1326" height="172" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1609190352543" />
+    <state width="1326" height="172" key="GridCell.Tab.0.right" timestamp="1609190352544">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="178" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1609188757285" />
+    <state width="1326" height="172" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1609190352544" />
     <state width="1326" height="204" key="GridCell.Tab.1.bottom" timestamp="1609177264250">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
@@ -924,14 +928,14 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog/0.0.1366.741@0.0.1366.741" timestamp="1609106766920" />
-    <state x="187" y="4" key="SettingsEditor" timestamp="1609152921784">
+    <state x="187" y="4" key="SettingsEditor" timestamp="1609190589829">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1609152921784" />
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1609153547047">
+    <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1609190589829" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1609190328867">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609153547047" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609190328867" />
     <state x="492" y="286" width="382" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609102978126">
       <screen x="0" y="0" width="1366" height="741" />
     </state>

@@ -103,6 +103,7 @@ function deleteUser() {
     }
     console.log(users);
 }
+//HTTP/AJAX POST Request
 function sendDataToServer(user1) {
     var data = user1;
     console.log('user1'); //
@@ -120,5 +121,17 @@ function sendDataToServer(user1) {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify(data));
     console.log('data');
+}
+//HTTP/AJAX GET Request
+function getDataFromServer() {
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+    xhr.open("GET", "localhost:3000/users");
+    xhr.send();
 }
 //# sourceMappingURL=scripts.js.map

@@ -58,7 +58,7 @@ function submitNewUser() {
 
 //show the Table of Users Button:"Show Users Infos"
 function showAllUsersInTable() {
-    users=JSON.parse(getDataFromServer());
+    users=JSON.parse(getDataFromServer());//GET Request methode
     (<HTMLInputElement>document.getElementById("formNewUser")).value = '';
     let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (let i=0; i<users.length;i++){

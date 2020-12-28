@@ -38,8 +38,8 @@ users.push(u4);
 //get all users
 app.get("/users", (req, res) => {
     res.json(users);
-    console.log('Users sent');
-    console.log(users);
+    console.log('Users sent');//Test
+    console.log(users);//Test
 });
 //get one user per email
 app.get("/users/:email", (req, res) => {
@@ -52,7 +52,7 @@ app.get("/users/:email", (req, res) => {
 
 });
 
-//New User !funktioniert nicht
+//New User
 app.post('/users/', (req: express.Request, res: express.Response) => {
     const newUser = {
         vorName: req.body.vorName,

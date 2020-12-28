@@ -1,0 +1,7 @@
+1.CORS Policy vermeiden
+
+2.Update und Delete schreiben und verbessern
+
+3.for Update we must Use Get Request ,to search in Users if it Exists.
+
+4.

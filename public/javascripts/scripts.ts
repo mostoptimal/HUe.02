@@ -32,14 +32,7 @@ class User{
 }
 //Array from Object User
 const users= new Array<User>();
-
-
-/*
-function submitttng(){
-    var newUser;
-    newUser = document.getElementById("formNewUser").textContent;
-}
-*/
+//public variables
 let fName, lName, email, password;//public String Variables
 
 function submitNewUser() {
@@ -47,13 +40,14 @@ function submitNewUser() {
     lName = (<HTMLInputElement>document.getElementById("nachName")).value;
     email = (<HTMLInputElement>document.getElementById("email")).value;
     password = (<HTMLInputElement>document.getElementById("passWort")).value;
-
     if (fName === "" || lName === "" || email === "" || password === "") {
         alert("Missing Values please input all Details");
     } else {
         users.push(new User(fName,lName,email,password));
         console.log(users);
+        sendDataToServer(new User(fName,lName,email,password));
         JSON.stringify(users);
+        console.log(users);
         (<HTMLInputElement>document.getElementById("vorName")).value = "";
         (<HTMLInputElement>document.getElementById("nachName")).value = "";
         email = (<HTMLInputElement>document.getElementById("email")).value= "";
@@ -113,4 +107,23 @@ function deleteUser(){
         }
     }
     console.log(users);
+}
+
+function sendDataToServer(user1:User){
+    let data = user1;
+    console.log('user1');//
+    console.log(user1);//
+    let xhr = new XMLHttpRequest();
+    console.log('new XMLHttpRequest()');//
+    xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+    xhr.open("POST", "localhost:3000/users/");
+    console.log('xhr.open');
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(data));
+    console.log('data');
 }

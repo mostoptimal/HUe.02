@@ -27,12 +27,7 @@ var User = /** @class */ (function () {
 }());
 //Array from Object User
 var users = new Array();
-/*
-function submitttng(){
-    var newUser;
-    newUser = document.getElementById("formNewUser").textContent;
-}
-*/
+//public variables
 var fName, lName, email, password; //public String Variables
 function submitNewUser() {
     fName = document.getElementById("vorName").value;
@@ -45,7 +40,9 @@ function submitNewUser() {
     else {
         users.push(new User(fName, lName, email, password));
         console.log(users);
+        sendDataToServer(new User(fName, lName, email, password));
         JSON.stringify(users);
+        console.log(users);
         document.getElementById("vorName").value = "";
         document.getElementById("nachName").value = "";
         email = document.getElementById("email").value = "";
@@ -105,5 +102,23 @@ function deleteUser() {
         }
     }
     console.log(users);
+}
+function sendDataToServer(user1) {
+    var data = user1;
+    console.log('user1'); //
+    console.log(user1); //
+    var xhr = new XMLHttpRequest();
+    console.log('new XMLHttpRequest()'); //
+    xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+    xhr.open("POST", "localhost:3000/users/");
+    console.log('xhr.open');
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(data));
+    console.log('data');
 }
 //# sourceMappingURL=scripts.js.map

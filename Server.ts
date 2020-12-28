@@ -1,6 +1,6 @@
 import * as express from "express";
 import {User} from "./public/javascripts/Users"; //import User class
-import {users} from "./public/javascripts/Users";
+import {users} from "./public/javascripts/Users";//import Array of Users
 import {json} from "express"; //import users Array (Array of (user)Objects)
 const app = express();
 //const users = require("./main");
@@ -20,9 +20,26 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
     res.status(200);
     res.sendFile(__dirname + "/views/index.html");
 });
+/**
+ * Example of Users
+ **/
+const u1= new User("Momo","LL","q@@.cd","defw");
+const u2= new User("Moegemo","LdgegeL","qs@eee.cefd","def56gujhw");
+const u3= new User("OOOITTRJ7PPP","SMSM","q3rfw3s@hotm.de","876544rtg");
+const u4= new User("jamiku","soko","jamiku@jp.co","slfhewiwefpiew321");
+users.push(u1);
+users.push(u2);
+users.push(u3);
+users.push(u4);
+/**
+ * Example of Users
+ **/
+
 //get all users
 app.get("/users", (req, res) => {
     res.json(users);
+    console.log('Users sent');
+    console.log(users);
 });
 //get one user per email
 app.get("/users/:email", (req, res) => {
@@ -35,14 +52,6 @@ app.get("/users/:email", (req, res) => {
 
 });
 
-const u1= new User("Momo","LL","q@@.cd","defw");
-const u2= new User("Moegemo","LdgegeL","qs@eee.cefd","def56gujhw");
-const u3= new User("OOOITTRJ7PPP","SMSM","q3rfw3s@hotm.de","876544rtg");
-const u4= new User("jamiku","soko","jamiku@jp.co","slfhewiwefpiew321");
-users.push(u1);
-users.push(u2);
-users.push(u3);
-users.push(u4);
 //New User !funktioniert nicht
 app.post('/users/', (req: express.Request, res: express.Response) => {
     const newUser = {

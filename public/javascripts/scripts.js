@@ -29,6 +29,7 @@ var User = /** @class */ (function () {
 var users = new Array();
 //public variables
 var fName, lName, email, password; //public String Variables
+//die function für den Button "Submit"
 function submitNewUser() {
     fName = document.getElementById("vorName").value;
     lName = document.getElementById("nachName").value;
@@ -40,18 +41,19 @@ function submitNewUser() {
     else {
         users.push(new User(fName, lName, email, password));
         console.log(users);
-        sendDataToServer(new User(fName, lName, email, password));
+        sendDataToServer(new User(fName, lName, email, password)); //die function mit POST Request
         JSON.stringify(users);
         console.log(users);
         document.getElementById("vorName").value = "";
         document.getElementById("nachName").value = "";
         email = document.getElementById("email").value = "";
         document.getElementById("passWort").value = "";
-        alert("submitted " + fName);
+        alert("submitted " + fName + " " + lName);
     }
 }
-//show the Table of Users
+//show the Table of Users Button:"Show Users Infos"
 function showAllUsersInTable() {
+    users = JSON.parse(getDataFromServer());
     document.getElementById("formNewUser").value = '';
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (var i = 0; i < users.length; i++) {
@@ -131,7 +133,10 @@ function getDataFromServer() {
             console.log(this.responseText);
         }
     });
-    xhr.open("GET", "localhost:3000/users");
+    xhr.open("GET", "http://localhost:3000/users");
     xhr.send();
+    var responseTextAsJSON = JSON.stringify(xhr.responseText);
+    console.log(responseTextAsJSON);
+    return responseTextAsJSON;
 }
 //# sourceMappingURL=scripts.js.map

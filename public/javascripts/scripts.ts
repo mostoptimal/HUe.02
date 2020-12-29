@@ -100,7 +100,6 @@ function updateUser(){
 }
 
 function deleteUser(){
-
     email = (<HTMLInputElement>document.getElementById("email")).value;
     for (let i=0; i<users.length; i++){
         if (email==users[i].email){

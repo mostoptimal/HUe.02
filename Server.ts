@@ -1,6 +1,6 @@
 import * as express from "express";
 import {User} from "./public/javascripts/Users"; //import User class
-import {users} from "./public/javascripts/Users";//import Array of Users
+//import {users} from "./public/javascripts/Users";//import Array of Users
 import {json} from "express"; //import users Array (Array of (user)Objects)
 const app = express();
 //const users = require("./main");
@@ -20,6 +20,7 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
     res.status(200);
     res.sendFile(__dirname + "/views/index.html");
 });
+let users = new Array<User>();
 /**
  * Example of Users
  **/
@@ -98,16 +99,15 @@ app.post("/users/:email", (req, res) => {
 
 //delete User by finding Email
 app.delete("/users/:email", (req, res) => {
-    const found = users.some(user => user.email === req.body.email);
-    for(var i=0; i<users.length;i++){
-        if(users[i].email===req.body.email){
-            users.splice(i,1);
-            res.status(200);
-        }else{
-            console.log("user not found");
-            res.status(400);
-        }
+    const {email} = req.params; //
+    //overwrite without the object mit email
+    res.send("lets delete the moderfucker");//must delete
+    let deleted = users.find(user => user.email === email);
+    if(deleted){
+        users = users.filter(user => user.email != email);
+        res.send("user deleted");
+    }else {
+        res.status(404).json( {message: "user dosent exist"});
     }
     console.log(users);
-
 });

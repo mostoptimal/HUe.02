@@ -6,4 +6,10 @@
 
 4.Documentation vollständig schreiben
 
-5.
+5.submit New user must not allow same Email Adress
+
+6.update user also
+
+7.delete method must check if the user exists or not
+
+8.

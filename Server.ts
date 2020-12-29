@@ -23,6 +23,7 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
 /**
  * Example of Users
  **/
+/*
 const u1= new User("Momo","LL","q@@.cd","defw");
 const u2= new User("Moegemo","LdgegeL","qs@eee.cefd","def56gujhw");
 const u3= new User("OOOITTRJ7PPP","SMSM","q3rfw3s@hotm.de","876544rtg");
@@ -31,6 +32,7 @@ users.push(u1);
 users.push(u2);
 users.push(u3);
 users.push(u4);
+*/
 /**
  * Example of Users
  **/

@@ -1,11 +1,24 @@
 import * as express from "express";
-import {User} from "./public/javascripts/Users"; //import User class
-import {users} from "./public/javascripts/Users";//import Array of Users
+//import {User} from "./public/javascripts/Users"; //import User class
+//import {users} from "./public/javascripts/Users";//import Array of Users
 import {json} from "express"; //import users Array (Array of (user)Objects)
 const app = express();
 //const users = require("./main");
 const PORT = 3000;
 //const users = require("./public/users.json");
+class User{
+    vorName:String;
+    nachName: String;
+    email:String;
+    password:String;
+    constructor (vorname:String,lname:String,email:String,pass:String) {
+        this.vorName=vorname;
+        this.nachName=lname;
+        this.email=email;
+        this.password=pass;
+    }
+}
+let users= new Array<User>();//Array from Object Users
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
 });
@@ -23,7 +36,7 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
 /**
  * Example of Users
  **/
-/*
+
 const u1= new User("Momo","LL","q@@.cd","defw");
 const u2= new User("Moegemo","LdgegeL","qs@eee.cefd","def56gujhw");
 const u3= new User("OOOITTRJ7PPP","SMSM","q3rfw3s@hotm.de","876544rtg");
@@ -32,7 +45,7 @@ users.push(u1);
 users.push(u2);
 users.push(u3);
 users.push(u4);
-*/
+
 /**
  * Example of Users
  **/
@@ -64,6 +77,7 @@ app.post('/users/', (req: express.Request, res: express.Response) => {
     }
     if(!newUser.vorName||!newUser.nachName||!newUser.email||!newUser.passWort) {
         console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
+ ///found with email , if found  u cann make a new user with same email
         res.send("post Requested id ");
         //check with Email if the User exists
         const found = users.some(user => user.email === req.params.email);
@@ -90,7 +104,7 @@ app.post("/users/:email", (req, res) => {
             if (user.email === req.body.email) {
                 user.vorName = req.body.vorName;
                 user.nachName = req.body.nachName;
-                res.json({msg: 'member is updated'});
+                res.json({msg: `member ${req.body.email} is updated`});
             }
         });
     } else {
@@ -100,16 +114,27 @@ app.post("/users/:email", (req, res) => {
 
 //delete User by finding Email
 app.delete("/users/:email", (req, res) => {
-    const found = users.some(user => user.email === req.body.email);
+
+   const {email} = req.params; //deocntruct parameter
+   //overwrite without the object mit email
+    res.send("lets delete the moderfucker");
+   const deleted = users.find(user => user.email === email);
+   if(deleted){
+       users = users.filter(user => user.email != email);
+    res.send("user deleted")
+   }else {
+       res.status(404).json( {message: "user dosent exist"});
+   }
+    /*const found = users.some(user => user.email === req.body.email);
     for(var i=0; i<users.length;i++){
         if(users[i].email===req.body.email){
             users.splice(i,1);
-            res.status(200);
+            res.status(200).json({msg: "member is  found"});
         }else{
             console.log("user not found");
-            res.status(400);
+            res.status(400).json({msg: `member is${req.body.email} not found`});
         }
-    }
+    }*/
     console.log(users);
 
 });

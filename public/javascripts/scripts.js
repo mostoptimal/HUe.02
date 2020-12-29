@@ -51,9 +51,9 @@ function submitNewUser() {
         alert("submitted " + fName + " " + lName);
     }
 }
-//show the Table of Users Button:"Show Users Infos"
+/**show the Table of Users Button:"Show Users Infos"*/
 function showAllUsersInTable() {
-    users = JSON.parse(getDataFromServer()); //GET Request methode
+    //users=JSON.parse(getDataFromServer());  //GET Request methode
     document.getElementById("formNewUser").value = '';
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (var i = 0; i < users.length; i++) {
@@ -93,6 +93,7 @@ function updateUser() {
         alert("user doesn't exist");
     }
 }
+//----------------------------------
 function deleteUser() {
     email = document.getElementById("email").value;
     for (var i = 0; i < users.length; i++) {
@@ -124,6 +125,17 @@ function sendDataToServer(user1) {
     xhr.send(JSON.stringify(data));
     console.log('data');
 }
+//---------------------
+$.ajax({
+    method: 'GET',
+    url: 'http://localhost:3000/users',
+    dataType: "json",
+    success: function (response) {
+        users = response;
+        buildTable(users);
+        console.log(users);
+    }
+});
 //HTTP/AJAX GET Request
 function getDataFromServer() {
     var xhr = new XMLHttpRequest();
@@ -135,10 +147,11 @@ function getDataFromServer() {
     });
     xhr.open("GET", "http://localhost:3000/users");
     xhr.send();
-    var responseTextAsJSON = JSON.stringify(xhr.responseText);
-    console.log(responseTextAsJSON);
-    return responseTextAsJSON;
+    document.getElementById("testy").innerHTML = xhr.responseText;
+    console.log("getElementbyID" + document.getElementById("testy"));
+    return xhr.responseText;
 }
+//---------------------
 //Update (POST) Request
 function updateDataIntoServer() {
     //Postman
@@ -146,5 +159,14 @@ function updateDataIntoServer() {
 //Delete Request
 function deleteDataFromServer() {
     //postman
+}
+function buildTable(data) {
+    var docTable = document.getElementById("usersTable");
+    var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
+    for (var i = 0; i < data.length; i++) {
+        table += "<tr><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td></tr>";
+    }
+    console.log(table);
+    docTable.innerHTML = table;
 }
 //# sourceMappingURL=scripts.js.map

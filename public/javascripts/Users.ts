@@ -12,6 +12,6 @@ class User{
         this.password=pass;
     }
 }
-const users= new Array<User>();
+const users= new Array<User>();//Array from Object Users
 export {User};
 export {users};

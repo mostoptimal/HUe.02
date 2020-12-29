@@ -1,5 +1,11 @@
 GET http://localhost:3000/users
 
+<> 2020-12-29T051752.200.json
+
+###
+
+GET http://localhost:3000/users
+
 <> 2020-12-28T092307.200.json
 
 ###
@@ -476,12 +482,6 @@ host: localhost:3000
 content-type: application/json
 
 <> 2020-12-16T111303.404.html
-
-###
-
-POST http://localhost:3000/user
-host: localhost:3000
-content-type: application/json
 
 ###
 

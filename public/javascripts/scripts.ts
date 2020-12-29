@@ -137,7 +137,7 @@ function sendDataToServer(user1: User) {
 
 //---------------------
 
-
+//Get jQuery
 $.ajax({
     method: 'GET',
     url: 'http://localhost:3000/users',

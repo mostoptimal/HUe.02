@@ -6,6 +6,8 @@ const app = express();
 //const users = require("./main");
 const PORT = 3000;
 //const users = require("./public/users.json");
+
+let users= new Array<User>();//Array from Object Users
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
 });
@@ -20,7 +22,6 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
     res.status(200);
     res.sendFile(__dirname + "/views/index.html");
 });
-let users = new Array<User>();
 /**
  * Example of Users
  **/
@@ -63,6 +64,7 @@ app.post('/users/', (req: express.Request, res: express.Response) => {
     }
     if(!newUser.vorName||!newUser.nachName||!newUser.email||!newUser.passWort) {
         console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
+        ///found with email , if found  u cann make a new user with same email
         res.send("post Requested id ");
         //check with Email if the User exists
         const found = users.some(user => user.email === req.params.email);
@@ -89,7 +91,7 @@ app.post("/users/:email", (req, res) => {
             if (user.email === req.body.email) {
                 user.vorName = req.body.vorName;
                 user.nachName = req.body.nachName;
-                res.json({msg: 'member is updated'});
+                res.json({msg: `member ${req.body.email} is updated`});
             }
         });
     } else {
@@ -99,13 +101,12 @@ app.post("/users/:email", (req, res) => {
 
 //delete User by finding Email
 app.delete("/users/:email", (req, res) => {
-    const {email} = req.params; //
+    const {email} = req.params; //deocntruct parameter
     //overwrite without the object mit email
-    res.send("lets delete the moderfucker");//must delete
     let deleted = users.find(user => user.email === email);
     if(deleted){
         users = users.filter(user => user.email != email);
-        res.send("user deleted");
+        res.send("user deleted")
     }else {
         res.status(404).json( {message: "user dosent exist"});
     }

@@ -464,10 +464,10 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Node.js.bin/www" />
       <item itemvalue="HTTP Request.tester#2" />
       <item itemvalue="HTTP Request.tester#3" />
       <item itemvalue="HTTP Request.tester#4" />
-      <item itemvalue="Node.js.bin/www" />
       <item itemvalue="Node.js.Server.js" />
     </list>
     <recent_temporary>

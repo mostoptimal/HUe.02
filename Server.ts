@@ -8,7 +8,6 @@ const PORT = 3000;
 //const users = require("./public/users.json");
 
 let users= new Array<User>();//Array from Object Users
-
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
 });
@@ -26,6 +25,7 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
 /**
  * Example of Users
  **/
+
 const u1= new User("Momo","LL","q@@.cd","defw");
 const u2= new User("Moegemo","LdgegeL","qs@eee.cefd","def56gujhw");
 const u3= new User("OOOITTRJ7PPP","SMSM","q3rfw3s@hotm.de","876544rtg");
@@ -34,6 +34,7 @@ users.push(u1);
 users.push(u2);
 users.push(u3);
 users.push(u4);
+
 /**
  * Example of Users
  **/
@@ -65,7 +66,7 @@ app.post('/users/', (req: express.Request, res: express.Response) => {
     }
     if(!newUser.vorName||!newUser.nachName||!newUser.email||!newUser.passWort) {
         console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
-        ///found with email , if found  u cann make a new user with same email
+ ///found with email , if found  u cann make a new user with same email
         res.send("post Requested id ");
         //check with Email if the User exists
         const found = users.some(user => user.email === req.params.email);
@@ -102,14 +103,20 @@ app.post("/users/:email", (req, res) => {
 
 //delete User by finding Email
 app.delete("/users/:email", (req, res) => {
-    const {email} = req.params; //deocntruct parameter
-    //overwrite without the object mit email
-    let deleted = users.find(user => user.email === email);
-    if(deleted){
-        users = users.filter(user => user.email != email);
-        res.send("user deleted")
-    }else {
-        res.status(404).json( {message: "user dosent exist"});
-    }
+
+   const {email} = req.params; //deocntruct parameter
+
+    res.send("lets delete the moderfucker");
+    //boolean gibt if any user  diese email hat
+   let deleted = users.find(user => user.email === email);
+   if(deleted){
+       // filter = deelet the user with email  and gibt zruck array with alle andere Users
+       users = users.filter(user => user.email != email);
+    res.send("user deleted")
+   }else {
+       res.status(404).json( {message: "user dosent exist"});
+   }
+
     console.log(users);
+
 });

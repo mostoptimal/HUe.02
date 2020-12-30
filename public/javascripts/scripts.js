@@ -51,9 +51,9 @@ function submitNewUser() {
         alert("submitted " + fName + " " + lName);
     }
 }
-/**show the Table of Users Button:"Show Users Infos"*/
+//show the Table of Users Button:"Show Users Infos"
 function showAllUsersInTable() {
-    //users=JSON.parse(getDataFromServer());  //GET Request methode
+    users = JSON.parse(getDataFromServer()); //GET Request methode
     document.getElementById("formNewUser").value = '';
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (var i = 0; i < users.length; i++) {
@@ -93,7 +93,6 @@ function updateUser() {
         alert("user doesn't exist");
     }
 }
-//----------------------------------
 function deleteUser() {
     email = document.getElementById("email").value;
     for (var i = 0; i < users.length; i++) {
@@ -126,7 +125,7 @@ function sendDataToServer(user1) {
     console.log('data');
 }
 //---------------------
-//Get jQuery
+//Get jQuerynpm
 $.ajax({
     method: 'GET',
     url: 'http://localhost:3000/users',
@@ -148,11 +147,10 @@ function getDataFromServer() {
     });
     xhr.open("GET", "http://localhost:3000/users");
     xhr.send();
-    document.getElementById("testy").innerHTML = xhr.responseText;
-    console.log("getElementbyID" + document.getElementById("testy"));
-    return xhr.responseText;
+    var responseTextAsJSON = JSON.stringify(xhr.responseText);
+    console.log(responseTextAsJSON);
+    return responseTextAsJSON;
 }
-//---------------------
 //Update (POST) Request
 function updateDataIntoServer() {
     //Postman

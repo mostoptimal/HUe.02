@@ -131,11 +131,11 @@ $.ajax({
         buildTable(users);
         console.log(users);
     }
-})
+});
 
 //HTTP/AJAX GET Request
 function getDataFromServer(){
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
     xhr.addEventListener("readystatechange", function() {

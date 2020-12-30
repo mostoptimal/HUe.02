@@ -8,6 +8,7 @@ const PORT = 3000;
 //const users = require("./public/users.json");
 
 let users= new Array<User>();//Array from Object Users
+
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
 });
@@ -64,6 +65,7 @@ app.post('/users/', (req: express.Request, res: express.Response) => {
         email: req.body.email,
         passWort: req.body.passWort,
     }
+    console.log(newUser);
     if(!newUser.vorName||!newUser.nachName||!newUser.email||!newUser.passWort) {
         console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
  ///found with email , if found  u cann make a new user with same email

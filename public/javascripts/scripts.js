@@ -1,4 +1,6 @@
-//import {User} from "./Users";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Users_1 = require("./Users");
 //import {users} from "./Users";
 window.addEventListener('DOMContentLoaded', function (event) {
     console.log('DOM fully loaded and parsed');
@@ -16,19 +18,11 @@ document.addEventListener('keypress', function (event) {
     }
 });
 //User Object
-var User = /** @class */ (function () {
-    function User(vorname, lname, email, pass) {
-        this.vorName = vorname;
-        this.nachName = lname;
-        this.email = email;
-        this.password = pass;
-    }
-    return User;
-}());
-//Array from Object User
-var users = new Array();
+//let users= new Array<User>();
 //public variables
 var fName, lName, email, password; //public String Variables
+//Array from Object User
+var users = new Array(); //Array from Object Users
 //die function für den Button "Submit"
 function submitNewUser() {
     fName = document.getElementById("vorName").value;
@@ -39,9 +33,9 @@ function submitNewUser() {
         alert("Missing Values please input all Details");
     }
     else {
-        users.push(new User(fName, lName, email, password));
+        users.push(new Users_1.User(fName, lName, email, password));
         console.log(users);
-        sendDataToServer(new User(fName, lName, email, password)); //die function mit POST Request
+        sendDataToServer(new Users_1.User(fName, lName, email, password)); //die function mit POST Request
         JSON.stringify(users);
         console.log(users);
         document.getElementById("vorName").value = "";

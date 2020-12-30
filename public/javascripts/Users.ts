@@ -12,6 +12,6 @@ class User{
         this.password=pass;
     }
 }
-let users= new Array<User>();//Array from Object Users
+//let users= new Array<User>();//Array from Object Users
 export {User};
-export {users};
+//export {users};

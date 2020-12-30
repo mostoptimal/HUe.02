@@ -24,9 +24,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="New Note">
+    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="writing POST(Update) Request Server Side">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/Users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/Users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/Users.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/scripts.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -855,7 +859,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609326413071</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="writing POST(Update) Request Server Side">
+      <created>1609326868353</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1609326868353</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -868,6 +879,16 @@
         <option value="$PROJECT_DIR$/Server.js" />
         <option value="$PROJECT_DIR$/public/javascripts/Users.js" />
         <option value="$PROJECT_DIR$/public/javascripts/Users.js" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
       </list>
     </option>
   </component>
@@ -884,7 +905,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="delete Methode(User)" />
     <MESSAGE value="Reapair the Table" />
     <MESSAGE value="some updates" />
     <MESSAGE value="some updates.02" />
@@ -909,7 +929,8 @@
     <MESSAGE value="sucessfull Get Request and Table with jQuery" />
     <MESSAGE value="comit with delete" />
     <MESSAGE value="New Note" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Note" />
+    <MESSAGE value="writing POST(Update) Request Server Side" />
+    <option name="LAST_COMMIT_MESSAGE" value="writing POST(Update) Request Server Side" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="44" width="687" height="645" key="#Options" timestamp="1608116565299">
@@ -940,25 +961,25 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="470" y="78" width="415" height="577" key="Github.UntrackedFilesDialog/0.0.1366.741@0.0.1366.741" timestamp="1607691917914" />
-    <state width="1895" height="712" key="GridCell.Tab.0.bottom" timestamp="1609279763488">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="172" key="GridCell.Tab.0.bottom" timestamp="1609330351091">
+      <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="172" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609263778050" />
+    <state width="1326" height="172" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609330351091" />
     <state width="1895" height="712" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763488" />
-    <state width="1895" height="712" key="GridCell.Tab.0.center" timestamp="1609279763487">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="172" key="GridCell.Tab.0.center" timestamp="1609330351090">
+      <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="172" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1609263778048" />
+    <state width="1326" height="172" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1609330351090" />
     <state width="1895" height="712" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763487" />
-    <state width="1895" height="712" key="GridCell.Tab.0.left" timestamp="1609279763487">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="172" key="GridCell.Tab.0.left" timestamp="1609330351090">
+      <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="172" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1609263778048" />
+    <state width="1326" height="172" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1609330351090" />
     <state width="1895" height="712" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763487" />
-    <state width="1895" height="712" key="GridCell.Tab.0.right" timestamp="1609279763487">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="172" key="GridCell.Tab.0.right" timestamp="1609330351091">
+      <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="172" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1609263778050" />
+    <state width="1326" height="172" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1609330351091" />
     <state width="1895" height="712" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763487" />
     <state width="1326" height="204" key="GridCell.Tab.1.bottom" timestamp="1609177264250">
       <screen x="0" y="0" width="1366" height="741" />
@@ -1008,34 +1029,27 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state width="1326" height="204" key="GridCell.Tab.3.right/0.0.1366.741@0.0.1366.741" timestamp="1609177264251" />
-    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog" timestamp="1609106766920">
+    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog" timestamp="1609330379683">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog/0.0.1366.741@0.0.1366.741" timestamp="1609106766920" />
+    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog/0.0.1366.741@0.0.1366.741" timestamp="1609330379683" />
     <state x="187" y="4" key="SettingsEditor" timestamp="1609246152228">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1609246152228" />
-    <state x="278" y="105" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1609326417022">
+    <state x="278" y="105" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1609326872553">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609326417022" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609326872553" />
     <state x="391" y="147" width="1000" height="648" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609279901299" />
+    <state x="100" y="99" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609330884326">
+      <screen x="0" y="0" width="1366" height="741" />
+    </state>
+    <state x="100" y="99" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.741@0.0.1366.741" timestamp="1609330884326" />
     <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609326405705">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.741@0.0.1366.741" timestamp="1609326405705" />
     <state x="692" y="401" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609277903109" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Server.ts</url>
-          <line>28</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

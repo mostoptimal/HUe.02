@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.users = exports.User = void 0;
+exports.User = void 0;
 //User is an Object contains the Data FirstName ,Lastname, Email, Password
 //wird im Backend benutzt
 var User = /** @class */ (function () {
@@ -13,6 +13,4 @@ var User = /** @class */ (function () {
     return User;
 }());
 exports.User = User;
-var users = new Array(); //Array from Object Users
-exports.users = users;
-//# sourceMappingURL=Users.js.map
+//export {users};

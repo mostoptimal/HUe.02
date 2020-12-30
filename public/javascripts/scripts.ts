@@ -1,4 +1,4 @@
-//import {User} from "./Users";
+import {User} from "./Users";
 //import {users} from "./Users";
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
@@ -7,7 +7,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     //updateUser();
     //deleteUser();
 });
-
 document.addEventListener('keypress', (event) => {
     if (event.keyCode === 13) {
         // Cancel the default action, if needed
@@ -18,22 +17,11 @@ document.addEventListener('keypress', (event) => {
 });
 
 //User Object
-class User{
-    vorName:String;
-    nachName: String;
-    email:String;
-    password:String;
-    constructor (vorname:String,lname:String,email:String,pass:String) {
-        this.vorName=vorname;
-        this.nachName=lname;
-        this.email=email;
-        this.password=pass;
-    }
-}
-//Array from Object User
-let users= new Array<User>();
+//let users= new Array<User>();
 //public variables
 let fName, lName, email, password;//public String Variables
+//Array from Object User
+let users= new Array<User>();//Array from Object Users
 //die function für den Button "Submit"
 function submitNewUser() {
     fName = (<HTMLInputElement>document.getElementById("vorName")).value;

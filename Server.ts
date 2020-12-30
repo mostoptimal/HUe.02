@@ -85,16 +85,14 @@ app.post('/users/', (req: express.Request, res: express.Response) => {
 });
 
 //user update firstname and lastname
-app.post("/users/:email", (req, res) => {
-    const found = users.some(user => user.email === req.body.email);
+app.post("/users/update", (req, res) => {
+    let userToUpdate = req.body;
+    const found = users.some(user => user.email === userToUpdate.email);
     if (found) {
-        const updUser = req.body;
         users.forEach(user => {
-            if (user.email === req.body.email) {
-                user.vorName = req.body.vorName;
-                user.nachName = req.body.nachName;
-                res.json({msg: `member ${req.body.email} is updated`});
-            }
+                user.vorName = userToUpdate.vorName;
+                user.nachName = userToUpdate.nachName;
+                res.json({msg: `member ${userToUpdate.email} is updated`});
         });
     } else {
         res.status(400).json({msg: "member is not found"});

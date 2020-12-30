@@ -16,10 +16,15 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="comit with delete">
+    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="New Note">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Server.ts" afterDir="false" />
     </list>
@@ -464,10 +469,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Node.js.bin/www" />
       <item itemvalue="HTTP Request.tester#2" />
       <item itemvalue="HTTP Request.tester#3" />
       <item itemvalue="HTTP Request.tester#4" />
+      <item itemvalue="Node.js.bin/www" />
       <item itemvalue="Node.js.Server.js" />
     </list>
     <recent_temporary>
@@ -843,7 +848,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609277913476</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="New Note">
+      <created>1609326413071</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1609326413071</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -854,6 +866,8 @@
         <option value="$PROJECT_DIR$/public/javascripts/Users.js.map" />
         <option value="$PROJECT_DIR$/public/javascripts/scripts.js.map" />
         <option value="$PROJECT_DIR$/Server.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/Users.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/Users.js" />
       </list>
     </option>
   </component>
@@ -870,7 +884,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated the Get User by Email" />
     <MESSAGE value="delete Methode(User)" />
     <MESSAGE value="Reapair the Table" />
     <MESSAGE value="some updates" />
@@ -895,7 +908,8 @@
     <MESSAGE value="Styling comments" />
     <MESSAGE value="sucessfull Get Request and Table with jQuery" />
     <MESSAGE value="comit with delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="comit with delete" />
+    <MESSAGE value="New Note" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Note" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="44" width="687" height="645" key="#Options" timestamp="1608116565299">
@@ -1002,30 +1016,23 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1609246152228" />
-    <state x="391" y="147" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1609279901299">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="278" y="105" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1609326417022">
+      <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609263901699" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609326417022" />
     <state x="391" y="147" width="1000" height="648" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609279901299" />
-    <state x="692" y="401" width="382" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609277903109">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609326405705">
+      <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="492" y="286" width="382" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.741@0.0.1366.741" timestamp="1609102978126" />
+    <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.741@0.0.1366.741" timestamp="1609326405705" />
     <state x="692" y="401" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609277903109" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/public/javascripts/Users.ts</url>
-          <line>4</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/Server.ts</url>
           <line>28</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

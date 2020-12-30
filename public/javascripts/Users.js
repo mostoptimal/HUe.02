@@ -1,16 +1,20 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
 //User is an Object contains the Data FirstName ,Lastname, Email, Password
 //wird im Backend benutzt
-var User = /** @class */ (function () {
-    function User(vorname, lname, email, pass) {
-        this.vorName = vorname;
-        this.nachName = lname;
-        this.email = email;
-        this.password = pass;
+/*
+class User{
+    vorName:String;
+    nachName: String;
+    email:String;
+    password:String;
+    constructor (vorname:String,lname:String,email:String,pass:String) {
+        this.vorName=vorname;
+        this.nachName=lname;
+        this.email=email;
+        this.password=pass;
     }
-    return User;
-}());
-exports.User = User;
+}
+*/
+//let users= new Array<User>();//Array from Object Users
+//export {User};
 //export {users};
+//# sourceMappingURL=Users.js.map

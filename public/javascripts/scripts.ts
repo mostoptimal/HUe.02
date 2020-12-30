@@ -1,4 +1,4 @@
-import {User} from "./Users";
+//import {User} from "./Users";
 //import {users} from "./Users";
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
@@ -17,7 +17,18 @@ document.addEventListener('keypress', (event) => {
 });
 
 //User Object
-//let users= new Array<User>();
+class User{
+    vorName:String;
+    nachName: String;
+    email:String;
+    password:String;
+    constructor (fName:String,lName:String,email:String,pass:String) {
+        this.vorName=fName;
+        this.nachName=lName;
+        this.email=email;
+        this.password=pass;
+    }
+}
 //public variables
 let fName, lName, email, password;//public String Variables
 //Array from Object User
@@ -55,8 +66,6 @@ function showAllUsersInTable() {
     table += "</table>";
     console.log(table);
     document.getElementById("usersTable").innerHTML = table;
-
-
 }
 
 /*Update Firstname and Lastname if the user exists*/
@@ -121,29 +130,16 @@ function sendDataToServer(user1:User){
 
 //---------------------
 
-//Get jQuerynpm
-$.ajax({
-    method: 'GET',
-    url: 'http://localhost:3000/users',
-    dataType:"json",
-    success: function (response) {
-        users=response;
-        buildTable(users);
-        console.log(users);
-    }
-});
 
 //HTTP/AJAX GET Request
 function getDataFromServer(){
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
-
     xhr.addEventListener("readystatechange", function() {
         if(this.readyState === 4) {
             console.log(this.responseText);
         }
     });
-
     xhr.open("GET", "http://localhost:3000/users");
     xhr.send();
     let responseTextAsJSON=JSON.stringify(xhr.responseText);
@@ -159,8 +155,19 @@ function deleteDataFromServer(){
     //postman
 }
 
+//Get jQuery npm
+$.ajax({
+    method: 'GET',
+    url: 'http://localhost:3000/users',
+    dataType:"json",
+    success: function (response) {
+        users=response.data;
+        buildTable(users);
+        console.log(users);
+    }
+});
 
-function buildTable(data){
+function buildTable(data :Array<User>){
     let docTable=(<HTMLInputElement>document.getElementById("usersTable"));
     let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (let i = 0; i < data.length; i++) {

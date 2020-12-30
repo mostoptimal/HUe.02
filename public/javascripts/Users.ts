@@ -1,5 +1,6 @@
 //User is an Object contains the Data FirstName ,Lastname, Email, Password
 //wird im Backend benutzt
+/*
 class User{
     vorName:String;
     nachName: String;
@@ -12,6 +13,7 @@ class User{
         this.password=pass;
     }
 }
+*/
 //let users= new Array<User>();//Array from Object Users
-export {User};
+//export {User};
 //export {users};

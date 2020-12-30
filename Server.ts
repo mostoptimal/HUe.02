@@ -1,11 +1,23 @@
 import * as express from "express";
-import {User} from "./public/javascripts/Users"; //import User class
+//import {User} from "./public/javascripts/Users"; //import User class
 //import {users} from "./public/javascripts/Users";//import Array of Users
 import {json} from "express"; //import users Array (Array of (user)Objects)
 const app = express();
 //const users = require("./main");
 const PORT = 3000;
 //const users = require("./public/users.json");
+class User{
+    vorName:String;
+    nachName: String;
+    email:String;
+    password:String;
+    constructor (vorname:String,lname:String,email:String,pass:String) {
+        this.vorName=vorname;
+        this.nachName=lname;
+        this.email=email;
+        this.password=pass;
+    }
+}
 
 let users= new Array<User>();//Array from Object Users
 
@@ -27,7 +39,7 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
  * Example of Users
  **/
 
-const u1= new User("Momo","LL","q@@.cd","defw");
+const u1= new User("Mofghgmo","LdfghL","qaa@aa.cad","defw");
 const u2= new User("Moegemo","LdgegeL","qs@eee.cefd","def56gujhw");
 const u3= new User("OOOITTRJ7PPP","SMSM","q3rfw3s@hotm.de","876544rtg");
 const u4= new User("jamiku","soko","jamiku@jp.co","slfhewiwefpiew321");

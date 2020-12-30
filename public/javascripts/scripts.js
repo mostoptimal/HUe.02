@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Users_1 = require("./Users");
+//import {User} from "./Users";
 //import {users} from "./Users";
 window.addEventListener('DOMContentLoaded', function (event) {
     console.log('DOM fully loaded and parsed');
@@ -18,7 +16,15 @@ document.addEventListener('keypress', function (event) {
     }
 });
 //User Object
-//let users= new Array<User>();
+var User = /** @class */ (function () {
+    function User(fName, lName, email, pass) {
+        this.vorName = fName;
+        this.nachName = lName;
+        this.email = email;
+        this.password = pass;
+    }
+    return User;
+}());
 //public variables
 var fName, lName, email, password; //public String Variables
 //Array from Object User
@@ -33,9 +39,9 @@ function submitNewUser() {
         alert("Missing Values please input all Details");
     }
     else {
-        users.push(new Users_1.User(fName, lName, email, password));
+        users.push(new User(fName, lName, email, password));
         console.log(users);
-        sendDataToServer(new Users_1.User(fName, lName, email, password)); //die function mit POST Request
+        sendDataToServer(new User(fName, lName, email, password)); //die function mit POST Request
         JSON.stringify(users);
         console.log(users);
         document.getElementById("vorName").value = "";
@@ -119,17 +125,6 @@ function sendDataToServer(user1) {
     console.log('data');
 }
 //---------------------
-//Get jQuerynpm
-$.ajax({
-    method: 'GET',
-    url: 'http://localhost:3000/users',
-    dataType: "json",
-    success: function (response) {
-        users = response;
-        buildTable(users);
-        console.log(users);
-    }
-});
 //HTTP/AJAX GET Request
 function getDataFromServer() {
     var xhr = new XMLHttpRequest();
@@ -153,6 +148,17 @@ function updateDataIntoServer() {
 function deleteDataFromServer() {
     //postman
 }
+//Get jQuery npm
+$.ajax({
+    method: 'GET',
+    url: 'http://localhost:3000/users',
+    dataType: "json",
+    success: function (response) {
+        users = response.data;
+        buildTable(users);
+        console.log(users);
+    }
+});
 function buildTable(data) {
     var docTable = document.getElementById("usersTable");
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";

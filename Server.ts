@@ -1,18 +1,13 @@
 import * as express from "express";
-//import {User} from "./public/javascripts/Users"; //import User class
-//import {users} from "./public/javascripts/Users";//import Array of Users
 import {json} from "express"; //import users Array (Array of (user)Objects)
 const app = express();
-//const users = require("./main");
 const PORT = 3000;
-
-//const users = require("./public/users.json");
+//User Class
 class User {
     vorName: String;
     nachName: String;
     email: String;
     password: String;
-
     constructor(vorname: String, lname: String, email: String, pass: String) {
         this.vorName = vorname;
         this.nachName = lname;
@@ -20,7 +15,7 @@ class User {
         this.password = pass;
     }
 }
-
+//Array from Object User
 let users = new Array<User>();//Array from Object Users
 
 app.listen(PORT, () => {
@@ -41,7 +36,6 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
  * sadsad
  * Example of Users
  **/
-
 const u1 = new User("Mofghgmo", "LdfghL", "qaa@aa.cad", "defw");
 const u2 = new User("Moegemo", "LdgegeL", "qs@eee.cefd", "def56gujhw");
 const u3 = new User("OOOITTRJ7PPP", "SMSM", "q3rfw3s@hotm.de", "876544rtg");
@@ -50,7 +44,6 @@ users.push(u1);
 users.push(u2);
 users.push(u3);
 users.push(u4);
-
 /**
  * Example of Users
  **/
@@ -62,8 +55,9 @@ app.get("/users", (req, res) => {
     console.log(users);//Test
 });
 //get one user per email
-app.get("/users/:email", (req, res) => {
-    const found = users.some(user => user.email === req.params.email);
+app.get("/users/user", (req, res) => {
+    let userReq =req.body;
+    const found = users.some(user => user.email === userReq.email);
     if (found) {
         res.json(users.filter(user => user.email === req.params.email));
     } else {
@@ -86,7 +80,6 @@ app.post('/users/', (req, res) => {
     } else {
         console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
         ///found with email , if found  u cann make a new user with same email
-        //res.send("post Requested id ");
         //check with Email if the User exists
         const found = users.some(user => user.email === newUser.email);
         if (found) {

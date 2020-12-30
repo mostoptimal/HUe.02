@@ -8,6 +8,7 @@ const PORT = 3000;
 //const users = require("./public/users.json");
 
 let users= new Array<User>();//Array from Object Users
+
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
 });

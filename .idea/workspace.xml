@@ -24,10 +24,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="delete User">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notes/Notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Notes/Notes.txt" afterDir="false" />
-    </list>
+    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="New Note" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -518,13 +515,6 @@
       <workItem from="1609186585174" duration="5855000" />
       <workItem from="1609240578283" duration="11572000" />
     </task>
-    <task id="LOCAL-00001" summary="Nothing Yet">
-      <created>1607691966664</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1607691966664</updated>
-    </task>
     <task id="LOCAL-00002" summary="Nothing Yet">
       <created>1607774425695</created>
       <option name="number" value="00002" />
@@ -861,7 +851,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609280326513</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="New Note">
+      <created>1609326093225</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1609326093226</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -888,7 +885,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated the Get User by Email" />
     <MESSAGE value="delete Methode(User)" />
     <MESSAGE value="Reapair the Table" />
     <MESSAGE value="some updates" />
@@ -913,7 +909,8 @@
     <MESSAGE value="Styling comments" />
     <MESSAGE value="sucessfull Get Request and Table with jQuery" />
     <MESSAGE value="delete User" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete User" />
+    <MESSAGE value="New Note" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Note" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="44" width="687" height="645" key="#Options" timestamp="1608116565299">
@@ -940,22 +937,22 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="470" y="78" width="415" height="577" key="Github.UntrackedFilesDialog/0.0.1366.741@0.0.1366.741" timestamp="1607691917914" />
-    <state width="1326" height="172" key="GridCell.Tab.0.bottom" timestamp="1609280685238">
+    <state width="1326" height="172" key="GridCell.Tab.0.bottom" timestamp="1609326241876">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="172" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609280685238" />
-    <state width="1326" height="172" key="GridCell.Tab.0.center" timestamp="1609280685234">
+    <state width="1326" height="172" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609326241876" />
+    <state width="1326" height="172" key="GridCell.Tab.0.center" timestamp="1609326241876">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="172" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1609280685234" />
-    <state width="1326" height="172" key="GridCell.Tab.0.left" timestamp="1609280685234">
+    <state width="1326" height="172" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1609326241876" />
+    <state width="1326" height="172" key="GridCell.Tab.0.left" timestamp="1609326241874">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="172" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1609280685234" />
-    <state width="1326" height="172" key="GridCell.Tab.0.right" timestamp="1609280685235">
+    <state width="1326" height="172" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1609326241874" />
+    <state width="1326" height="172" key="GridCell.Tab.0.right" timestamp="1609326241876">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="172" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1609280685235" />
+    <state width="1326" height="172" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1609326241876" />
     <state width="1326" height="204" key="GridCell.Tab.1.bottom" timestamp="1609177264250">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
@@ -1016,13 +1013,13 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="457" y="89" width="442" height="555" key="VCS.ChangeListViewerDialog/0.0.1366.741@0.0.1366.741" timestamp="1609325615553" />
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1609280332562">
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2" timestamp="1609326166671">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609280332562" />
-    <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609280031178">
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609326166671" />
+    <state x="492" y="286" width="382" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609326157243">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.741@0.0.1366.741" timestamp="1609280031178" />
+    <state x="492" y="286" width="382" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.741@0.0.1366.741" timestamp="1609326157243" />
   </component>
 </project>

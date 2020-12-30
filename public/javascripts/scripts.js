@@ -1,4 +1,6 @@
-//import {User} from "./Users";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Users_1 = require("./Users");
 //import {users} from "./Users";
 window.addEventListener('DOMContentLoaded', function (event) {
     console.log('DOM fully loaded and parsed');
@@ -15,16 +17,6 @@ document.addEventListener('keypress', function (event) {
         document.getElementById("submitBtn").click();
     }
 });
-//User Object
-var User = /** @class */ (function () {
-    function User(fName, lName, email, pass) {
-        this.vorName = fName;
-        this.nachName = lName;
-        this.email = email;
-        this.password = pass;
-    }
-    return User;
-}());
 //public variables
 var fName, lName, email, password; //public String Variables
 //Array from Object User
@@ -39,9 +31,9 @@ function submitNewUser() {
         alert("Missing Values please input all Details");
     }
     else {
-        users.push(new User(fName, lName, email, password));
+        users.push(new Users_1.User(fName, lName, email, password));
         console.log(users);
-        sendDataToServer(new User(fName, lName, email, password)); //die function mit POST Request
+        sendDataToServer(new Users_1.User(fName, lName, email, password)); //die function mit POST Request
         JSON.stringify(users);
         console.log(users);
         document.getElementById("vorName").value = "";
@@ -52,17 +44,19 @@ function submitNewUser() {
     }
 }
 //show the Table of Users Button:"Show Users Infos"
+/*
 function showAllUsersInTable() {
-    users = JSON.parse(getDataFromServer()); //GET Request methode
-    document.getElementById("formNewUser").value = '';
-    var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
-    for (var i = 0; i < users.length; i++) {
-        table += "<tr><td>" + users[i].vorName + "</td><td>" + users[i].nachName + "</td><td>" + users[i].email + "</td></tr>";
+    users=JSON.parse(getDataFromServer());//GET Request methode
+    (<HTMLInputElement>document.getElementById("formNewUser")).value = '';
+    let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
+    for (let i=0; i<users.length;i++){
+        table +="<tr><td>"+users[i].vorName+"</td><td>"+users[i].nachName+"</td><td>"+users[i].email+"</td></tr>";
     }
     table += "</table>";
     console.log(table);
     document.getElementById("usersTable").innerHTML = table;
 }
+*/
 /*Update Firstname and Lastname if the user exists*/
 function updateUser() {
     var fname, lname, email;
@@ -107,9 +101,6 @@ function deleteUser() {
 }
 //HTTP/AJAX POST Request
 function sendDataToServer(user1) {
-    var data = user1;
-    console.log('user1'); //
-    console.log(user1); //
     var xhr = new XMLHttpRequest();
     console.log('new XMLHttpRequest()'); //
     xhr.withCredentials = true;
@@ -121,8 +112,7 @@ function sendDataToServer(user1) {
     xhr.open("POST", "http://localhost:3000/users/");
     console.log('xhr.open');
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(JSON.stringify(data));
-    console.log('data');
+    xhr.send(JSON.stringify(user1));
 }
 //---------------------
 //HTTP/AJAX GET Request
@@ -155,11 +145,12 @@ $.ajax({
     dataType: "json",
     success: function (response) {
         users = response.data;
-        buildTable(users);
         console.log(users);
+        buildTable(users);
     }
 });
 function buildTable(data) {
+    console.log(data);
     var docTable = document.getElementById("usersTable");
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (var i = 0; i < data.length; i++) {

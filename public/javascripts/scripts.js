@@ -124,7 +124,7 @@ function sendDataToServer(user1) {
     console.log(data + " posted!");
 }
 //---------------------
-//HTTP/AJAX GET Request
+//HTTP/AJAX GET Request NOT USED
 function getDataFromServer() {
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -149,7 +149,7 @@ function updateDataInTheServer() {
             console.log(this.responseText);
         }
     });
-    xhr.open("POST", "localhost:3000/users/");
+    xhr.open("POST", "localhost:3000//users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
 }
@@ -169,6 +169,7 @@ $.ajax({
         buildTable(users);
     }
 });
+//
 function buildTable(data) {
     console.log("data variable" + data);
     var docTable = document.getElementById("usersTable");

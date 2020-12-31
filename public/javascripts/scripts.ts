@@ -131,7 +131,7 @@ function sendDataToServer(user1) {
 //---------------------
 
 
-//HTTP/AJAX GET Request
+//HTTP/AJAX GET Request NOT USED
 function getDataFromServer() {
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -160,9 +160,8 @@ function updateDataInTheServer() {
         }
     });
 
-    xhr.open("POST", "localhost:3000/users/");
+    xhr.open("POST", "localhost:3000//users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
-
     xhr.send(data);
 }
 
@@ -183,7 +182,7 @@ $.ajax({
         buildTable(users);
     }
 });
-
+//
 function buildTable(data :Array<User>) {
     console.log("data variable"+ data);
     let docTable = (<HTMLInputElement>document.getElementById("usersTable"));

@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Users_1 = require("./Users");
+//import {User} from "./Users";
 //import {users} from "./Users";
 window.addEventListener('DOMContentLoaded', function (event) {
     console.log('DOM fully loaded and parsed');
@@ -17,6 +15,15 @@ document.addEventListener('keypress', function (event) {
         document.getElementById("submitBtn").click();
     }
 });
+var User = /** @class */ (function () {
+    function User(vorname, lname, email, pass) {
+        this.vorName = vorname;
+        this.nachName = lname;
+        this.email = email;
+        this.password = pass;
+    }
+    return User;
+}());
 //public variables
 var fName, lName, email, password; //public String Variables
 //Array from Object User
@@ -31,14 +38,14 @@ function submitNewUser() {
         alert("Missing Values please input all Details");
     }
     else {
-        users.push(new Users_1.User(fName, lName, email, password));
+        users.push(new User(fName, lName, email, password));
         console.log(users);
-        sendDataToServer(new Users_1.User(fName, lName, email, password)); //die function mit POST Request
-        JSON.stringify(users);
+        sendDataToServer(new User(fName, lName, email, password)); //die function mit POST Request
+        JSON.stringify(users); //nicht wichtig im Code
         console.log(users);
         document.getElementById("vorName").value = "";
         document.getElementById("nachName").value = "";
-        email = document.getElementById("email").value = "";
+        document.getElementById("email").value = "";
         document.getElementById("passWort").value = "";
         alert("submitted " + fName + " " + lName);
     }
@@ -101,6 +108,7 @@ function deleteUser() {
 }
 //HTTP/AJAX POST Request
 function sendDataToServer(user1) {
+    var data = JSON.stringify(user1);
     var xhr = new XMLHttpRequest();
     console.log('new XMLHttpRequest()'); //
     xhr.withCredentials = true;
@@ -112,7 +120,8 @@ function sendDataToServer(user1) {
     xhr.open("POST", "http://localhost:3000/users/");
     console.log('xhr.open');
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(JSON.stringify(user1));
+    xhr.send(data);
+    console.log(data + " posted!");
 }
 //---------------------
 //HTTP/AJAX GET Request
@@ -131,26 +140,37 @@ function getDataFromServer() {
     return responseTextAsJSON;
 }
 //Update (POST) Request
-function updateDataIntoServer() {
-    //Postman
+function updateDataInTheServer() {
+    var data = JSON.stringify({ "vorName": "jojo", "nachName": "gg", "email": "a@b.veee" });
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+    xhr.open("POST", "localhost:3000/users/");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(data);
 }
 //Delete Request
 function deleteDataFromServer() {
     //postman
 }
-//Get jQuery npm
+//Get jQuery Request
 $.ajax({
     method: 'GET',
     url: 'http://localhost:3000/users',
     dataType: "json",
     success: function (response) {
-        users = response.data;
-        console.log(users);
+        console.log("the Response is: " + response);
+        users = response;
+        console.log("users;== " + users);
         buildTable(users);
     }
 });
 function buildTable(data) {
-    console.log(data);
+    console.log("data variable" + data);
     var docTable = document.getElementById("usersTable");
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (var i = 0; i < data.length; i++) {

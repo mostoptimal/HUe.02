@@ -1,8 +1,10 @@
 import * as express from "express";
-import {json} from "express"; //import users Array (Array of (user)Objects)
+import {User} from './public/javascripts/Users';
+
 const app = express();
 const PORT = 3000;
 //User Class
+/*
 class User {
     vorName: String;
     nachName: String;
@@ -15,6 +17,7 @@ class User {
         this.password = pass;
     }
 }
+*/
 //Array from Object User
 let users = new Array<User>();//Array from Object Users
 
@@ -50,8 +53,8 @@ users.push(u4);
 //get all users
 app.get("/users", (req, res) => {
     res.json(users);
-    console.log('Users sent');//Test
-    console.log(users);//Test
+    console.log('Users sent'); //Test
+    console.log(users);
 });
 //get one user per email
 app.get("/users/user", (req, res) => {

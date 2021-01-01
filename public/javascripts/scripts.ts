@@ -15,7 +15,7 @@ document.addEventListener('keypress', (event) => {
         document.getElementById("submitBtn").click();
     }
 });
-
+//Object User
 class User{
     vorName:String;
     nachName: String;
@@ -28,10 +28,10 @@ class User{
         this.password=pass;
     }
 }
-//public variables
-let fName, lName, email, password;//public String Variables
 //Array from Object User
 let users = new Array<User>();//Array from Object Users
+//public variables
+let fName, lName, email, password;//public String Variables
 //die function für den Button "Submit"
 function submitNewUser() {
     fName = (<HTMLInputElement>document.getElementById("vorName")).value;
@@ -80,6 +80,8 @@ function updateUser() {
         alert("please input the Firstname Lastname and the email");
     } else {
         for (let i = 0; i < users.length; i++) {
+            let newUser=JSON.stringify({vorName:fname,nachName:lname,email:email});
+            updateDataInTheServer(newUser);
             if (email === users[i].email) {
                 users[i].vorName = fname;
                 users[i].nachName = lname;
@@ -148,10 +150,9 @@ function getDataFromServer() {
 }
 
 //Update (POST) Request
-function updateDataInTheServer() {
-    var data = JSON.stringify({"vorName":"jojo","nachName":"gg","email":"a@b.veee"});
-
-    var xhr = new XMLHttpRequest();
+function updateDataInTheServer(user) {
+    let data = user;
+    let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
     xhr.addEventListener("readystatechange", function() {
@@ -192,4 +193,17 @@ function buildTable(data :Array<User>) {
     }
     console.log(table);
     docTable.innerHTML = table;
+}
+
+//Goto Update Page without going
+function getUpdateTxt(){
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("changeableArea").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "./javascripts/update.txt" , true);
+    console.log(xhttp.response);
+    xhttp.send();
 }

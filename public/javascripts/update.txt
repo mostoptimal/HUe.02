@@ -1,0 +1,19 @@
+<div class="container" style="padding: 2%;">
+    <div class="jumbotron" style="background-color: cadetblue">
+        <form id="formNewUser" method="get">
+            <div class="form-floating mb-3">
+                <label for="vorName">First Name</label>
+                <input type="text" class="form-control " id="vorName" placeholder="First Name" required>
+            </div>
+            <div class="form-floating mb-3">
+                <label for="nachName">Last Name</label>
+                <input type="text" class="form-control " id="nachName" placeholder="Last Name" required>
+            </div>
+            <div class="form-floating mb-3 ">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+            </div>
+        </form>
+        <button onclick="updateUser()" class="btn btn-secondary"  id="updateBtn" value="update">update</button>
+    </div>
+</div>

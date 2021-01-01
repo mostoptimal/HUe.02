@@ -85,7 +85,7 @@ app.post('/users/', (req, res) => {
         //check with Email if the User exists
         const found = users.some(user => user.email === newUser.email);
         if (found) {
-            console.log('the Email Adress is already exists');
+            console.log('the Email Address is already exists');
             res.send("user can't be dulplicated");
         } else {
             console.log("new user");

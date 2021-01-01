@@ -15,6 +15,7 @@ document.addEventListener('keypress', function (event) {
         document.getElementById("submitBtn").click();
     }
 });
+//Object User
 var User = /** @class */ (function () {
     function User(vorname, lname, email, pass) {
         this.vorName = vorname;
@@ -24,10 +25,10 @@ var User = /** @class */ (function () {
     }
     return User;
 }());
-//public variables
-var fName, lName, email, password; //public String Variables
 //Array from Object User
 var users = new Array(); //Array from Object Users
+//public variables
+var fName, lName, email, password; //public String Variables
 //die function für den Button "Submit"
 function submitNewUser() {
     fName = document.getElementById("vorName").value;
@@ -76,6 +77,8 @@ function updateUser() {
     }
     else {
         for (var i = 0; i < users.length; i++) {
+            var newUser = JSON.stringify({ vorName: fname, nachName: lname, email: email });
+            updateDataInTheServer(newUser);
             if (email === users[i].email) {
                 users[i].vorName = fname;
                 users[i].nachName = lname;
@@ -140,8 +143,8 @@ function getDataFromServer() {
     return responseTextAsJSON;
 }
 //Update (POST) Request
-function updateDataInTheServer() {
-    var data = JSON.stringify({ "vorName": "jojo", "nachName": "gg", "email": "a@b.veee" });
+function updateDataInTheServer(user) {
+    var data = user;
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
@@ -179,5 +182,17 @@ function buildTable(data) {
     }
     console.log(table);
     docTable.innerHTML = table;
+}
+//Goto Update Page without going
+function getUpdateTxt() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("changeableArea").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "./javascripts/update.txt", true);
+    console.log(xhttp.response);
+    xhttp.send();
 }
 //# sourceMappingURL=scripts.js.map

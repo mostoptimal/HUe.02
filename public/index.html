@@ -25,7 +25,7 @@
 <body>
 <!---Form---><!---Form---><!---Form---><!---Form--->
 <!---Form---><!---Form---><!---Form---><!---Form--->
-<div class="container" style="padding: 2%;">
+<div class="container" style="padding: 2%;" id="changeableArea">
     <div class="jumbotron" style="background-color: cadetblue">
         <form id="formNewUser" method="get">
             <div class="form-floating mb-3">
@@ -46,7 +46,7 @@
             </div>
         </form>
         <button class="btn btn-secondary "  id="submitBtn" value="Send" onclick="submitNewUser()">Submit</button>
-        <button class="btn btn-secondary"  id="updateBtn" value="update" onclick="window.location.href='Update.html'">update</button>
+        <button class="btn btn-secondary"  id="updateBtn" value="update" onclick="getUpdateTxt()">update User</button>
         <button  class="btn btn-secondary"  id="deleteBtn" value="delete" onclick="window.location.href='delete.html'">delete</button>
 
     </div>

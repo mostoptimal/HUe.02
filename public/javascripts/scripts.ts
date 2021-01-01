@@ -200,7 +200,7 @@ function getUpdateTxt(){
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("changeableArea").innerHTML = this.responseText;
+            document.getElementById("changeableArea").innerHTML = this.response;
         }
     };
     xhttp.open("GET", "./javascripts/update.txt" , true);

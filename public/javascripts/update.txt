@@ -1,4 +1,3 @@
-<div class="container" style="padding: 2%;">
     <div class="jumbotron" style="background-color: cadetblue">
         <form id="formNewUser" method="get">
             <div class="form-floating mb-3">
@@ -16,4 +15,3 @@
         </form>
         <button onclick="updateUser()" class="btn btn-secondary"  id="updateBtn" value="update">update</button>
     </div>
-</div>

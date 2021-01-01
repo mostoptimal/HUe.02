@@ -15,19 +15,22 @@ document.addEventListener('keypress', (event) => {
         document.getElementById("submitBtn").click();
     }
 });
+
 //Object User
-class User{
-    vorName:String;
+class User {
+    vorName: String;
     nachName: String;
-    email:String;
-    password:String;
-    constructor (vorname:String,lname:String,email:String,pass:String) {
-        this.vorName=vorname;
-        this.nachName=lname;
-        this.email=email;
-        this.password=pass;
+    email: String;
+    password: String;
+
+    constructor(vorname: String, lname: String, email: String, pass: String) {
+        this.vorName = vorname;
+        this.nachName = lname;
+        this.email = email;
+        this.password = pass;
     }
 }
+
 //Array from Object User
 let users = new Array<User>();//Array from Object Users
 //public variables
@@ -71,35 +74,39 @@ function showAllUsersInTable() {
 
 /*Update Firstname and Lastname if the user exists*/
 function updateUser() {
-    let fname, lname, email;
+    //let fname, lname, email;
     let found;
-    fname = (<HTMLInputElement>document.getElementById("vorName")).value;
-    lname = (<HTMLInputElement>document.getElementById("nachName")).value;
+    fName = (<HTMLInputElement>document.getElementById("vorName")).value;
+    lName = (<HTMLInputElement>document.getElementById("nachName")).value;
     email = (<HTMLInputElement>document.getElementById("email")).value;
-    if (!fname || !lname || !email) {
+    if (!fName || !lName || !email) {
         alert("please input the Firstname Lastname and the email");
     } else {
-        for (let i = 0; i < users.length; i++) {
-            let newUser=JSON.stringify({vorName:fname,nachName:lname,email:email});
-            updateDataInTheServer(newUser);
-            if (email === users[i].email) {
-                users[i].vorName = fname;
-                users[i].nachName = lname;
-                alert("user " + users[i].vorName + "has been updated");
-                (<HTMLInputElement>document.getElementById("vorName")).value = "";
-                (<HTMLInputElement>document.getElementById("nachName")).value = "";
-                (<HTMLInputElement>document.getElementById("email")).value = "";
-                found = true;
-            } else {
-                found = false;
-            }
-        }
-    }
-    if (!found) {
-        alert("user doesn't exist");
+        let newUser = JSON.stringify({vorName: fName, nachName: lName, email: email});
+        updateDataInTheServer(newUser);
+        (<HTMLInputElement>document.getElementById("vorName")).value = "";
+        (<HTMLInputElement>document.getElementById("nachName")).value = "";
+        (<HTMLInputElement>document.getElementById("email")).value = "";
     }
 }
+//Update (POST) Request
+function updateDataInTheServer(user) {
+    let data = user;
+    let xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
 
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+    xhr.open("POST", "localhost:3000/users/update");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(data);
+    alert(xhr.responseText);
+}
+
+//
 function deleteUser() {
     email = (<HTMLInputElement>document.getElementById("email")).value;
     for (let i = 0; i < users.length; i++) {
@@ -114,7 +121,7 @@ function deleteUser() {
 
 //HTTP/AJAX POST Request
 function sendDataToServer(user1) {
-    let data=JSON.stringify(user1);
+    let data = JSON.stringify(user1);
     let xhr = new XMLHttpRequest();
     console.log('new XMLHttpRequest()');//
     xhr.withCredentials = true;
@@ -127,7 +134,7 @@ function sendDataToServer(user1) {
     console.log('xhr.open');
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
-    console.log(data+" posted!");
+    console.log(data + " posted!");
 }
 
 //---------------------
@@ -149,22 +156,7 @@ function getDataFromServer() {
     return responseTextAsJSON;
 }
 
-//Update (POST) Request
-function updateDataInTheServer(user) {
-    let data = user;
-    let xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
 
-    xhr.addEventListener("readystatechange", function() {
-        if(this.readyState === 4) {
-            console.log(this.responseText);
-        }
-    });
-
-    xhr.open("POST", "localhost:3000//users/update");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(data);
-}
 
 //Delete Request
 function deleteDataFromServer() {
@@ -177,15 +169,16 @@ $.ajax({
     url: 'http://localhost:3000/users',
     dataType: "json",
     success: function (response) {
-        console.log("the Response is: "+response);
+        console.log("the Response is: " + response);
         users = response;
         console.log("users;== " + users);
         buildTable(users);
     }
 });
+
 //
-function buildTable(data :Array<User>) {
-    console.log("data variable"+ data);
+function buildTable(data: Array<User>) {
+    console.log("data variable" + data);
     let docTable = (<HTMLInputElement>document.getElementById("usersTable"));
     let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
     for (let i = 0; i < data.length; i++) {
@@ -196,14 +189,14 @@ function buildTable(data :Array<User>) {
 }
 
 //Goto Update Page without going
-function getUpdateTxt(){
+function getUpdateTxt() {
     let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("changeableArea").innerHTML = this.response;
         }
     };
-    xhttp.open("GET", "./javascripts/update.txt" , true);
+    xhttp.open("GET", "./javascripts/update.txt", true);
     console.log(xhttp.response);
     xhttp.send();
 }

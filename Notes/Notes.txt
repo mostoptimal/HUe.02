@@ -12,6 +12,6 @@
 
 7.delete method must check if the user exists or not
 
-8.verbieten ,dass die WebSeite neulädt
+8.verbieten ,dass die WebSeite neulädt * * Neu ,die Seite ändert sich zu update ohne neuzuladen
 
 9.

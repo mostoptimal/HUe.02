@@ -67,36 +67,38 @@ function showAllUsersInTable() {
 */
 /*Update Firstname and Lastname if the user exists*/
 function updateUser() {
-    var fname, lname, email;
+    //let fname, lname, email;
     var found;
-    fname = document.getElementById("vorName").value;
-    lname = document.getElementById("nachName").value;
+    fName = document.getElementById("vorName").value;
+    lName = document.getElementById("nachName").value;
     email = document.getElementById("email").value;
-    if (!fname || !lname || !email) {
+    if (!fName || !lName || !email) {
         alert("please input the Firstname Lastname and the email");
     }
     else {
-        for (var i = 0; i < users.length; i++) {
-            var newUser = JSON.stringify({ vorName: fname, nachName: lname, email: email });
-            updateDataInTheServer(newUser);
-            if (email === users[i].email) {
-                users[i].vorName = fname;
-                users[i].nachName = lname;
-                alert("user " + users[i].vorName + "has been updated");
-                document.getElementById("vorName").value = "";
-                document.getElementById("nachName").value = "";
-                document.getElementById("email").value = "";
-                found = true;
-            }
-            else {
-                found = false;
-            }
-        }
-    }
-    if (!found) {
-        alert("user doesn't exist");
+        var newUser = JSON.stringify({ vorName: fName, nachName: lName, email: email });
+        updateDataInTheServer(newUser);
+        document.getElementById("vorName").value = "";
+        document.getElementById("nachName").value = "";
+        document.getElementById("email").value = "";
     }
 }
+//Update (POST) Request
+function updateDataInTheServer(user) {
+    var data = user;
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+    xhr.open("POST", "localhost:3000/users/update");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(data);
+    alert(xhr.responseText);
+}
+//
 function deleteUser() {
     email = document.getElementById("email").value;
     for (var i = 0; i < users.length; i++) {
@@ -141,20 +143,6 @@ function getDataFromServer() {
     var responseTextAsJSON = JSON.stringify(xhr.responseText);
     console.log(responseTextAsJSON);
     return responseTextAsJSON;
-}
-//Update (POST) Request
-function updateDataInTheServer(user) {
-    var data = user;
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-            console.log(this.responseText);
-        }
-    });
-    xhr.open("POST", "localhost:3000//users/update");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(data);
 }
 //Delete Request
 function deleteDataFromServer() {

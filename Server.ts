@@ -59,7 +59,7 @@ app.get("/users", (req, res) => {
 });
 //get one user per email
 app.get("/users/user", (req, res) => {
-    let userReq =req.body;
+    let userReq = req.body;
     const found = users.some(user => user.email === userReq.email);
     if (found) {
         res.json(users.filter(user => user.email === req.params.email));
@@ -69,7 +69,7 @@ app.get("/users/user", (req, res) => {
 
 });
 
-//New User
+//New User //submit new user
 app.post('/users/', (req, res) => {
     const newUser = {
         vorName: req.body.vorName,
@@ -86,8 +86,8 @@ app.post('/users/', (req, res) => {
         //check with Email if the User exists
         const found = users.some(user => user.email === newUser.email);
         if (found) {
-            console.log('the Email Adress is already exists');
-            res.send("user dulplicated");
+            console.log('the Email Address is already exists');
+            res.send("user can't be dulplicated");
         } else {
             console.log("new user");
             //if the User not exists //push him in the Array
@@ -103,11 +103,15 @@ app.post("/users/update", (req, res) => {
     let userToUpdate = req.body;
     const found = users.some(user => user.email === userToUpdate.email);
     if (found) {
-        users.forEach(user => {
-            user.vorName = userToUpdate.vorName;
-            user.nachName = userToUpdate.nachName;
-            res.json({msg: `member ${userToUpdate.email} is updated`});
-        });
+        //to Change the actual User not a Copy
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].email === userToUpdate.email) {
+                users[i].vorName = userToUpdate.vorName;
+                users[i].nachName = userToUpdate.nachName;
+            }
+        }
+        console.log(users);
+        res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
     } else {
         res.status(400).json({msg: "member is not found"});
     }

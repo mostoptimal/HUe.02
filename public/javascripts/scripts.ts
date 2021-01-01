@@ -92,18 +92,21 @@ function updateUser() {
 //Update (POST) Request
 function updateDataInTheServer(user) {
     let data = user;
+    let msg;
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
-
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            console.log(this.responseText);
+            msg=this.responseText;
+            console.log(msg);
         }
     });
     xhr.open("POST", "localhost:3000/users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
-    alert(xhr.responseText);
+    msg=this.responseText;
+    console.log(msg);
+    alert(msg);
 }
 
 //

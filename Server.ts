@@ -108,9 +108,11 @@ app.post("/users/update", (req, res) => {
                 users[i].vorName = userToUpdate.vorName;
                 users[i].nachName = userToUpdate.nachName;
             }
+            console.log("for schleife udpate user");
         }
         console.log(users);
-        res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
+        res.send("member updated");
+        //res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
     } else {
         res.status(400).json({msg: "member is not found"});
     }

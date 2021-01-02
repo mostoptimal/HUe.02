@@ -33,7 +33,7 @@ app.use("/dependency", express.static(__dirname + "/node_modules"));
 
 app.get("/public/index.html", (req: express.Request, res: express.Response) => {
     res.status(200);
-    res.sendFile(__dirname + "/views/index.html");
+    res.sendFile(__dirname + "/public/index.html");
 });
 /**
  * Example of Users
@@ -103,7 +103,7 @@ app.post("/users/update", (req, res) => {
     const found = users.some(user => user.email === userToUpdate.email);
     if (found) {
         //to Change the actual User not a Copy
-        
+
         for (let i = 0; i < users.length; i++) {
             if (users[i].email === userToUpdate.email) {
                 users[i].vorName = userToUpdate.vorName;

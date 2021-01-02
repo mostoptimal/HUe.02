@@ -95,7 +95,7 @@ function updateDataInTheServer(user) {
             console.log(msg);
         }
     });
-    xhr.open("POST", "localhost:3000/users/update");
+    xhr.open("POST", "http://localhost:3000/users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
     msg = this.responseText;
@@ -164,7 +164,7 @@ $.ajax({
         buildTable(users);
     }
 });
-//
+//Table in index Html
 function buildTable(data) {
     console.log("data variable" + data);
     var docTable = document.getElementById("usersTable");

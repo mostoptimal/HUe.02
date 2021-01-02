@@ -86,17 +86,21 @@ function updateUser() {
 //Update (POST) Request
 function updateDataInTheServer(user) {
     var data = user;
+    var msg;
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            console.log(this.responseText);
+            msg = this.responseText;
+            console.log(msg);
         }
     });
     xhr.open("POST", "localhost:3000/users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
-    alert(xhr.responseText);
+    msg = this.responseText;
+    console.log(msg); //durch status code (403,200...etc.)
+    alert(msg);
 }
 //
 function deleteUser() {
@@ -164,9 +168,9 @@ $.ajax({
 function buildTable(data) {
     console.log("data variable" + data);
     var docTable = document.getElementById("usersTable");
-    var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
+    var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th><th>Aktionen</th></tr></thead>";
     for (var i = 0; i < data.length; i++) {
-        table += "<tr><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td></tr>";
+        table += "<tr><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td><button class='editUser'>Edit</button><button class='deleteUser'>Delete</button></td></tr>";
     }
     console.log(table);
     docTable.innerHTML = table;

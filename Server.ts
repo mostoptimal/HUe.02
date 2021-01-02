@@ -104,14 +104,17 @@ app.post("/users/update", (req, res) => {
     const found = users.some(user => user.email === userToUpdate.email);
     if (found) {
         //to Change the actual User not a Copy
+        
         for (let i = 0; i < users.length; i++) {
             if (users[i].email === userToUpdate.email) {
                 users[i].vorName = userToUpdate.vorName;
                 users[i].nachName = userToUpdate.nachName;
             }
+            console.log("for schleife udpate user");
         }
         console.log(users);
-        res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
+        res.send("member updated");
+        //res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
     } else {
         res.status(400).json({msg: "member is not found"});
     }

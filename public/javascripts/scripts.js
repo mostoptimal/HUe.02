@@ -99,7 +99,7 @@ function updateDataInTheServer(user) {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
     msg = this.responseText;
-    console.log(msg);
+    console.log(msg); //durch status code (403,200...etc.)
     alert(msg);
 }
 //
@@ -168,9 +168,9 @@ $.ajax({
 function buildTable(data) {
     console.log("data variable" + data);
     var docTable = document.getElementById("usersTable");
-    var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
+    var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th><th>Aktionen</th></tr></thead>";
     for (var i = 0; i < data.length; i++) {
-        table += "<tr><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td></tr>";
+        table += "<tr><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td><button class='editUser'>Edit</button><button class='deleteUser'>Delete</button></td></tr>";
     }
     console.log(table);
     docTable.innerHTML = table;

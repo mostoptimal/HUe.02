@@ -76,22 +76,21 @@ function showAllUsersInTable() {
 function updateUser() {
     //let fname, lname, email;
     let found;
-    fName = (<HTMLInputElement>document.getElementById("vorName")).value;
-    lName = (<HTMLInputElement>document.getElementById("nachName")).value;
-    email = (<HTMLInputElement>document.getElementById("email")).value;
+    fName = (<HTMLInputElement>document.getElementById("firstName")).value;
+    lName = (<HTMLInputElement>document.getElementById("lastName")).value;
+    email = (<HTMLInputElement>document.getElementById("emailAdress")).value;
     if (!fName || !lName || !email) {
         alert("please input the Firstname Lastname and the email");
     } else {
         let newUser = JSON.stringify({vorName: fName, nachName: lName, email: email});
         updateDataInTheServer(newUser);
-        (<HTMLInputElement>document.getElementById("vorName")).value = "";
-        (<HTMLInputElement>document.getElementById("nachName")).value = "";
-        (<HTMLInputElement>document.getElementById("email")).value = "";
+        (<HTMLInputElement>document.getElementById("firstName")).value = "";
+        (<HTMLInputElement>document.getElementById("lastName")).value = "";
+        (<HTMLInputElement>document.getElementById("emailAdress")).value = "";
     }
 }
 //Update (POST) Request
 function updateDataInTheServer(user) {
-    let data = user;
     let msg;
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -103,10 +102,15 @@ function updateDataInTheServer(user) {
     });
     xhr.open("POST", "http://localhost:3000/users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(data);
+    xhr.send(user);
     msg=this.responseText;
     console.log(msg);//durch status code (403,200...etc.)
-    alert(msg);
+    if (xhr.status==200){
+        alert("User Updated"+user.vorName);
+    }else
+        if (xhr.status==404){
+            alert("The User is not found");
+        }
 }
 
 //just thinking of it
@@ -191,20 +195,29 @@ $.ajax({
 
 //Table in index Html
 function buildTable(data: Array<User>) {
+    let rowNumber = 1;
     console.log("data variable" + data);
     let docTable = (<HTMLInputElement>document.getElementById("usersTable"));
     let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th><th>Aktionen</th></tr></thead>";
     for (let i = 0; i < data.length; i++) {
         table += "<tr><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td>" +
-            "<button type=\"button\" data-toggle=\"modal\" data-target=\"#updateUserModal\">Edit</button>" +
+            "<button type=\"button\" data-toggle=\"modal\" data-target=\"#updateUserModal\" onclick='returnUserIndex(this)'>Edit</button>" +
             "<button class='deleteUser'>Delete</button>" +
             "</td></tr>";
+        rowNumber++;
     }
 
     console.log(table);
     docTable.innerHTML = table;
 }
-
+function returnUserIndex(zeile){
+    let i = (zeile.parentNode.parentNode.rowIndex)-1;
+    console.log(i);
+    console.log(users[i]);
+    (<HTMLInputElement>document.getElementById("firstName")).value=users[i].vorName;
+    (<HTMLInputElement>document.getElementById("lastName")).value=users[i].nachName;
+    (<HTMLInputElement>document.getElementById("emailAdress")).value=users[i].email;
+}
 //Goto Update Page without going
 function getUpdateTxt() {
     let xhttp = new XMLHttpRequest();

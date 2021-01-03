@@ -99,7 +99,7 @@ function updateDataInTheServer(user) {
             console.log(this.responseText);
         }
     });
-    xhr.open("POST", "http://localhost:3000/users/update");
+    xhr.open("PUT", "http://localhost:3000/users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(user);
     //We need the HTTP Get for the New Array Table
@@ -164,7 +164,6 @@ function deleteDataFromServer(email) {
 function sendDataToServer(user1) {
     let data = JSON.stringify(user1);
     let xhr = new XMLHttpRequest();
-    console.log('new XMLHttpRequest()');//
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
@@ -231,9 +230,9 @@ function returnUserIndex(zeile){
     let i = (zeile.parentNode.parentNode.rowIndex)-1;
     console.log(i);
     console.log(users[i]);
-    (<HTMLInputElement>document.getElementById("firstName")).value=users[i].vorName;
-    (<HTMLInputElement>document.getElementById("lastName")).value=users[i].nachName;
-    (<HTMLInputElement>document.getElementById("emailAdress")).value=users[i].email;
+    (<HTMLInputElement>document.getElementById("firstName")).value=users[i].vorName.toString();
+    (<HTMLInputElement>document.getElementById("lastName")).value=users[i].nachName.toString();
+    (<HTMLInputElement>document.getElementById("emailAdress")).value=users[i].email.toString();
     return i;
 }
 //Goto Update Page without going

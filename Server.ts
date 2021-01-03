@@ -4,21 +4,7 @@ import {User} from './public/javascripts/Users';
 const app = express();
 const PORT = 3000;
 //User Class
-/*
-class User {
-    vorName: String;
-    nachName: String;
-    email: String;
-    password: String;
-    constructor(vorname: String, lname: String, email: String, pass: String) {
-        this.vorName = vorname;
-        this.nachName = lname;
-        this.email = email;
-        this.password = pass;
-    }
-}
 
-*/
 //Array from Object User
 let users = new Array<User>();//Array from Object Users
 
@@ -100,8 +86,8 @@ app.post('/users/', (req, res) => {
         }
     }
 });
-
 //user update firstname and lastname
+/*
 app.post("/users/update", (req, res) => {
     let userToUpdate = req.body;
     let found = users.some(user => user.email === userToUpdate.email);
@@ -111,14 +97,23 @@ app.post("/users/update", (req, res) => {
         //to Change the actual User not a Copy
         foundedUser.vorName=userToUpdate.vorName;
         foundedUser.nachName=userToUpdate.nachName;
-        /*
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].email === userToUpdate.email) {
-                users[i].vorName = userToUpdate.vorName;
-                users[i].nachName = userToUpdate.nachName;
-            }
-        }
-        */
+        console.log(users);
+        res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
+    } else {
+        res.status(400).json({msg: "member is not found"});
+    }
+});
+*/
+//Put to Update user
+app.put("/users/update",(req,res)=>{
+    let userToUpdate = req.body;
+    let found = users.some(user => user.email === userToUpdate.email);
+    let foundedUser=users.find(user => user.email === userToUpdate.email);
+    if (found) {
+        console.log(foundedUser);
+        //to Change the actual User not a Copy
+        foundedUser.vorName=userToUpdate.vorName;
+        foundedUser.nachName=userToUpdate.nachName;
         console.log(users);
         res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
     } else {

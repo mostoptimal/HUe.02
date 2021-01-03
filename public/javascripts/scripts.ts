@@ -108,10 +108,12 @@ function updateDataInTheServer(user) {
 //just thinking of it
 function deleteUser() {
     let table= document.getElementById("usersTable") as HTMLTableElement;
-    let index;
+    let index=0;
+
     for (let i=0;i<table.rows.length;i++){
         table.rows[i].cells[3].onclick= function (){
-
+            email=table.rows[i].cells[2].innerHTML;
+            deleteDataFromServer(email);
             index=this.parentElement.rowIndex;
             table.deleteRow(index);
         }
@@ -121,23 +123,31 @@ function deleteUser() {
 }
 //AJAX Delete Request
 function deleteDataFromServer(email) {
+    let data=JSON.stringify({email:email});
+    console.log(email);
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function() {
         if(this.readyState === 4) {
-            console.log(this.responseText);
+            //console.log(this.responseText);
         }
     });
-    xhr.open("DELETE", "localhost:3000/users/user");
+    xhr.open("DELETE", "http://localhost:3000/users/user");
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(email);
+    xhr.send(data);
+    console.log("delete sent");
+    alert("deleted");
+    /*
     if(xhr.status===200){
+        console.log("200");
         alert("User deleted");
     }else{
         if (xhr.status===400){
+            console.log("400");
             alert("User not found"); //must not be real //maybe there is always the right user
         }
     }
+    */
 }
 
 //HTTP/AJAX POST Request

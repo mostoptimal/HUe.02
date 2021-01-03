@@ -128,14 +128,17 @@ app.post("/users/update", (req, res) => {
 
 //delete User by finding Email
 app.delete("/users/user", (req, res) => {
+    console.log("route is good");
     let {email} = req.body;
     //find returns true for founded Object ,false for not founded
-    let deleted = users.find(user => user.email === email);
-    if (deleted) {
+    let found = users.find(user => user.email === email);
+    if (found) {
         // filter = delete the user with email and gibt zruck array with alle andere Users
         users = users.filter(user => user.email != email);
+        console.log("deleting...if");
         res.status(200).json({message: "user deleted"});
     } else {
+        console.log("deleting...else");
         res.status(404).json({message: "user dosen't exist"});
     }
     console.log(users);

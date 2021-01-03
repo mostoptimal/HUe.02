@@ -36,7 +36,7 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
     res.sendFile(__dirname + "/public/index.html");
 });
 /**
- * sadsad
+ *
  * Example of Users
  **/
 const u1 = new User("Mofghgmo", "LdfghL", "qaa@aa.cad", "defw");

@@ -122,12 +122,12 @@ app.post("/users/update", (req, res) => {
 });
 
 //delete User by finding Email
-app.delete("/users/:email", (req, res) => {
+app.delete("/users/user", (req, res) => {
 
-    const {email} = req.params; //deocntruct parameter
+    let {email} = req.body;
 
-    res.send("lets delete the moderfucker");
-    //boolean gibt if any user  diese email hat
+    res.send("lets delete the User");
+    //find returns true for founded Object ,false for not founded
     let deleted = users.find(user => user.email === email);
     if (deleted) {
         // filter = deelet the user with email  and gibt zruck array with alle andere Users

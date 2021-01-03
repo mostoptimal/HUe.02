@@ -104,16 +104,6 @@ function updateDataInTheServer(user) {
 }
 //
 function deleteUser() {
-    email = document.getElementById("email").value;
-    for (var i = 0; i < users.length; i++) {
-        if (email == users[i].email) {
-            users.splice(i, 1);
-        }
-        else {
-            alert('The Entered Email is not for any Registered User');
-        }
-    }
-    console.log(users);
 }
 //HTTP/AJAX POST Request
 function sendDataToServer(user1) {

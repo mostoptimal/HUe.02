@@ -102,14 +102,24 @@ function updateDataInTheServer(user) {
     xhr.open("POST", "http://localhost:3000/users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(user);
-    console.log(this.responseText);//durch status code (403,200...etc.)
+    //We need the HTTP Get for the New Array Table
+    $.ajax({
+        method: 'GET',
+        url: 'http://localhost:3000/users',
+        dataType: "json",
+        success: function (response) {
+            console.log("the Response is: " + response);
+            users = response;
+            console.log("users;== " + users);
+            buildTable(users);
+        }
+    });
 }
 
 //just thinking of it
 function deleteUser() {
     let table= document.getElementById("usersTable") as HTMLTableElement;
     let index=0;
-
     for (let i=0;i<table.rows.length;i++){
         table.rows[i].cells[3].onclick= function (){
             email=table.rows[i].cells[2].innerHTML;
@@ -136,7 +146,7 @@ function deleteDataFromServer(email) {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
     console.log("delete sent");
-    alert("deleted");
+    alert(`User ${email} deleted`);
     /*
     if(xhr.status===200){
         console.log("200");
@@ -213,10 +223,10 @@ function buildTable(data: Array<User>) {
             "</td></tr>";
         rowNumber++;
     }
-
     console.log(table);
     docTable.innerHTML = table;
 }
+//Load the User Infos in the popup(Bootstrap Modal)
 function returnUserIndex(zeile){
     let i = (zeile.parentNode.parentNode.rowIndex)-1;
     console.log(i);

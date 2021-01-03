@@ -40,6 +40,7 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
  *
  * Example of Users
  **/
+
 const u1 = new User("Mofghgmo", "LdfghL", "qaa@aa.cad", "defw");
 const u2 = new User("Moegemo", "LdgegeL", "qs@eee.cefd", "def56gujhw");
 const u3 = new User("OOOITTRJ7PPP", "SMSM", "q3rfw3s@hotm.de", "876544rtg");
@@ -48,6 +49,7 @@ users.push(u1);
 users.push(u2);
 users.push(u3);
 users.push(u4);
+
 /**
  * Example of Users
  **/
@@ -61,7 +63,7 @@ app.get("/users", (req, res) => {
 //get one user per email
 app.get("/users/user", (req, res) => {
     let userReq = req.body;
-    const found = users.some(user => user.email === userReq.email);
+    let found = users.some(user => user.email === userReq.email);
     if (found) {
         res.json(users.filter(user => user.email === req.params.email));
     } else {
@@ -102,20 +104,23 @@ app.post('/users/', (req, res) => {
 //user update firstname and lastname
 app.post("/users/update", (req, res) => {
     let userToUpdate = req.body;
-    const found = users.some(user => user.email === userToUpdate.email);
+    let found = users.some(user => user.email === userToUpdate.email);
+    let foundedUser=users.find(user => user.email === userToUpdate.email);
     if (found) {
+        console.log(foundedUser);
         //to Change the actual User not a Copy
-
+        foundedUser.vorName=userToUpdate.vorName;
+        foundedUser.nachName=userToUpdate.nachName;
+        /*
         for (let i = 0; i < users.length; i++) {
             if (users[i].email === userToUpdate.email) {
                 users[i].vorName = userToUpdate.vorName;
                 users[i].nachName = userToUpdate.nachName;
             }
-            console.log("for schleife udpate user");
         }
+        */
         console.log(users);
-        res.send("member updated");
-        //res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
+        res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
     } else {
         res.status(400).json({msg: "member is not found"});
     }

@@ -67,52 +67,45 @@ function showAllUsersInTable() {
 */
 /*Update Firstname and Lastname if the user exists*/
 function updateUser() {
-    //let fname, lname, email;
     fName = document.getElementById("firstName").value;
     lName = document.getElementById("lastName").value;
     email = document.getElementById("emailAdress").value;
-    if (!fName || !lName || !email) {
+    var index = users.findIndex(function (user) { return user.email === email; }) + 1;
+    console.log("index of him " + index);
+    if (!fName || !lName) {
         alert("please input the Firstname Lastname and the email");
     }
     else {
-        let newUser = JSON.stringify({ vorName: fName, nachName: lName, email: email });
+        var newUser = JSON.stringify({ vorName: fName, nachName: lName, email: email });
         updateDataInTheServer(newUser);
         document.getElementById("firstName").value = "";
         document.getElementById("lastName").value = "";
-        document.getElementById("emailAdress").value = "";
     }
+    //    document.getElementById(index.toString()).childNodes[0].nodeValue=fName;
 }
 //Update (POST) Request
 function updateDataInTheServer(user) {
-    var msg;
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            msg = this.responseText;
-            console.log(msg);
+            console.log(this.responseText);
         }
     });
     xhr.open("POST", "http://localhost:3000/users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(user);
-    msg = this.responseText;
-    console.log(msg); //durch status code (403,200...etc.)
-    if (xhr.status == 200) {
-        alert("User Updated" + user.vorName);
-    }
-    else if (xhr.status == 404) {
-        alert("The User is not found");
-    }
+    console.log(this.responseText); //durch status code (403,200...etc.)
 }
 //just thinking of it
 function deleteUser() {
-    email = document.getElementById("email").value;
-    if (!email) {
-        alert("PLease Write an Email!");
-    }
-    else {
-        deleteDataFromServer(email);
+    var table = document.getElementById("usersTable");
+    var index;
+    for (var i = 0; i < table.rows.length; i++) {
+        table.rows[i].cells[3].onclick = function () {
+            index = this.parentElement.rowIndex;
+            table.deleteRow(index);
+        };
     }
 }
 //AJAX Delete Request
@@ -188,9 +181,9 @@ function buildTable(data) {
     var docTable = document.getElementById("usersTable");
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th><th>Aktionen</th></tr></thead>";
     for (var i = 0; i < data.length; i++) {
-        table += "<tr><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td>" +
+        table += "<tr id=" + (rowNumber) + "><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td>" +
             "<button type=\"button\" data-toggle=\"modal\" data-target=\"#updateUserModal\" onclick='returnUserIndex(this)'>Edit</button>" +
-            "<button class='deleteUser'>Delete</button>" +
+            "<button class='deleteUser' onclick='deleteUser()'>Delete</button>" +
             "</td></tr>";
         rowNumber++;
     }
@@ -204,6 +197,7 @@ function returnUserIndex(zeile) {
     document.getElementById("firstName").value = users[i].vorName;
     document.getElementById("lastName").value = users[i].nachName;
     document.getElementById("emailAdress").value = users[i].email;
+    return i;
 }
 //Goto Update Page without going
 function getUpdateTxt() {

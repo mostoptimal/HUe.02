@@ -5,6 +5,8 @@
 <!--Head--><!--Head--><!--Head-->
 <head>
     <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -45,18 +47,59 @@
                 <input type="password" class="form-control " id="passWort" placeholder="Password" required>
             </div>
         </form>
-        <button class="btn btn-secondary "  id="submitBtn" value="Send" onclick="submitNewUser()">Submit</button>
-        <button class="btn btn-secondary"  id="updateBtn" value="update" onclick="getUpdateTxt()">update User</button>
-        <button  class="btn btn-secondary"  id="deleteBtn" value="delete" onclick="window.location.href='delete.html'">delete</button>
+        <button class="btn btn-secondary " id="submitBtn" value="Send" onclick="submitNewUser()">Submit</button>
+        <button class="btn btn-secondary" id="updateBtn" value="update" onclick="getUpdateTxt()">update User</button>
+        <button class="btn btn-secondary" id="deleteBtn" value="delete" onclick="window.location.href='delete.html'">
+            delete
+        </button>
 
     </div>
 </div>
 <!---Form End---><!---Form End---><!---Form End--->
 <!------------------------------------------------>
+<!-- Popup Update User -->
+<div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="jumbotron" style="background-color: cadetblue">
+                    <form id="modal_UpdateUser" method="get">
+                        <div class="form-floating mb-3">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control " id="firstName" placeholder="First Name" required>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control " id="lastName" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-floating mb-3 ">
+                            <label for="emailAdress">Email address</label>
+                            <input type="email" class="form-control" id="emailAdress" placeholder="name@example.com"
+                                   required disabled>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="updateUser()">Update User</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Popup Update User End -->
+<!------------------------------------------------>
 <!---Show Infos Button---><!---Show Infos Button--->
 <div class="container" align="center">
     <div class="jumbotron" style="padding: 2%">
-        <button onclick="buildTable(users)" id="readButton" style="background-color: skyblue"  >Show Users Infos</button>
+        <button onclick="buildTable(users)" id="readButton" style="background-color: skyblue">Show Users Infos</button>
     </div>
 </div>
 <!---Show Infos Button End---><!---Show Infos Button End--->
@@ -69,6 +112,8 @@
     </table>
 </div>
 <br><br><br><br><br>
+
+
 <!--Table End--><!--Table End--><!--Table End-->
 <!--Table End--><!--Table End--><!--Table End-->
 <!--script-->

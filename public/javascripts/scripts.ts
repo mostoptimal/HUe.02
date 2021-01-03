@@ -109,9 +109,34 @@ function updateDataInTheServer(user) {
     alert(msg);
 }
 
-//
+//just thinking of it
 function deleteUser() {
-
+    email= (<HTMLInputElement>document.getElementById("email")).value;
+    if (!email){
+        alert("PLease Write an Email!");
+    }else{
+        deleteDataFromServer(email);
+    }
+}
+//AJAX Delete Request
+function deleteDataFromServer(email) {
+    let xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+    xhr.open("DELETE", "localhost:3000/users/user");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(email);
+    if(xhr.status===200){
+        alert("User deleted");
+    }else{
+        if (xhr.status===400){
+            alert("User not found"); //must not be real //maybe there is always the right user
+        }
+    }
 }
 
 //HTTP/AJAX POST Request
@@ -146,16 +171,9 @@ function getDataFromServer() {
     });
     xhr.open("GET", "http://localhost:3000/users");
     xhr.send();
-    let responseTextAsJSON = JSON.stringify(xhr.responseText);
+    let responseTextAsJSON = xhr.responseText;
     console.log(responseTextAsJSON);
     return responseTextAsJSON;
-}
-
-
-
-//Delete Request
-function deleteDataFromServer() {
-    //postman
 }
 
 //Get jQuery Request
@@ -177,8 +195,12 @@ function buildTable(data: Array<User>) {
     let docTable = (<HTMLInputElement>document.getElementById("usersTable"));
     let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th><th>Aktionen</th></tr></thead>";
     for (let i = 0; i < data.length; i++) {
-        table += "<tr><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td><button class='editUser'>Edit</button><button class='deleteUser'>Delete</button></td></tr>";
+        table += "<tr><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td>" +
+            "<button type=\"button\" data-toggle=\"modal\" data-target=\"#updateUserModal\">Edit</button>" +
+            "<button class='deleteUser'>Delete</button>" +
+            "</td></tr>";
     }
+
     console.log(table);
     docTable.innerHTML = table;
 }

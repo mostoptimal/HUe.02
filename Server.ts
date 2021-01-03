@@ -17,6 +17,7 @@ class User {
         this.password = pass;
     }
 }
+
 */
 //Array from Object User
 let users = new Array<User>();//Array from Object Users

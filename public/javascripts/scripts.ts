@@ -124,7 +124,8 @@ function deleteUser() {
         table.rows[i].cells[3].onclick= function (){
             email=table.rows[i].cells[2].innerHTML;
             deleteDataFromServer(email);
-            index=this.parentElement.rowIndex;
+            //index=this.parentElement.rowIndex;
+            index=i;
             table.deleteRow(index);
         }
 
@@ -162,7 +163,7 @@ function deleteDataFromServer(email) {
 
 //HTTP/AJAX POST Request
 function sendDataToServer(user1) {
-    let data = JSON.stringify(user1);
+    let data = JSON.stringify({vorName:user1.vorName,nachName:user1.nachName,email:user1.email,passWort:user1.passWort});
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {

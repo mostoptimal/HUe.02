@@ -66,10 +66,8 @@ app.post('/users/', (req, res) => {
         email: req.body.email,
         passWort: req.body.passWort,
     }
+    console.log("before if" + req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
     if (!newUser.vorName || !newUser.nachName || !newUser.email || !newUser.passWort) {
-        console.log("User Data can not be empty!!");
-        res.status(400).json({msg: "User Data can not be empty!!"});
-    } else {
         console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
         ///found with email , if found  u cann make a new user with same email
         //check with Email if the User exists
@@ -84,6 +82,9 @@ app.post('/users/', (req, res) => {
             console.log(JSON.stringify(users));
             res.send("new User submitted");
         }
+    } else {
+        console.log("User Data can not be empty!!");
+        res.status(400).json({msg: "User Data can not be empty!!"});
     }
 });
 //user update firstname and lastname
@@ -105,15 +106,15 @@ app.post("/users/update", (req, res) => {
 });
 */
 //Put to Update user
-app.put("/users/update",(req,res)=>{
+app.put("/users/update", (req, res) => {
     let userToUpdate = req.body;
     let found = users.some(user => user.email === userToUpdate.email);
-    let foundedUser=users.find(user => user.email === userToUpdate.email);
+    let foundedUser = users.find(user => user.email === userToUpdate.email);
     if (found) {
         console.log(foundedUser);
         //to Change the actual User not a Copy
-        foundedUser.vorName=userToUpdate.vorName;
-        foundedUser.nachName=userToUpdate.nachName;
+        foundedUser.vorName = userToUpdate.vorName;
+        foundedUser.nachName = userToUpdate.nachName;
         console.log(users);
         res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
     } else {

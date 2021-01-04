@@ -3,10 +3,9 @@ import {User} from './public/javascripts/Users';
 
 const app = express();
 const PORT = 3000;
-//User Class
 
 //Array from Object User
-let users = new Array<User>();//Array from Object Users
+let users = new Array<User>();
 
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
@@ -22,9 +21,10 @@ app.get("/public/index.html", (req: express.Request, res: express.Response) => {
     res.status(200);
     res.sendFile(__dirname + "/public/index.html");
 });
+
 /**
  *
- * Example of Users
+ * Examples of Users
  **/
 
 const u1 = new User("Mofghgmo", "LdfghL", "qaa@aa.cad", "defw");
@@ -37,21 +37,22 @@ users.push(u3);
 users.push(u4);
 
 /**
- * Example of Users
+ * Examples of Users
  **/
 
 //get all users
 app.get("/users", (req, res) => {
     res.json(users);
-    console.log('Users sent'); //Test
+    console.log('Users sent'); //Console Output Test
     console.log(users);
 });
 //get one user per email
 app.get("/users/user", (req, res) => {
     let userReq = req.body;
+    //returns True if an Element (User) exists in the Array
     let found = users.some(user => user.email === userReq.email);
     if (found) {
-        res.json(users.filter(user => user.email === req.params.email));
+        res.status(200).json(users.filter(user => user.email === req.params.email));
     } else {
         res.status(400).json({msg: "member is not found"});
     }
@@ -66,10 +67,10 @@ app.post('/users/', (req, res) => {
         email: req.body.email,
         passWort: req.body.passWort,
     }
-    console.log("before if" + req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
+    //To Test if an Empty {JSON} Body sent
     if (!newUser.vorName || !newUser.nachName || !newUser.email || !newUser.passWort) {
         console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
-        ///found with email , if found  u cann make a new user with same email
+        ///found with email , if found  u can make a new user with same email
         //check with Email if the User exists
         const found = users.some(user => user.email === newUser.email);
         if (found) {

@@ -29,29 +29,30 @@ var User = /** @class */ (function () {
 var users = new Array(); //Array from Object Users
 //public variables
 var fName, lName, email, password; //public String Variables
-//die function für den Button "Submit"
+//The function for the Button "Submit"
 function submitNewUser() {
     fName = document.getElementById("vorName").value;
     lName = document.getElementById("nachName").value;
     email = document.getElementById("email").value;
     password = document.getElementById("passWort").value;
     if (fName === "" || lName === "" || email === "" || password === "") {
-        alert("Missing Values please input all Details");
+        alert("Please full down all Fields!");
     }
     else {
         users.push(new User(fName, lName, email, password));
         console.log(users);
-        sendDataToServer(new User(fName, lName, email, password)); //die function mit POST Request
-        JSON.stringify(users); //nicht wichtig im Code
-        console.log(users);
+        sendDataToServer(new User(fName, lName, email, password)); //The POST function Request
+        JSON.stringify(users); //turn it to String
+        console.log(users); //to test the Result in Console
         document.getElementById("vorName").value = "";
         document.getElementById("nachName").value = "";
         document.getElementById("email").value = "";
         document.getElementById("passWort").value = "";
-        alert("submitted " + fName + " " + lName);
+        alert(fName + " " + lName + " submitted");
     }
 }
-//show the Table of Users Button:"Show Users Infos"
+/**show the Table of Users Button:"Show Users Infos"
+ * NO MORE IN USE BUT DIDN'T Delete this Old warrior*/
 /*
 function showAllUsersInTable() {
     users=JSON.parse(getDataFromServer());//GET Request methode
@@ -65,25 +66,27 @@ function showAllUsersInTable() {
     document.getElementById("usersTable").innerHTML = table;
 }
 */
-/*Update Firstname and Lastname if the user exists*/
+/**Update Firstname and Lastname if the user exists
+ *Will show the POPUP(Modal) with old Information to update them*/
 function updateUser() {
     fName = document.getElementById("firstName").value;
     lName = document.getElementById("lastName").value;
     email = document.getElementById("emailAdress").value;
+    //The index begins with "0" so we don't need the first Row "Vorname","Nachname","Email"
     var index = users.findIndex(function (user) { return user.email === email; }) + 1;
-    console.log("index of him " + index);
     if (!fName || !lName) {
         alert("please input the Firstname Lastname and the email");
     }
     else {
+        //We need the Email for find is The User in the Database
         var newUser = JSON.stringify({ vorName: fName, nachName: lName, email: email });
-        updateDataInTheServer(newUser);
+        updateDataInTheServer(newUser); // AJAX PUT Methode
         document.getElementById("firstName").value = "";
         document.getElementById("lastName").value = "";
     }
     //    document.getElementById(index.toString()).childNodes[0].nodeValue=fName;
 }
-//Update (POST) Request
+/**Update (POST) Request*/
 function updateDataInTheServer(user) {
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -95,7 +98,7 @@ function updateDataInTheServer(user) {
     xhr.open("PUT", "http://localhost:3000/users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(user);
-    //We need the HTTP Get for the New Array Table
+    //We need the HTTP Get for the New Array Table When any User being updated
     $.ajax({
         method: 'GET',
         url: 'http://localhost:3000/users',
@@ -108,14 +111,15 @@ function updateDataInTheServer(user) {
         }
     });
 }
-//just thinking of it
+/**Delete the Row (Frontend) from the Table
+ * and calls the AJAX Method to send Delete Request to the Server */
 function deleteUser() {
     var table = document.getElementById("usersTable");
     var index = 0;
     var _loop_1 = function (i) {
         table.rows[i].cells[3].onclick = function () {
             email = table.rows[i].cells[2].innerHTML;
-            deleteDataFromServer(email);
+            deleteDataFromServer(email); //call AJAX Delete Methode
             //index=this.parentElement.rowIndex;
             index = i;
             table.deleteRow(index);
@@ -128,30 +132,28 @@ function deleteUser() {
 //AJAX Delete Request
 function deleteDataFromServer(email) {
     var data = JSON.stringify({ email: email });
-    console.log(email);
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            //console.log(this.responseText);
+            console.log(this.responseText);
         }
     });
     xhr.open("DELETE", "http://localhost:3000/users/user");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
-    console.log("delete sent");
-    alert("User " + email + " deleted");
-    /*
-    if(xhr.status===200){
-        console.log("200");
-        alert("User deleted");
-    }else{
-        if (xhr.status===400){
-            console.log("400");
-            alert("User not found"); //must not be real //maybe there is always the right user
+    //alert(`User ${email} deleted`);
+    //Change the Alert according the Response Status from Server
+    if (xhr.status === 200) {
+        console.log("200 " + JSON.stringify(xhr.responseText));
+        alert(JSON.stringify(xhr.responseText));
+    }
+    else {
+        if (xhr.status === 400) {
+            console.log("400 " + JSON.stringify(xhr.responseText));
+            alert(JSON.stringify(xhr.responseText)); //must not be real //maybe there is always the right user
         }
     }
-    */
 }
 //HTTP/AJAX POST Request
 function sendDataToServer(user1) {
@@ -187,6 +189,9 @@ function getDataFromServer() {
 }
 //Get jQuery Request
 $.ajax({
+    xhrFields: {
+        withCredentials: true
+    },
     method: 'GET',
     url: 'http://localhost:3000/users',
     dataType: "json",

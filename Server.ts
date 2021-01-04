@@ -17,13 +17,18 @@ app.use(express.urlencoded({extended: false}));
 app.use("/res", express.static(__dirname + "/public"));
 app.use("/dependency", express.static(__dirname + "/node_modules"));
 
-app.get("/public/index.html", (req: express.Request, res: express.Response) => {
+//To Bypass CORS Policy Problem on Google Chrome
+app.all('/', function(req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+});
+
+app.get("/public/index.html", (req, res) => {
     res.status(200);
     res.sendFile(__dirname + "/public/index.html");
 });
 
 /**
- *
  * Examples of Users
  **/
 
@@ -42,6 +47,8 @@ users.push(u4);
 
 //get all users
 app.get("/users", (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.json(users);
     console.log('Users sent'); //Console Output Test
     console.log(users);

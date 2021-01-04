@@ -29,6 +29,7 @@ var User = /** @class */ (function () {
 var users = new Array(); //Array from Object Users
 //public variables
 var fName, lName, email, password; //public String Variables
+//-------------------------submitNewUser-----------------------------------
 //The function for the Button "Submit"
 function submitNewUser() {
     fName = document.getElementById("vorName").value;
@@ -51,6 +52,23 @@ function submitNewUser() {
         alert(fName + " " + lName + " submitted");
     }
 }
+//HTTP/AJAX POST Request
+function sendDataToServer(user1) {
+    var data = JSON.stringify({ vorName: user1.vorName, nachName: user1.nachName, email: user1.email, passWort: user1.passWort });
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+    xhr.open("POST", "http://localhost:3000/users/");
+    console.log('xhr.open');
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(data);
+    console.log(data + " posted!");
+}
+//-------------------------submitNewUser-----------------------------------
 /**show the Table of Users Button:"Show Users Infos"
  * NO MORE IN USE BUT DIDN'T Delete this Old warrior*/
 /*
@@ -66,6 +84,7 @@ function showAllUsersInTable() {
     document.getElementById("usersTable").innerHTML = table;
 }
 */
+//-------------------------Update User-----------------------------------
 /**Update Firstname and Lastname if the user exists
  *Will show the POPUP(Modal) with old Information to update them*/
 function updateUser() {
@@ -111,6 +130,9 @@ function updateDataInTheServer(user) {
         }
     });
 }
+//-------------------------Update User-----------------------------------
+//-----------------------------------------------------------------------
+//-------------------------Delete User-----------------------------------
 /**Delete the Row (Frontend) from the Table
  * and calls the AJAX Method to send Delete Request to the Server */
 function deleteUser() {
@@ -155,39 +177,8 @@ function deleteDataFromServer(email) {
         }
     }
 }
-//HTTP/AJAX POST Request
-function sendDataToServer(user1) {
-    var data = JSON.stringify({ vorName: user1.vorName, nachName: user1.nachName, email: user1.email, passWort: user1.passWort });
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-            console.log(this.responseText);
-        }
-    });
-    xhr.open("POST", "http://localhost:3000/users/");
-    console.log('xhr.open');
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(data);
-    console.log(data + " posted!");
-}
-//---------------------
-//HTTP/AJAX GET Request NOT USED
-function getDataFromServer() {
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-            console.log(this.responseText);
-        }
-    });
-    xhr.open("GET", "http://localhost:3000/users");
-    xhr.send();
-    var responseTextAsJSON = xhr.responseText;
-    console.log(responseTextAsJSON);
-    return responseTextAsJSON;
-}
-//Get jQuery Request
+//-------------------------Delete User-----------------------------------
+/**Get jQuery Request*/
 $.ajax({
     xhrFields: {
         withCredentials: true
@@ -202,7 +193,7 @@ $.ajax({
         buildTable(users);
     }
 });
-//Table in index Html
+// Users Table in index.html
 function buildTable(data) {
     var rowNumber = 1;
     console.log("data variable" + data);
@@ -227,6 +218,18 @@ function returnUserIndex(zeile) {
     document.getElementById("lastName").value = users[i].nachName.toString();
     document.getElementById("emailAdress").value = users[i].email.toString();
     return i;
+}
+//HTTP/AJAX GET Request NOT USED
+function getDataFromServer() {
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+    xhr.open("GET", "http://localhost:3000/users");
+    xhr.send();
 }
 //Goto Update Page without going
 function getUpdateTxt() {

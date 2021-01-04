@@ -24,8 +24,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="show new table after update User">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="Beginnig with Documentation and Testing">
       <change beforePath="$PROJECT_DIR$/Server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Server.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -533,14 +532,7 @@
       <workItem from="1609618678149" duration="2267000" />
       <workItem from="1609671882130" duration="14148000" />
       <workItem from="1609697975035" duration="9907000" />
-      <workItem from="1609794804153" duration="1312000" />
-    </task>
-    <task id="LOCAL-00025" summary="post funtioniert mit Postman">
-      <created>1608627962091</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1608627962091</updated>
+      <workItem from="1609794804153" duration="2184000" />
     </task>
     <task id="LOCAL-00026" summary="javascript file is ON now">
       <created>1608648154114</created>
@@ -878,7 +870,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609707872591</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Beginnig with Documentation and Testing">
+      <created>1609797928605</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1609797928606</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -915,7 +914,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="delte User function on the way" />
     <MESSAGE value="return to FrontEnd" />
     <MESSAGE value="POST and GET per AJAX" />
     <MESSAGE value="GET method imporovments" />
@@ -940,7 +938,8 @@
     <MESSAGE value="delete User funktion" />
     <MESSAGE value="delete Funktioneirt voll" />
     <MESSAGE value="show new table after update User" />
-    <option name="LAST_COMMIT_MESSAGE" value="show new table after update User" />
+    <MESSAGE value="Beginnig with Documentation and Testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Beginnig with Documentation and Testing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="44" width="687" height="645" key="#Options" timestamp="1608116565299">
@@ -1047,10 +1046,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1609681995954" />
-    <state x="278" y="105" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1609707876570">
+    <state x="278" y="105" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1609797933400">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609707876570" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609797933400" />
     <state x="391" y="147" width="1000" height="648" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609279901299" />
     <state x="100" y="99" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609330884326">
       <screen x="0" y="0" width="1366" height="741" />

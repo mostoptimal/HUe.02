@@ -52,42 +52,45 @@ app.get("/users/user", (req, res) => {
     //returns True if an Element (User) exists in the Array
     let found = users.some(user => user.email === userReq.email);
     if (found) {
+        // resend the searched Object from the Array
         res.status(200).json(users.filter(user => user.email === req.params.email));
     } else {
-        res.status(400).json({msg: "member is not found"});
+        res.status(400).json({msg: "The Database doesn't content any User with this Email"});
     }
-
 });
 
 //New User //submit new user
 app.post('/users/', (req, res) => {
-    const newUser = {
+    //Creat json Object to Compare sent Data with those in the Database
+    let newUser = {
         vorName: req.body.vorName,
         nachName: req.body.nachName,
         email: req.body.email,
         passWort: req.body.passWort,
     }
-    //To Test if an Empty {JSON} Body sent
+    //To Test if an Empty {JSON} Body sent (if NOT) then:
     if (!newUser.vorName || !newUser.nachName || !newUser.email || !newUser.passWort) {
-        console.log(req.body.vorName, req.body.nachName, req.body.email, req.body.passWort);
-        ///found with email , if found  u can make a new user with same email
-        //check with Email if the User exists
+        console.log("new user");
+        //check with Email if the User already exists
         const found = users.some(user => user.email === newUser.email);
         if (found) {
             console.log('the Email Address is already exists');
-            res.send("user can't be dulplicated");
+            res.send("user can't be duplicated!!");
         } else {
-            console.log("new user");
+
             //if the User not exists //push him in the Array
             users.push(new User(newUser.vorName, newUser.nachName, newUser.email, newUser.passWort));
             console.log(JSON.stringify(users));
             res.send("new User submitted");
         }
+    // If the Client Side sent Empty data or Missing Field
     } else {
-        console.log("User Data can not be empty!!");
+        console.log("User Data can not be empty ,Please full down all Fields!!");
         res.status(400).json({msg: "User Data can not be empty!!"});
     }
 });
+
+
 //user update firstname and lastname
 /*
 app.post("/users/update", (req, res) => {
@@ -129,11 +132,11 @@ app.delete("/users/user", (req, res) => {
     //find returns true for founded Object ,false for not founded
     let found = users.find(user => user.email === email);
     if (found) {
-        // filter = delete the user with email and gibt zruck array with alle andere Users
+        // filter = delete the user with email and returns an array without this Element //gibt zruck array with alle andere Users
         users = users.filter(user => user.email != email);
-        res.status(200).json({message: "user deleted"});
+        res.status(200).json({msg: "The User has been deleted"});
     } else {
-        res.status(404).json({message: "user dosen't exist"});
+        res.status(404).json({msg: "The User doesn't exist"});
     }
     console.log(users);
 

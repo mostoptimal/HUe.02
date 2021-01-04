@@ -54,7 +54,12 @@ function submitNewUser() {
 }
 //HTTP/AJAX POST Request
 function sendDataToServer(user1) {
-    var data = JSON.stringify({ vorName: user1.vorName, nachName: user1.nachName, email: user1.email, passWort: user1.passWort });
+    var data = JSON.stringify({
+        vorName: user1.vorName,
+        nachName: user1.nachName,
+        email: user1.email,
+        passWort: user1.passWort
+    });
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {

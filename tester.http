@@ -1,12 +1,15 @@
 POST /user HTTP/2
 host: localhost:3000
 content-type: application/json
+
 ###
 
 ###
 GET localhost:3000/users
+
 ###
 GET localhost:3000/uernames
+
 ###
 POST /users/
 host:localhost:3000
@@ -14,17 +17,21 @@ Content-Type: application/json
 Accept: application/json
 
 {
- "vorName":"Kevin",
- "nachName":"Schroeder",
- "email":"kev90qgmx.de",
- "passWort":"zocken"
- }
+  "vorName": "Kevin",
+  "nachName": "Schroeder",
+  "email": "kev90qgmx.de",
+  "passWort": "zocken"
+}
+
 ###
 GET localhost:3000/users/a@b.cd
+
 ###
 GET localhost:3000/users/
+
 ###
 GET localhost:3000/users/jamiku@jp.co
+
 ###
 POST localhost:3000/users
 
@@ -34,6 +41,7 @@ POST localhost:3000/users
 "email": "www@email.cd"
 "passWort":"fegege"
 }
+
 ###
 DELETE localhost:3000/users/qs@eee.cefd
 

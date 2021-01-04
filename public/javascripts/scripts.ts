@@ -55,12 +55,18 @@ function submitNewUser() {
         (<HTMLInputElement>document.getElementById("nachName")).value = "";
         (<HTMLInputElement>document.getElementById("email")).value = "";
         (<HTMLInputElement>document.getElementById("passWort")).value = "";
-        alert(fName + " " + lName+" submitted");
+        alert(fName + " " + lName + " submitted");
     }
 }
+
 //HTTP/AJAX POST Request
 function sendDataToServer(user1) {
-    let data = JSON.stringify({vorName:user1.vorName,nachName:user1.nachName,email:user1.email,passWort:user1.passWort});
+    let data = JSON.stringify({
+        vorName: user1.vorName,
+        nachName: user1.nachName,
+        email: user1.email,
+        passWort: user1.passWort
+    });
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
@@ -74,6 +80,7 @@ function sendDataToServer(user1) {
     xhr.send(data);
     console.log(data + " posted!");
 }
+
 //-------------------------submitNewUser-----------------------------------
 /**show the Table of Users Button:"Show Users Infos"
  * NO MORE IN USE BUT DIDN'T Delete this Old warrior*/
@@ -90,6 +97,7 @@ function showAllUsersInTable() {
     document.getElementById("usersTable").innerHTML = table;
 }
 */
+
 //-------------------------Update User-----------------------------------
 /**Update Firstname and Lastname if the user exists
  *Will show the POPUP(Modal) with old Information to update them*/
@@ -98,12 +106,12 @@ function updateUser() {
     lName = (<HTMLInputElement>document.getElementById("lastName")).value;
     email = (<HTMLInputElement>document.getElementById("emailAdress")).value;
     //The index begins with "0" so we don't need the first Row "Vorname","Nachname","Email"
-    let index=users.findIndex(user=> user.email===email)+1;
-    if (!fName || !lName ) {
+    let index = users.findIndex(user => user.email === email) + 1;
+    if (!fName || !lName) {
         alert("please input the Firstname Lastname and the email");
     } else {
         //We need the Email for find is The User in the Database
-        let newUser = JSON.stringify({vorName: fName, nachName: lName,email:email});
+        let newUser = JSON.stringify({vorName: fName, nachName: lName, email: email});
         updateDataInTheServer(newUser); // AJAX PUT Methode
         (<HTMLInputElement>document.getElementById("firstName")).value = "";
         (<HTMLInputElement>document.getElementById("lastName")).value = "";
@@ -111,6 +119,7 @@ function updateUser() {
     }
 //    document.getElementById(index.toString()).childNodes[0].nodeValue=fName;
 }
+
 /**Update (POST) Request*/
 function updateDataInTheServer(user) {
     let xhr = new XMLHttpRequest();
@@ -136,31 +145,33 @@ function updateDataInTheServer(user) {
         }
     });
 }
+
 //-------------------------Update User-----------------------------------
 //-----------------------------------------------------------------------
 //-------------------------Delete User-----------------------------------
 /**Delete the Row (Frontend) from the Table
  * and calls the AJAX Method to send Delete Request to the Server */
 function deleteUser() {
-    let table= document.getElementById("usersTable") as HTMLTableElement;
-    let index=0;
-    for (let i=0;i<table.rows.length;i++){
-        table.rows[i].cells[3].onclick= function (){
-            email=table.rows[i].cells[2].innerHTML;
+    let table = document.getElementById("usersTable") as HTMLTableElement;
+    let index = 0;
+    for (let i = 0; i < table.rows.length; i++) {
+        table.rows[i].cells[3].onclick = function () {
+            email = table.rows[i].cells[2].innerHTML;
             deleteDataFromServer(email); //call AJAX Delete Methode
             //index=this.parentElement.rowIndex;
-            index=i;
+            index = i;
             table.deleteRow(index);
         }
     }
 }
+
 //AJAX Delete Request
 function deleteDataFromServer(email) {
-    let data=JSON.stringify({email:email});
+    let data = JSON.stringify({email: email});
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
-    xhr.addEventListener("readystatechange", function() {
-        if(this.readyState === 4) {
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
             console.log(this.responseText);
         }
     });
@@ -169,20 +180,21 @@ function deleteDataFromServer(email) {
     xhr.send(data);
     //alert(`User ${email} deleted`);
     //Change the Alert according the Response Status from Server
-    if(xhr.status===200){
-        console.log("200 "+JSON.stringify(xhr.responseText));
+    if (xhr.status === 200) {
+        console.log("200 " + JSON.stringify(xhr.responseText));
         alert(JSON.stringify(xhr.responseText));
-    }else{
-        if (xhr.status===400){
-            console.log("400 " +JSON.stringify(xhr.responseText));
+    } else {
+        if (xhr.status === 400) {
+            console.log("400 " + JSON.stringify(xhr.responseText));
             alert(JSON.stringify(xhr.responseText)); //must not be real //maybe there is always the right user
         }
     }
 }
+
 //-------------------------Delete User-----------------------------------
 /**Get jQuery Request*/
 $.ajax({
-    xhrFields:{
+    xhrFields: {
         withCredentials: true
     },
     method: 'GET',
@@ -195,6 +207,7 @@ $.ajax({
         buildTable(users);
     }
 });
+
 // Users Table in index.html
 function buildTable(data: Array<User>) {
     let rowNumber = 1;
@@ -202,7 +215,7 @@ function buildTable(data: Array<User>) {
     let docTable = (<HTMLInputElement>document.getElementById("usersTable"));
     let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th><th>Aktionen</th></tr></thead>";
     for (let i = 0; i < data.length; i++) {
-        table += "<tr id="+(rowNumber)+"><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td>" +
+        table += "<tr id=" + (rowNumber) + "><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td>" +
             "<button type=\"button\" data-toggle=\"modal\" data-target=\"#updateUserModal\" onclick='returnUserIndex(this)'>Edit</button>" +
             "<button class='deleteUser' onclick='deleteUser()'>Delete</button>" +
             "</td></tr>";
@@ -211,14 +224,15 @@ function buildTable(data: Array<User>) {
     console.log(table);
     docTable.innerHTML = table;
 }
+
 //Load the User Infos in the popup(Bootstrap Modal)
-function returnUserIndex(zeile){
-    let i = (zeile.parentNode.parentNode.rowIndex)-1;
+function returnUserIndex(zeile) {
+    let i = (zeile.parentNode.parentNode.rowIndex) - 1;
     console.log(i);
     console.log(users[i]);
-    (<HTMLInputElement>document.getElementById("firstName")).value=users[i].vorName.toString();
-    (<HTMLInputElement>document.getElementById("lastName")).value=users[i].nachName.toString();
-    (<HTMLInputElement>document.getElementById("emailAdress")).value=users[i].email.toString();
+    (<HTMLInputElement>document.getElementById("firstName")).value = users[i].vorName.toString();
+    (<HTMLInputElement>document.getElementById("lastName")).value = users[i].nachName.toString();
+    (<HTMLInputElement>document.getElementById("emailAdress")).value = users[i].email.toString();
     return i;
 }
 

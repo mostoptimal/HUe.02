@@ -18,7 +18,7 @@ app.use("/res", express.static(__dirname + "/public"));
 app.use("/dependency", express.static(__dirname + "/node_modules"));
 
 //To Bypass CORS Policy Problem on Google Chrome
-app.all('/', function(req, res) {
+app.all('/', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 });
@@ -90,7 +90,7 @@ app.post('/users/', (req, res) => {
             console.log(JSON.stringify(users));
             res.send("new User submitted");
         }
-    // If the Client Side sent Empty data or Missing Field
+        // If the Client Side sent Empty data or Missing Field
     } else {
         console.log("User Data can not be empty ,Please full down all Fields!!");
         res.status(400).json({msg: "User Data can not be empty!!"});

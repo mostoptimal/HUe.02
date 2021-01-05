@@ -3,6 +3,7 @@ host: localhost:3000
 content-type: application/json
 
 ###
+GET localhost:3000/users/jamiku@jp.co
 
 ###
 GET localhost:3000/users
@@ -11,7 +12,7 @@ GET localhost:3000/users
 GET localhost:3000/uernames
 
 ###
-POST /users/
+POST /users/user
 host:localhost:3000
 Content-Type: application/json
 Accept: application/json
@@ -24,15 +25,6 @@ Accept: application/json
 }
 
 ###
-GET localhost:3000/users/
-
-###
-GET localhost:3000/users/
-
-###
-GET localhost:3000/users/jamiku@jp.co
-
-###
 POST localhost:3000/users
 
 {
@@ -43,8 +35,42 @@ POST localhost:3000/users
 }
 
 ###
-DELETE localhost:3000/users/qs@eee.cefd
+DELETE localhost:3000/users/user
+Content-Type: application/json
+Accept: application/json
 
 {
 "email":"qs@eee.cefd"
+}
+###
+DELETE localhost:3000/users/user
+Content-Type: application/json
+Accept: application/json
+
+{
+"email":"Joe.schw@aol.com"
+}
+### not password
+PUT  http://localhost:3000/users/update
+host:localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+  "vorName":"joaquin",
+  "nachName":"ssadsa",
+  "email":"qaa@aa.cad",
+  "password":"sssss"
+}
+### korrekt
+
+PUT  http://localhost:3000/users/update
+host:localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+  "vorName":"joaquin",
+  "nachName":"ssadsa",
+  "email":"Nullam@felis.co.uk"
 }

@@ -92,17 +92,130 @@
     <option name="REQUEST_HISTORY">
       <list>
         <RestClientRequest>
-          <option name="httpMethod" value="GET" />
+          <option name="httpMethod" value="DELETE" />
           <option name="urlBase" value="http://localhost:3000/users/user" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;email&quot;:&quot;Joe.schw@aol.com&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:3000/users/user" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;email&quot;:&quot;qs@eee.cefd&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:3000/users/qs@eee.cefd" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;&quot;email&quot;:&quot;qs@eee.cefd&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000/users" />
           <option name="urlPath" value="" />
           <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
-          <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:3000/users/a@b.cd" />
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:3000/users/update" />
           <option name="urlPath" value="" />
-          <option name="textToSend" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="host" />
+                <option name="value" value="localhost:3000" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;vorName&quot;:&quot;joaquin&quot;,&#10;  &quot;nachName&quot;:&quot;ssadsa&quot;,&#10;  &quot;email&quot;:&quot;Nullam@felis.co.uk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:3000/users/update" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="host" />
+                <option name="value" value="localhost:3000" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;vorName&quot;:&quot;joaquin&quot;,&#10;  &quot;nachName&quot;:&quot;ssadsa&quot;,&#10;  &quot;email&quot;:&quot;qaa@aa.cad&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="PUT" />
+          <option name="urlBase" value="http://localhost:3000/users/update" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="host" />
+                <option name="value" value="localhost:3000" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;vorName&quot;:&quot;joaquin&quot;,&#10;  &quot;nachName&quot;:&quot;ssadsa&quot;,&#10;  &quot;email&quot;:&quot;qaa@aa.cad&quot;,&#10;  &quot;password&quot;:&quot;sssss&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:3000/users/user" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="host" />
+                <option name="value" value="localhost:3000" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;vorName&quot;: &quot;Kevin&quot;,&#10;  &quot;nachName&quot;: &quot;Schroeder&quot;,&#10;  &quot;email&quot;: &quot;kev90qgmx.de&quot;,&#10;  &quot;passWort&quot;: &quot;zocken&quot;&#10;}" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -138,7 +251,14 @@
         </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="GET" />
-          <option name="urlBase" value="http://localhost:3000/users" />
+          <option name="urlBase" value="http://localhost:3000/users/user" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:3000/users/a@b.cd" />
           <option name="urlPath" value="" />
           <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
@@ -499,36 +619,36 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.Server.js">
+  <component name="RunManager" selected="HTTP Request.tester#8">
     <configuration name="tester#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="tester#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="3" runType="Run single request">
+    <configuration name="tester#7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="7" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="tester#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="4" runType="Run single request">
+    <configuration name="tester#8" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="8" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="tester#5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="5" runType="Run single request">
+    <configuration name="tester#9" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/tester.http" index="9" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="Server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="Server.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.tester#2" />
-      <item itemvalue="HTTP Request.tester#3" />
-      <item itemvalue="HTTP Request.tester#4" />
       <item itemvalue="Node.js.bin/www" />
       <item itemvalue="Node.js.Server.js" />
-      <item itemvalue="HTTP Request.tester#5" />
+      <item itemvalue="HTTP Request.tester#2" />
+      <item itemvalue="HTTP Request.tester#9" />
+      <item itemvalue="HTTP Request.tester#7" />
+      <item itemvalue="HTTP Request.tester#8" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.tester#8" />
+        <item itemvalue="HTTP Request.tester#7" />
         <item itemvalue="Node.js.Server.js" />
-        <item itemvalue="HTTP Request.tester#5" />
-        <item itemvalue="HTTP Request.tester#4" />
-        <item itemvalue="HTTP Request.tester#3" />
+        <item itemvalue="HTTP Request.tester#9" />
         <item itemvalue="HTTP Request.tester#2" />
       </list>
     </recent_temporary>
@@ -581,14 +701,7 @@
       <workItem from="1609671882130" duration="14148000" />
       <workItem from="1609697975035" duration="9907000" />
       <workItem from="1609794804153" duration="9411000" />
-      <workItem from="1609859935382" duration="6110000" />
-    </task>
-    <task id="LOCAL-00034" summary="delte User function on the way">
-      <created>1608764557238</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1608764557238</updated>
+      <workItem from="1609859935382" duration="9320000" />
     </task>
     <task id="LOCAL-00035" summary="return to FrontEnd">
       <created>1609145539531</created>
@@ -926,7 +1039,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609864721064</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="finishing">
+      <created>1609866145942</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1609866145942</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1019,25 +1139,25 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="470" y="78" width="415" height="577" key="Github.UntrackedFilesDialog/0.0.1366.741@0.0.1366.741" timestamp="1607691917914" />
-    <state width="1326" height="123" key="GridCell.Tab.0.bottom" timestamp="1609866055478">
+    <state width="1326" height="123" key="GridCell.Tab.0.bottom" timestamp="1609869264797">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="123" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609866055478" />
+    <state width="1326" height="123" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609869264797" />
     <state width="1895" height="712" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763488" />
-    <state width="1326" height="123" key="GridCell.Tab.0.center" timestamp="1609866055468">
+    <state width="1326" height="123" key="GridCell.Tab.0.center" timestamp="1609869264797">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="123" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1609866055468" />
+    <state width="1326" height="123" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1609869264797" />
     <state width="1895" height="712" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763487" />
-    <state width="1326" height="123" key="GridCell.Tab.0.left" timestamp="1609866055466">
+    <state width="1326" height="123" key="GridCell.Tab.0.left" timestamp="1609869264796">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="123" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1609866055466" />
+    <state width="1326" height="123" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1609869264796" />
     <state width="1895" height="712" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763487" />
-    <state width="1326" height="123" key="GridCell.Tab.0.right" timestamp="1609866055471">
+    <state width="1326" height="123" key="GridCell.Tab.0.right" timestamp="1609869264797">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="123" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1609866055471" />
+    <state width="1326" height="123" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1609869264797" />
     <state width="1895" height="712" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763487" />
     <state width="1326" height="204" key="GridCell.Tab.1.bottom" timestamp="1609690209327">
       <screen x="0" y="0" width="1366" height="741" />
@@ -1095,10 +1215,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1609681995954" />
-    <state x="278" y="105" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1609864731984">
+    <state x="278" y="105" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1609866155167">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609864731984" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609866155167" />
     <state x="391" y="147" width="1000" height="648" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609279901299" />
     <state x="100" y="99" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609330884326">
       <screen x="0" y="0" width="1366" height="741" />

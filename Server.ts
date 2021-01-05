@@ -74,7 +74,7 @@ app.post('/users/user', (req, res) => {
         passWort: req.body.passWort,
     }
     //To Test if an Empty {JSON} Body sent (if NOT) then:
-    if (newUser.vorName==="" || newUser.nachName==="" || newUser.email==="" || newUser.passWort==="") {
+    if (newUser.vorName === "" || newUser.nachName === "" || newUser.email === "" || newUser.passWort === "") {
         console.log("User Data can not be empty ,Please full down all Fields!!");
         res.status(400).json({msg: "User Data can not be empty!!"});
         // If the Client Side sent Empty data or Missing Field
@@ -95,41 +95,53 @@ app.post('/users/user', (req, res) => {
     }
 });
 
-
+/*
 //user update firstname and lastname
 app.post("/users/update", (req, res) => {
     let userToUpdate = req.body;
     let found = users.some(user => user.email === userToUpdate.email);
-    let foundedUser=users.find(user => user.email === userToUpdate.email);
-    if (found) {
-        console.log(foundedUser);
-        //to Change the actual User not a Copy
-        foundedUser.vorName=userToUpdate.vorName;
-        foundedUser.nachName=userToUpdate.nachName;
-        console.log(users);
-        res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
+    //cambio
+    //check poasswort is not in body
+    if (req.body.hasOwnProperty('password')) {
+        res.status(400).json({msg: "you cann not change the password"});
     } else {
-        res.status(400).json({msg: "member is not found"});
+        let foundedUser = users.find(user => user.email === userToUpdate.email);
+        if (found) {
+            console.log(foundedUser);
+            //to Change the actual User not a Copy
+            foundedUser.vorName = userToUpdate.vorName;
+            foundedUser.nachName = userToUpdate.nachName;
+            console.log(users);
+            res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
+        } else {
+            res.status(400).json({msg: "member is not found"});
+        }
     }
-});
-/*
+});*/
+
 //Put to Update user
 app.put("/users/update", (req, res) => {
     let userToUpdate = req.body;
     let found = users.some(user => user.email === userToUpdate.email);
-    let foundedUser = users.find(user => user.email === userToUpdate.email);
-    if (found) {
-        console.log(foundedUser);
-        //to Change the actual User not a Copy
-        foundedUser.vorName = userToUpdate.vorName;
-        foundedUser.nachName = userToUpdate.nachName;
-        console.log(users);
-        res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
+    //cambio
+    //check poasswort is not in body
+    if (req.body.hasOwnProperty('password')) {
+        res.status(400).json({msg: "you cann not change the password"});
     } else {
-        res.status(400).json({msg: "member is not found"});
+        let foundedUser = users.find(user => user.email === userToUpdate.email);
+        if (found) {
+            console.log(foundedUser);
+            //to Change the actual User not a Copy
+            foundedUser.vorName = userToUpdate.vorName;
+            foundedUser.nachName = userToUpdate.nachName;
+            console.log(users);
+            res.status(200).json({msg: `member ${userToUpdate.email} is updated`});
+        } else {
+            res.status(400).json({msg: "member is not found"});
+        }
     }
 });
-*/
+
 //delete User by finding Email
 app.delete("/users/user", (req, res) => {
     let {email} = req.body;

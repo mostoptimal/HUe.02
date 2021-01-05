@@ -1,3 +1,201 @@
+DELETE http://localhost:3000/users/user
+Content-Type: application/json
+Accept: application/json
+
+{
+"email":"Joe.schw@aol.com"
+}
+
+<> 2021-01-05T065552.404.json
+
+###
+
+DELETE http://localhost:3000/users/user
+Content-Type: application/json
+Accept: application/json
+
+{
+"email":"Joe.schw@aol.com"
+}
+
+<> 2021-01-05T065548.200.json
+
+###
+
+DELETE http://localhost:3000/users/user
+Content-Type: application/json
+Accept: application/json
+
+{
+"email":"qs@eee.cefd"
+}
+
+<> 2021-01-05T065545.404.json
+
+###
+
+DELETE http://localhost:3000/users/user
+
+{
+"email":"Joe.schw@aol.com"
+}
+
+<> 2021-01-05T065424.404.json
+
+###
+
+DELETE http://localhost:3000/users/user
+
+{
+"email":"Joe.schw@aol.com"
+}
+
+<> 2021-01-05T065317.404.json
+
+###
+
+DELETE http://localhost:3000/users/user
+
+{
+"email":"qs@eee.cefd"
+}
+
+<> 2021-01-05T065235.404.json
+
+###
+
+DELETE http://localhost:3000/users/qs@eee.cefd
+
+{
+"email":"qs@eee.cefd"
+}
+
+<> 2021-01-05T065212.404.html
+
+###
+
+DELETE http://localhost:3000/users/qs@eee.cefd
+
+{
+"email":"qs@eee.cefd"
+}
+
+<> 2021-01-05T064852.404.html
+
+###
+
+GET http://localhost:3000/users
+
+<> 2021-01-05T064618.200.json
+
+###
+
+PUT http://localhost:3000/users/update
+host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+  "vorName":"joaquin",
+  "nachName":"ssadsa",
+  "email":"Nullam@felis.co.uk"
+}
+
+<> 2021-01-05T064606.200.json
+
+###
+
+PUT http://localhost:3000/users/update
+host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+  "vorName":"joaquin",
+  "nachName":"ssadsa",
+  "email":"qaa@aa.cad"
+}
+
+<> 2021-01-05T064531.400.json
+
+###
+
+PUT http://localhost:3000/users/update
+host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+  "vorName":"joaquin",
+  "nachName":"ssadsa",
+  "email":"qaa@aa.cad",
+  "password":"sssss"
+}
+
+<> 2021-01-05T064512.400.json
+
+###
+
+PUT http://localhost:3000/users/update
+host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+  "vorName":"joaquin",
+  "nachName":"ssadsa",
+  "email":"qaa@aa.cad",
+  "password":"sssss"
+}
+
+<> 2021-01-05T064348.200.html
+
+###
+
+POST http://localhost:3000/users/user
+host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+  "vorName": "Kevin",
+  "nachName": "Schroeder",
+  "email": "kev90qgmx.de",
+  "passWort": "zocken"
+}
+
+<> 2021-01-05T064048.200.html
+
+###
+
+POST http://localhost:3000/users/
+host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+  "vorName": "Kevin",
+  "nachName": "Schroeder",
+  "email": "kev90qgmx.de",
+  "passWort": "zocken"
+}
+
+<> 2021-01-05T064038.404.html
+
+###
+
+GET http://localhost:3000/uernames
+
+<> 2021-01-05T064030.404.html
+
+###
+
+GET http://localhost:3000/users
+
+<> 2021-01-05T064021.200.json
+
+###
+
 GET http://localhost:3000/users/user
 
 <> 2021-01-05T054154.400.json
@@ -273,189 +471,6 @@ POST http://localhost:3000/users
 }
 
 <> 2020-12-19T075915.200.html
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName": "tt",
-"nachName": "bb",
-"email": "www@email.cd"
-"passWort":"fegege"
-}
-
-<> 2020-12-19T075808.200.html
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName": "tt",
-"nachName": "bb",
-"email": "www@email.cd"
-"passWort":"fegege"
-}
-
-<> 2020-12-19T075703.200.html
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName": "tt",
-"nachName": "bb",
-"email": "www@email.cd"
-"passWort":"fegege"
-}
-
-<> 2020-12-19T075519.200.html
-
-###
-
-GET http://localhost:3000/users
-
-<> 2020-12-19T073232.200.json
-
-###
-
-GET http://localhost:3000/users
-
-<> 2020-12-19T073119.200.json
-
-###
-
-GET http://localhost:3000/users
-
-<> 2020-12-19T052711.200.json
-
-###
-
-GET http://localhost:3000/users
-
-###
-
-GET http://localhost:3000/users
-
-###
-
-POST http://localhost:3000/users/
-host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-
-{
- "vorName":"Kevin",
- "nachName":"Schroeder",
- "email":"kev90qgmx.de",
- "passWort":"zocken"
- }
-
-###
-
-POST http://localhost:3000/users/
-host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-
-{
- "vorName":"Kevin",
- "nachName":"Schroeder",
- "email":"kev90qgmx.de",
- "passWort":"zocken"
- }
-
-###
-
-POST http://localhost:3000/users/
-host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-
-{
- "vorName":"Kevin",
- "nachName":"Schroeder",
- "email":"kev90qgmx.de",
- "passWort":"zocken"
- }
-
-###
-
-POST http://localhost:3000/users/
-host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-
-{
- "vorName":"Kevin",
- "nachName":"Schroeder",
- "email":"kev90qgmx.de",
- "passWort":"zocken"
- }
-
-<> 2020-12-19T072526.404.html
-
-###
-
-POST http://localhost:3000/users/d@v.nl
-host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-
-{
- "vorName":"Kevin",
- "nachName":"Schroeder",
- "email":"kev90qgmx.de",
- "passWort":"zocken"
- }
-
-<> 2020-12-19T072348.404.html
-
-###
-
-GET http://localhost:3000/users
-
-<> 2020-12-19T052533.200.json
-
-###
-
-GET http://localhost:3000/users/a@b.cd
-
-<> 2020-12-19T052543.404.html
-
-###
-
-POST http://localhost:3000/users/d@v.nl
-host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-
-{
- "vorName":"Kevin",
- "nachName":"Schroeder",
- "email":"kev90qgmx.de",
- "passWort":"zocken"
- }
-
-<> 2020-12-19T111422.500.html
-
-###
-
-POST http://localhost:3000/users
-host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-
-{
- "vorName":"Kevin",
- "nachName":"Schroeder",
- "email":"kev90qgmx.de",
- "passWort":"zocken"
- }
-
-<> 2020-12-19T111319.404.html
 
 ###
 

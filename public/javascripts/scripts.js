@@ -58,8 +58,9 @@ function submitNewUser() {
         alert("Please full down all Fields!");
     }
 }
-//HTTP/AJAX POST Request
+//HTTP/AJAX POST/PUT Request
 function sendDataToServer(user1) {
+    //let res = await fetch("http://localhost:3000/users/user");
     var data = JSON.stringify({
         vorName: user1.vorName,
         nachName: user1.nachName,
@@ -76,14 +77,8 @@ function sendDataToServer(user1) {
     xhr.open("POST", "http://localhost:3000/users/user");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
-    if (xhr.status == 200) {
-        alert("New User Submitted!");
-    }
-    else {
-        if (xhr.status == 400)
-            alert("The Email Address exists in the Database!");
-    }
-    console.log(data + " posted!");
+    alert(xhr.responseText); //toString();//
+    console.log(data + " send to server!");
 }
 //-------------------------submitNewUser-----------------------------------
 /**show the Table of Users Button:"Show Users Infos"

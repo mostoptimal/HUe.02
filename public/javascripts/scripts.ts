@@ -243,12 +243,13 @@ $.ajax({
         buildTable(users);
     }
 });
-
+//--------------------------------Build Table-----------------------------------------
 // Users Table in index.html
 function buildTable(data: Array<User>) {
     let rowNumber = 1;
     let docTable = (<HTMLInputElement>document.getElementById("usersTable"));
-    let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th><th>Aktionen</th></tr></thead>";
+
+    let table = "<table class=\"titles\"><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th><th>Aktionen</th></tr></thead>";
     for (let i = 0; i < data.length; i++) {
         table += "<tr id=" + (rowNumber) + "><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td>" +
             "<button class=\"btn btn-secondary\" type=\"button\" data-toggle=\"modal\" data-target=\"#updateUserModal\" onclick='returnUserIndex(this)'>Edit</button>" +

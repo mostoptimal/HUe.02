@@ -536,13 +536,7 @@
       <workItem from="1609671882130" duration="14148000" />
       <workItem from="1609697975035" duration="9907000" />
       <workItem from="1609794804153" duration="9411000" />
-    </task>
-    <task id="LOCAL-00030" summary="tsconfig.json added and Edited">
-      <created>1608650629256</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1608650629256</updated>
+      <workItem from="1609859935382" duration="703000" />
     </task>
     <task id="LOCAL-00031" summary="it is golden Age for this Code,&#10;Everything is fine ,don't toucht IT">
       <created>1608655056026</created>
@@ -880,7 +874,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609803987758</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Beginnig with Documentation and Testing">
+      <created>1609859969864</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1609859969865</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -973,25 +974,25 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="470" y="78" width="415" height="577" key="Github.UntrackedFilesDialog/0.0.1366.741@0.0.1366.741" timestamp="1607691917914" />
-    <state width="1326" height="137" key="GridCell.Tab.0.bottom" timestamp="1609806026524">
+    <state width="1326" height="137" key="GridCell.Tab.0.bottom" timestamp="1609860375580">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="137" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609806026524" />
+    <state width="1326" height="137" key="GridCell.Tab.0.bottom/0.0.1366.741@0.0.1366.741" timestamp="1609860375580" />
     <state width="1895" height="712" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763488" />
-    <state width="1326" height="137" key="GridCell.Tab.0.center" timestamp="1609806026523">
+    <state width="1326" height="137" key="GridCell.Tab.0.center" timestamp="1609860375580">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="137" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1609806026523" />
+    <state width="1326" height="137" key="GridCell.Tab.0.center/0.0.1366.741@0.0.1366.741" timestamp="1609860375580" />
     <state width="1895" height="712" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763487" />
-    <state width="1326" height="137" key="GridCell.Tab.0.left" timestamp="1609806026523">
+    <state width="1326" height="137" key="GridCell.Tab.0.left" timestamp="1609860375579">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="137" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1609806026523" />
+    <state width="1326" height="137" key="GridCell.Tab.0.left/0.0.1366.741@0.0.1366.741" timestamp="1609860375579" />
     <state width="1895" height="712" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763487" />
-    <state width="1326" height="137" key="GridCell.Tab.0.right" timestamp="1609806026524">
+    <state width="1326" height="137" key="GridCell.Tab.0.right" timestamp="1609860375580">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state width="1326" height="137" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1609806026524" />
+    <state width="1326" height="137" key="GridCell.Tab.0.right/0.0.1366.741@0.0.1366.741" timestamp="1609860375580" />
     <state width="1895" height="712" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609279763487" />
     <state width="1326" height="204" key="GridCell.Tab.1.bottom" timestamp="1609690209327">
       <screen x="0" y="0" width="1366" height="741" />
@@ -1049,10 +1050,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1609681995954" />
-    <state x="278" y="105" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1609803990871">
+    <state x="278" y="105" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1609859989491">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609803990871" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1609859989491" />
     <state x="391" y="147" width="1000" height="648" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609279901299" />
     <state x="100" y="99" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609330884326">
       <screen x="0" y="0" width="1366" height="741" />
@@ -1062,10 +1063,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="293" y="0" width="770" height="735" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.741@0.0.1366.741" timestamp="1609805229749" />
-    <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609326405705">
+    <state x="492" y="286" width="382" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609859981270">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="492" y="286" width="372" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.741@0.0.1366.741" timestamp="1609326405705" />
+    <state x="492" y="286" width="382" height="166" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.741@0.0.1366.741" timestamp="1609859981270" />
     <state x="692" y="401" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609277903109" />
     <state x="0" y="0" width="1148" height="537" key="dock-window-1" timestamp="1609619882247">
       <screen x="0" y="0" width="1366" height="741" />

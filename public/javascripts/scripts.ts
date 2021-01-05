@@ -78,8 +78,8 @@ function sendDataToServer(user1) {
     console.log('xhr.open');
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
-    let msg=(this.responseText).toString();
-    alert();
+    let msg=(xhr.responseText).toString();
+    alert(msg);
     console.log(data + " posted!");
 }
 

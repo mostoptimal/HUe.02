@@ -99,7 +99,7 @@ app.post('/users/user', (req, res) => {
 
 
 //user update firstname and lastname
-/*
+
 app.post("/users/update", (req, res) => {
     let userToUpdate = req.body;
     let found = users.some(user => user.email === userToUpdate.email);
@@ -115,7 +115,7 @@ app.post("/users/update", (req, res) => {
         res.status(400).json({msg: "member is not found"});
     }
 });
-*/
+/*
 //Put to Update user
 app.put("/users/update", (req, res) => {
     let userToUpdate = req.body;
@@ -132,7 +132,7 @@ app.put("/users/update", (req, res) => {
         res.status(400).json({msg: "member is not found"});
     }
 });
-
+*/
 //delete User by finding Email
 app.delete("/users/user", (req, res) => {
     let {email} = req.body;

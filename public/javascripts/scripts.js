@@ -71,8 +71,8 @@ function sendDataToServer(user1) {
     console.log('xhr.open');
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
-    var msg = (this.responseText).toString();
-    alert();
+    var msg = (xhr.responseText).toString();
+    alert(msg);
     console.log(data + " posted!");
 }
 //-------------------------submitNewUser-----------------------------------

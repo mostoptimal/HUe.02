@@ -118,14 +118,13 @@ function updateUser() {
     } else {
         //We need the Email for find is The User in the Database
         let newUser = JSON.stringify({vorName: fName, nachName: lName, email: email});
-        updateDataInTheServer(newUser); // AJAX PUT Methode
+        updateDataInTheServer(newUser); // AJAX POST/PUT Methode
         (<HTMLInputElement>document.getElementById("firstName")).value = "";
         (<HTMLInputElement>document.getElementById("lastName")).value = "";
 
     }
 //    document.getElementById(index.toString()).childNodes[0].nodeValue=fName;
 }
-
 /**Update (POST) Request*/
 function updateDataInTheServer(user) {
     let xhr = new XMLHttpRequest();
@@ -135,7 +134,7 @@ function updateDataInTheServer(user) {
             console.log(this.responseText);
         }
     });
-    xhr.open("PUT", "http://localhost:3000/users/update");
+    xhr.open("POST", "http://localhost:3000/users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(user);
     //We need the HTTP Get for the New Array Table When any User being updated
@@ -144,14 +143,11 @@ function updateDataInTheServer(user) {
         url: 'http://localhost:3000/users',
         dataType: "json",
         success: function (response) {
-            console.log("the Response is: " + response);
             users = response;
-            console.log("users;== " + users);
             buildTable(users);
         }
     });
 }
-
 //-------------------------Update User-----------------------------------
 //-----------------------------------------------------------------------
 //-------------------------Delete User-----------------------------------
@@ -222,8 +218,8 @@ function buildTable(data: Array<User>) {
     let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th><th>Aktionen</th></tr></thead>";
     for (let i = 0; i < data.length; i++) {
         table += "<tr id=" + (rowNumber) + "><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td>" +
-            "<button type=\"button\" data-toggle=\"modal\" data-target=\"#updateUserModal\" onclick='returnUserIndex(this)'>Edit</button>" +
-            "<button class='deleteUser' onclick='deleteUser()'>Delete</button>" +
+            "<button class=\"btn btn-secondary\" type=\"button\" data-toggle=\"modal\" data-target=\"#updateUserModal\" onclick='returnUserIndex(this)'>Edit</button>" +
+            "<button class=\"btn btn-danger\" onclick='deleteUser()' style='margin-left: 10px'>Delete</button>" +
             "</td></tr>";
         rowNumber++;
     }

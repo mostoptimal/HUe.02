@@ -31,16 +31,14 @@ app.get("/public/index.html", (req, res) => {
 /**
  * Examples of Users
  **/
-
-const u1 = new User("Mofghgmo", "LdfghL", "qaa@aa.cad", "defw");
-const u2 = new User("Moegemo", "LdgegeL", "qs@eee.cefd", "def56gujhw");
-const u3 = new User("OOOITTRJ7PPP", "SMSM", "q3rfw3s@hotm.de", "876544rtg");
+const u1 = new User("John", "Schwarz", "Joe.schw@aol.com", "308doieh3d");
+const u2 = new User("Ivy Harrell", "Burton", "Nullam@felis.co.uk", "def56gujhw");
+const u3 = new User("Evangeline", "Preston", "Aenean.euismod@Vivamusmolestiedapibus.co.uk", "876544rtg");
 const u4 = new User("jamiku", "soko", "jamiku@jp.co", "slfhewiwefpiew321");
 users.push(u1);
 users.push(u2);
 users.push(u3);
 users.push(u4);
-
 /**
  * Examples of Users
  **/

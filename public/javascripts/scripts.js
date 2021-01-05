@@ -36,10 +36,8 @@ function submitNewUser() {
     lName = document.getElementById("nachName").value;
     email = document.getElementById("email").value;
     password = document.getElementById("passWort").value;
-    if (fName === "" || lName === "" || email === "" || password === "") {
-        alert("Please full down all Fields!");
-    }
-    else {
+    //if there is Values
+    if (fName && lName && email && password) {
         users.push(new User(fName, lName, email, password));
         console.log(users);
         sendDataToServer(new User(fName, lName, email, password)); //The POST function Request
@@ -49,7 +47,9 @@ function submitNewUser() {
         document.getElementById("nachName").value = "";
         document.getElementById("email").value = "";
         document.getElementById("passWort").value = "";
-        alert(fName + " " + lName + " submitted");
+    }
+    else {
+        alert("Please full down all Fields!");
     }
 }
 //HTTP/AJAX POST Request
@@ -67,10 +67,12 @@ function sendDataToServer(user1) {
             console.log(this.responseText);
         }
     });
-    xhr.open("POST", "http://localhost:3000/users/");
+    xhr.open("POST", "http://localhost:3000/users/user");
     console.log('xhr.open');
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
+    var msg = (this.responseText).toString();
+    alert();
     console.log(data + " posted!");
 }
 //-------------------------submitNewUser-----------------------------------

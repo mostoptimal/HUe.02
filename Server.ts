@@ -67,7 +67,7 @@ app.get("/users/user", (req, res) => {
 });
 
 //New User //submit new user
-app.post('/users/', (req, res) => {
+app.post('/users/user', (req, res) => {
     //Creat json Object to Compare sent Data with those in the Database
     let newUser = {
         vorName: req.body.vorName,
@@ -76,7 +76,11 @@ app.post('/users/', (req, res) => {
         passWort: req.body.passWort,
     }
     //To Test if an Empty {JSON} Body sent (if NOT) then:
-    if (!newUser.vorName || !newUser.nachName || !newUser.email || !newUser.passWort) {
+    if (newUser.vorName==="" || newUser.nachName==="" || newUser.email==="" || newUser.passWort==="") {
+        console.log("User Data can not be empty ,Please full down all Fields!!");
+        res.status(400).json({msg: "User Data can not be empty!!"});
+        // If the Client Side sent Empty data or Missing Field
+    } else {
         console.log("new user");
         //check with Email if the User already exists
         const found = users.some(user => user.email === newUser.email);
@@ -90,10 +94,6 @@ app.post('/users/', (req, res) => {
             console.log(JSON.stringify(users));
             res.send("new User submitted");
         }
-        // If the Client Side sent Empty data or Missing Field
-    } else {
-        console.log("User Data can not be empty ,Please full down all Fields!!");
-        res.status(400).json({msg: "User Data can not be empty!!"});
     }
 });
 

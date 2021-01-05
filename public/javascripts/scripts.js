@@ -52,6 +52,15 @@ function submitNewUser() {
             document.getElementById("nachName").value = "";
             document.getElementById("email").value = "";
             document.getElementById("passWort").value = "";
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:3000/users',
+                dataType: "json",
+                success: function (response) {
+                    users = response;
+                    buildTable(users);
+                }
+            });
         }
     }
     else {
@@ -117,16 +126,15 @@ function updateUser() {
     }
     //    document.getElementById(index.toString()).childNodes[0].nodeValue=fName;
 }
-/**Update (POST) Request*/
+/**Update (POST/PUT) Request*/
 function updateDataInTheServer(user) {
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            console.log(this.responseText);
         }
     });
-    xhr.open("POST", "http://localhost:3000/users/update");
+    xhr.open("PUT", "http://localhost:3000/users/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(user);
     //We need the HTTP Get for the New Array Table When any User being updated
@@ -145,24 +153,42 @@ function updateDataInTheServer(user) {
 //-------------------------Delete User-----------------------------------
 /**Delete the Row (Frontend) from the Table
  * and calls the AJAX Method to send Delete Request to the Server */
-function deleteUser() {
+function deleteUser(DelButton) {
     var table = document.getElementById("usersTable");
-    var index = 0;
-    var _loop_1 = function (i) {
-        table.rows[i].cells[3].onclick = function () {
-            email = table.rows[i].cells[2].innerHTML;
-            deleteDataFromServer(email); //call AJAX Delete Methode
-            //index=this.parentElement.rowIndex;
-            index = i;
-            table.deleteRow(index);
-        };
-    };
-    for (var i = 0; i < table.rows.length; i++) {
-        _loop_1(i);
-    }
+    var index = (DelButton.parentNode.parentNode.rowIndex);
+    email = table.rows[index].cells[2].innerHTML;
+    console.log(index);
+    deleteDataFromServer(email); //call AJAX Delete Methode
+    $(DelButton).parents("tr").remove();
+    /*
+for (let i = 0; i < table.rows.length; i++) {
+table.rows[i].cells[3].onclick = function (e) {
+    email = table.rows[i].cells[2].innerHTML;
+    e.stopPropagation();
+    deleteDataFromServer(email); //call AJAX Delete Methode
+    //index=this.parentElement.rowIndex;
+    index = i;
+    table.deleteRow(index);
+
+}
+}*/
+    //After the User Deletion ,we must get the New Database
+    $.ajax({
+        xhrFields: {
+            withCredentials: true
+        },
+        method: 'GET',
+        url: 'http://localhost:3000/users',
+        dataType: "json",
+        success: function (response) {
+            users = response;
+            buildTable(users);
+        }
+    });
 }
 //AJAX Delete Request
 function deleteDataFromServer(email) {
+    console.log("email to delete is: " + email);
     var data = JSON.stringify({ email: email });
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -199,22 +225,19 @@ $.ajax({
     url: 'http://localhost:3000/users',
     dataType: "json",
     success: function (response) {
-        console.log("the Response is: " + response);
         users = response;
-        console.log("users;== " + users);
         buildTable(users);
     }
 });
 // Users Table in index.html
 function buildTable(data) {
     var rowNumber = 1;
-    console.log("data variable" + data);
     var docTable = document.getElementById("usersTable");
     var table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th><th>Aktionen</th></tr></thead>";
     for (var i = 0; i < data.length; i++) {
         table += "<tr id=" + (rowNumber) + "><td>" + data[i].vorName + "</td><td>" + data[i].nachName + "</td><td>" + data[i].email + "</td><td>" +
             "<button class=\"btn btn-secondary\" type=\"button\" data-toggle=\"modal\" data-target=\"#updateUserModal\" onclick='returnUserIndex(this)'>Edit</button>" +
-            "<button class=\"btn btn-danger\" onclick='deleteUser()' style='margin-left: 10px'>Delete</button>" +
+            "<button class=\"btn btn-danger\" onclick='deleteUser(this)' style='margin-left: 10px' id='deleteUser'>Delete</button>" +
             "</td></tr>";
         rowNumber++;
     }

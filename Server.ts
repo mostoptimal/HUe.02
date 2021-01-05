@@ -126,7 +126,7 @@ app.put("/users/update", (req, res) => {
     //cambio
     //check poasswort is not in body
     if (req.body.hasOwnProperty('password')) {
-        res.status(400).json({msg: "you cann not change the password"});
+        res.status(400).json({msg: "you can not change the password"});
     } else {
         let foundedUser = users.find(user => user.email === userToUpdate.email);
         if (found) {
@@ -150,9 +150,9 @@ app.delete("/users/user", (req, res) => {
     if (found) {
         // filter = delete the user with email and returns an array without this Element //gibt zruck array with alle andere Users
         users = users.filter(user => user.email != email);
-        res.status(200).json({msg: "The User has been deleted"});
+        res.status(200).json({msg: `The User with Email: ${email} has been deleted`});
     } else {
-        res.status(404).json({msg: "The User doesn't exist"});
+        res.status(404).json({msg: `The Email ${email} doesn't exist`});
     }
     console.log(users);
 

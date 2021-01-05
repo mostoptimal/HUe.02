@@ -37,16 +37,22 @@ function submitNewUser() {
     email = document.getElementById("email").value;
     password = document.getElementById("passWort").value;
     //if there is Values
-    if (fName && lName && email && password) {
-        users.push(new User(fName, lName, email, password));
-        console.log(users);
-        sendDataToServer(new User(fName, lName, email, password)); //The POST function Request
-        JSON.stringify(users); //turn it to String
-        console.log(users); //to test the Result in Console
-        document.getElementById("vorName").value = "";
-        document.getElementById("nachName").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("passWort").value = "";
+    if (fName && lName && email && password) { //(""===null===false)
+        if (users.some(function (user) { return user.email === email; })) {
+            alert("User already exists in the Databse!");
+        }
+        else {
+            sendDataToServer(new User(fName, lName, email, password)); //The POST function Request
+            console.log("New User: " + fName, lName, email, password);
+            //users.push(new User(fName, lName, email, password));
+            console.log(users);
+            JSON.stringify(users); //turn it to String
+            console.log(users); //to test the Result in Console
+            document.getElementById("vorName").value = "";
+            document.getElementById("nachName").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("passWort").value = "";
+        }
     }
     else {
         alert("Please full down all Fields!");
@@ -68,11 +74,15 @@ function sendDataToServer(user1) {
         }
     });
     xhr.open("POST", "http://localhost:3000/users/user");
-    console.log('xhr.open');
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
-    var msg = (xhr.responseText).toString();
-    alert(msg);
+    if (xhr.status == 200) {
+        alert("New User Submitted!");
+    }
+    else {
+        if (xhr.status == 400)
+            alert("The Email Address exists in the Database!");
+    }
     console.log(data + " posted!");
 }
 //-------------------------submitNewUser-----------------------------------

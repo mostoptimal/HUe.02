@@ -99,7 +99,6 @@ app.post('/users/user', (req, res) => {
 
 
 //user update firstname and lastname
-
 app.post("/users/update", (req, res) => {
     let userToUpdate = req.body;
     let found = users.some(user => user.email === userToUpdate.email);

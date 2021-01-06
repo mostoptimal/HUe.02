@@ -1,3 +1,19 @@
+POST http://localhost:3000/users/user
+host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+  "vorName": "Kevin",
+  "nachName": "Schroeder",
+  "email": "kev90qgmx.de",
+  "passWort": "zocken"
+}
+
+<> 2021-01-06T082622.200.html
+
+###
+
 DELETE http://localhost:3000/users/user
 Content-Type: application/json
 Accept: application/json
@@ -458,19 +474,6 @@ POST http://localhost:3000/users
 }
 
 <> 2020-12-19T080102.200.html
-
-###
-
-POST http://localhost:3000/users
-
-{
-"vorName": "tt",
-"nachName": "bb",
-"email": "www@email.cd"
-"passWort":"fegege"
-}
-
-<> 2020-12-19T075915.200.html
 
 ###
 

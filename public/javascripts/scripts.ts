@@ -3,10 +3,7 @@
 
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
-    //submitNewUser();
-    //showAllUsersInTable();
-    //updateUser();
-    //deleteUser();
+
 });
 document.addEventListener('keypress', (event) => {
     if (event.keyCode === 13) {
@@ -76,7 +73,7 @@ function submitNewUser() {
 
 //HTTP/AJAX POST/PUT Request
 function sendDataToServer(user1) {
-    //let res = await fetch("http://localhost:3000/users/user");
+
     let data = JSON.stringify({
         vorName: user1.vorName,
         nachName: user1.nachName,
@@ -93,26 +90,9 @@ function sendDataToServer(user1) {
     xhr.open("POST", "http://localhost:3000/users/user");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(data);
-    alert(xhr.responseText); //toString();//
+    //alert(xhr.responseText); //toString();//
     console.log(data + " send to server!");
 }
-
-//-------------------------submitNewUser-----------------------------------
-/**show the Table of Users Button:"Show Users Infos"
- * NO MORE IN USE BUT DIDN'T Delete this Old warrior*/
-/*
-function showAllUsersInTable() {
-    users=JSON.parse(getDataFromServer());//GET Request methode
-    (<HTMLInputElement>document.getElementById("formNewUser")).value = '';
-    let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
-    for (let i=0; i<users.length;i++){
-        table +="<tr><td>"+users[i].vorName+"</td><td>"+users[i].nachName+"</td><td>"+users[i].email+"</td></tr>";
-    }
-    table += "</table>";
-    console.log(table);
-    document.getElementById("usersTable").innerHTML = table;
-}
-*/
 
 //-------------------------Update User-----------------------------------
 /**Update Firstname and Lastname if the user exists
@@ -172,18 +152,6 @@ function deleteUser(DelButton) {
     console.log(index);
     deleteDataFromServer(email); //call AJAX Delete Methode
     $(DelButton).parents("tr").remove();
-    /*
-for (let i = 0; i < table.rows.length; i++) {
-table.rows[i].cells[3].onclick = function (e) {
-    email = table.rows[i].cells[2].innerHTML;
-    e.stopPropagation();
-    deleteDataFromServer(email); //call AJAX Delete Methode
-    //index=this.parentElement.rowIndex;
-    index = i;
-    table.deleteRow(index);
-
-}
-}*/
 
     //After the User Deletion ,we must get the New Database
     $.ajax({
@@ -272,6 +240,7 @@ function returnUserIndex(zeile) {
     return i;
 }
 
+//---------------------------------------------------------
 //HTTP/AJAX GET Request NOT USED
 function getDataFromServer() {
     let xhr = new XMLHttpRequest();
@@ -285,7 +254,6 @@ function getDataFromServer() {
     xhr.send();
 }
 
-
 //Goto Update Page without going
 function getUpdateTxt() {
     let xhttp = new XMLHttpRequest();
@@ -298,3 +266,19 @@ function getUpdateTxt() {
     console.log(xhttp.response);
     xhttp.send();
 }
+//-------------------------submitNewUser-----------------------------------
+/**show the Table of Users Button:"Show Users Infos"
+ * NO MORE IN USE BUT DIDN'T Delete this Old warrior*/
+/*
+function showAllUsersInTable() {
+    users=JSON.parse(getDataFromServer());//GET Request methode
+    (<HTMLInputElement>document.getElementById("formNewUser")).value = '';
+    let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
+    for (let i=0; i<users.length;i++){
+        table +="<tr><td>"+users[i].vorName+"</td><td>"+users[i].nachName+"</td><td>"+users[i].email+"</td></tr>";
+    }
+    table += "</table>";
+    console.log(table);
+    document.getElementById("usersTable").innerHTML = table;
+}
+*/

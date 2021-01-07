@@ -1,15 +1,18 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+window.onload=function() {
     console.log('DOM fully loaded and parsed');
+    document.getElementById("formNewUser").addEventListener("submit",()=>{
+        submitNewUser();
+    });
 //Event Listener for the Submit User Button
-document.getElementById("submitBtn").addEventListener("click",(event)=>{
+/*document.getElementById("submitBtn").addEventListener("click",(event)=>{
     submitNewUser();
-});
+});*/
 //Event Listener for the Update User Button
 document.getElementById("updateBtn").addEventListener("click",(event)=>{
-    getUpdateTxt();
-});
 
 });
+
+}
 document.addEventListener('keypress', (event) => {
     if (event.keyCode === 13) {
         // Cancel the default action, if needed
@@ -41,8 +44,9 @@ let fName:String, lName:String, email:String, password:String;//public String Va
 //-------------------------submitNewUser-----------------------------------
 //The function for the Button "Submit"
 function submitNewUser() {
-    let form = document.getElementById("formNewUser") as HTMLFormElement;
-    form.submit();
+
+    //let form = document.getElementById("formNewUser") as HTMLFormElement;
+
     fName = (<HTMLInputElement>document.getElementById("vorName")).value;
     lName = (<HTMLInputElement>document.getElementById("nachName")).value;
     email = (<HTMLInputElement>document.getElementById("email")).value;
@@ -80,13 +84,8 @@ function submitNewUser() {
 
 //HTTP/AJAX POST/PUT Request
 function sendDataToServer(user1) {
-
-    let data = JSON.stringify({
-        vorName: user1.vorName,
-        nachName: user1.nachName,
-        email: user1.email,
-        passWort: user1.passWort
-    });
+    let data = new FormData();
+    data.append("KEY", document.getElementById("formNewUser"));
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
@@ -261,18 +260,6 @@ function getDataFromServer() {
     xhr.send();
 }
 
-//Goto Update Page without going
-function getUpdateTxt() {
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("changeableArea").innerHTML = this.response;
-        }
-    };
-    xhttp.open("GET", "./javascripts/update.txt", true);
-    console.log(xhttp.response);
-    xhttp.send();
-}
 //-------------------------submitNewUser-----------------------------------
 /**show the Table of Users Button:"Show Users Infos"
  * NO MORE IN USE BUT DIDN'T Delete this Old warrior*/

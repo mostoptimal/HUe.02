@@ -22,6 +22,10 @@
     <title>Hausuebung 2</title>
     <link href="/public/stylesheets/style.css" type="text/css">
     <!--<script src="scripts.ts" type="application/javascript"></script>-->
+    <!--script-->
+    <!--<script type="module" src="javascripts/Users.js"></script>-->
+    <script src="javascripts/scripts.js"></script>
+    <!--script End-->
 </head>
 <!--Head End--><!--Head End--><!--Head End-->
 <body>
@@ -30,7 +34,7 @@
 <div class="container" style="padding: 2%;" id="changeableArea">
     <div class="jumbotron" style="background-color: cadetblue">
         <h3 align="center" class="HUe2font">User Manager</h3>
-        <form id="formNewUser" method="get">
+        <form method="post" id="formNewUser" action="public/javascripts/Users.js">
             <div class="form-floating mb-3">
                 <label for="vorName">First Name</label>
                 <input type="text" class="form-control " id="vorName" placeholder="First Name" required>
@@ -113,9 +117,6 @@
 
 <!--Table End--><!--Table End--><!--Table End-->
 <!--Table End--><!--Table End--><!--Table End-->
-<!--script-->
-<!--<script type="module" src="javascripts/Users.js"></script>-->
-<script src="javascripts/scripts.js"></script>
-<!--script End-->
+
 </body>
 </html>

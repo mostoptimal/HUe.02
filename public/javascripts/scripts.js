@@ -1,14 +1,16 @@
-document.addEventListener('DOMContentLoaded', function (event) {
+window.onload = function () {
     console.log('DOM fully loaded and parsed');
-    //Event Listener for the Submit User Button
-    document.getElementById("submitBtn").addEventListener("click", function (event) {
+    document.getElementById("formNewUser").addEventListener("submit", function () {
         submitNewUser();
     });
+    //Event Listener for the Submit User Button
+    /*document.getElementById("submitBtn").addEventListener("click",(event)=>{
+        submitNewUser();
+    });*/
     //Event Listener for the Update User Button
     document.getElementById("updateBtn").addEventListener("click", function (event) {
-        getUpdateTxt();
     });
-});
+};
 document.addEventListener('keypress', function (event) {
     if (event.keyCode === 13) {
         // Cancel the default action, if needed
@@ -34,8 +36,7 @@ var fName, lName, email, password; //public String Variables
 //-------------------------submitNewUser-----------------------------------
 //The function for the Button "Submit"
 function submitNewUser() {
-    var form = document.getElementById("formNewUser");
-    form.submit();
+    //let form = document.getElementById("formNewUser") as HTMLFormElement;
     fName = document.getElementById("vorName").value;
     lName = document.getElementById("nachName").value;
     email = document.getElementById("email").value;
@@ -73,12 +74,8 @@ function submitNewUser() {
 }
 //HTTP/AJAX POST/PUT Request
 function sendDataToServer(user1) {
-    var data = JSON.stringify({
-        vorName: user1.vorName,
-        nachName: user1.nachName,
-        email: user1.email,
-        passWort: user1.passWort
-    });
+    var data = new FormData();
+    data.append("KEY", document.getElementById("formNewUser"));
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
@@ -242,18 +239,6 @@ function getDataFromServer() {
     });
     xhr.open("GET", "http://localhost:3000/users");
     xhr.send();
-}
-//Goto Update Page without going
-function getUpdateTxt() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("changeableArea").innerHTML = this.response;
-        }
-    };
-    xhttp.open("GET", "./javascripts/update.txt", true);
-    console.log(xhttp.response);
-    xhttp.send();
 }
 //-------------------------submitNewUser-----------------------------------
 /**show the Table of Users Button:"Show Users Infos"

@@ -1,12 +1,14 @@
 import * as express from "express";
 import {User} from './public/javascripts/Users';
+import {SecuesUser} from './public/javascripts/Users';
 
 const app = express();
 const PORT = 3000;
 
 //Array from Object User
 let users = new Array<User>();
-
+let securedUsers = Array<SecuesUser>();
+//******************************
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
 });
@@ -18,13 +20,13 @@ app.use("/", express.static(__dirname + "/public"));
 app.use("/dependency", express.static(__dirname + "/node_modules"));
 
 //To Bypass CORS Policy Problem on Google Chrome
-app.all('/', function (req, res) {
+app.all('/', function (req:express.Request, res:express.Response) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 });
 
-app.get("/index.html", (req, res) => {
-    res.status(200);
+app.get("/index.html", (req:express.Request, res:express.Response) => {
+    res.status(200).json({msg:"Hompage Loaded!"});
     res.sendFile(__dirname + "/public/index.html");
 });
 
@@ -44,15 +46,16 @@ users.push(u4);
  **/
 
 //get all users
-app.get("/users", (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.json(users);
+app.get("/users", (req:express.Request, res:express.Response) => {
+    for (let i=0; i<users.length;i++){
+        delete users[i].password;
+    }
+    res.status(200).json(users);
     console.log('Users sent'); //Console Output Test
     console.log(users);
 });
 //get one user per email
-app.get("/users/user", (req, res) => {
+app.get("/users/user", (req:express.Request, res:express.Response) => {
     let userReq = req.body;
     //returns True if an Element (User) exists in the Array
     let found = users.some(user => user.email === userReq.email);
@@ -65,39 +68,32 @@ app.get("/users/user", (req, res) => {
 });
 
 //New User //submit new user
-app.post('/users/user', (req, res) => {
-    //Creat json Object to Compare sent Data with those in the Database
-    let newUser = {
-        vorName: req.body.vorName,
-        nachName: req.body.nachName,
-        email: req.body.email,
-        passWort: req.body.passWort,
-    }
+app.post('/users/user', (req:express.Request, res:express.Response) => {
     //To Test if an Empty {JSON} Body sent (if NOT) then:
-    if (newUser.vorName === "" || newUser.nachName === "" || newUser.email === "" || newUser.passWort === "") {
+    if (req.body.vorName === "" || req.body.nachName === "" || req.body.passWort === "" || req.body.email === "") {
         console.log("User Data can not be empty ,Please full down all Fields!!");
         res.status(400).json({msg: "User Data can not be empty!!"});
         // If the Client Side sent Empty data or Missing Field
     } else {
         console.log("new user");
         //check with Email if the User already exists
-        const found = users.some(user => user.email === newUser.email);
+        const found = users.some(user => user.email === req.body.email.email);
         if (found) {
             console.log('the Email Address is already exists');
-            res.send("user can't be duplicated!!");
+            res.status.json({msg:"user can't be duplicated!!"});
         } else {
-
+            let newUser= new User(req.body.vorName,req.body.nachName,req.body.email,req.body.password);
             //if the User not exists //push him in the Array
-            users.push(new User(newUser.vorName, newUser.nachName, newUser.email, newUser.passWort));
+            users.push(newUser);
             console.log(JSON.stringify(users));
-            res.send("new User submitted");
+            res.status(201).json({msg:"new User submitted"});
         }
     }
 });
 
 /*
 //user update firstname and lastname
-app.post("/users/update", (req, res) => {
+app.post("/users/update", (req:express.Request, res:express.Response) => {
     let userToUpdate = req.body;
     let found = users.some(user => user.email === userToUpdate.email);
     //cambio
@@ -120,7 +116,7 @@ app.post("/users/update", (req, res) => {
 });*/
 
 //Put to Update user
-app.put("/users/update", (req, res) => {
+app.put("/users/update", (req:express.Request, res:express.Response) => {
     let userToUpdate = req.body;
     let found = users.some(user => user.email === userToUpdate.email);
     //cambio
@@ -143,7 +139,7 @@ app.put("/users/update", (req, res) => {
 });
 
 //delete User by finding Email
-app.delete("/users/user", (req, res) => {
+app.delete("/users/user", (req:express.Request, res:express.Response) => {
     let {email} = req.body;
     //find returns true for founded Object ,false for not founded
     let found = users.find(user => user.email === email);

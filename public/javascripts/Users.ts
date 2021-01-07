@@ -7,14 +7,23 @@ class User {
     email: String;
     password: String;
 
-    constructor(vorname: String, lname: String, email: String, pass: String) {
-        this.vorName = vorname;
+    constructor(firstname: String, lname: String, email: String, pass: String) {
+        this.vorName = firstname;
         this.nachName = lname;
         this.email = email;
         this.password = pass;
     }
 }
 
-//let users= new Array<User>();//Array from Object Users
+class SecuesUser{
+    vorName: String;
+    nachName: String;
+    email: String;
+    constructor(firstname: String, lname: String, email: String) {
+        this.vorName = firstname;
+        this.nachName = lname;
+        this.email = email;
+    }
+}
 export {User};
-//export {users};
+export {SecuesUser};

@@ -36,15 +36,12 @@ app.get("/index.html", (req: express.Request, res: express.Response) => {
 const u1 = new User("John", "Schwarz", "Joe.schw@aol.com", "308doieh3d");
 const u2 = new User("Ivy Harrell", "Burton", "Nullam@felis.co.uk", "def56gujhw");
 const u3 = new User("Evangeline", "Preston", "Aenean.euismod@Vivamusmolestiedapibus.co.uk", "876544rtg");
-const u4 = new User("jamiku", "soko", "jamiku@jp.co", "slfhewiwefpiew321");
 users.push(u1);
 users.push(u2);
 users.push(u3);
-users.push(u4);
 /**
  * Examples of Users
  **/
-
 //get all users
 app.get("/users", (req: express.Request, res: express.Response) => {
     for (let i = 0; i < users.length; i++) {
@@ -54,7 +51,7 @@ app.get("/users", (req: express.Request, res: express.Response) => {
     }
     res.status(200).json(securedUsers);
     console.log('Users sent'); //Console Output Test
-    console.log(users);
+    console.log(securedUsers);
 });
 //get one user per email
 app.get("/users/user", (req: express.Request, res: express.Response) => {
@@ -92,7 +89,6 @@ app.post('/users/user', (req: express.Request, res: express.Response) => {
         }
     }
 });
-
 /*
 //user update firstname and lastname
 app.post("/users/update", (req:express.Request, res:express.Response) => {
@@ -153,5 +149,4 @@ app.delete("/users/user", (req: express.Request, res: express.Response) => {
         res.status(404).json({msg: `The Email ${email} doesn't exist`});
     }
     console.log(users);
-
 });

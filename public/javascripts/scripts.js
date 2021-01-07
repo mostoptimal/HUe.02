@@ -1,7 +1,13 @@
-//import {User} from "./Users";
-//import {users} from "./Users";
-window.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener('DOMContentLoaded', function (event) {
     console.log('DOM fully loaded and parsed');
+    //Event Listener for the Submit User Button
+    document.getElementById("submitBtn").addEventListener("click", function (event) {
+        submitNewUser();
+    });
+    //Event Listener for the Update User Button
+    document.getElementById("updateBtn").addEventListener("click", function (event) {
+        getUpdateTxt();
+    });
 });
 document.addEventListener('keypress', function (event) {
     if (event.keyCode === 13) {
@@ -28,14 +34,16 @@ var fName, lName, email, password; //public String Variables
 //-------------------------submitNewUser-----------------------------------
 //The function for the Button "Submit"
 function submitNewUser() {
+    var form = document.getElementById("formNewUser");
+    form.submit();
     fName = document.getElementById("vorName").value;
     lName = document.getElementById("nachName").value;
     email = document.getElementById("email").value;
     password = document.getElementById("passWort").value;
     //if there is Values
-    if (fName && lName && email && password) { //(""===null===false)
+    if (fName && lName && email && password) { //(""===null===false)?
         if (users.some(function (user) { return user.email === email; })) {
-            alert("User already exists in the Databse!");
+            alert("User already exists in the Database!");
         }
         else {
             sendDataToServer(new User(fName, lName, email, password)); //The POST function Request

@@ -14,7 +14,7 @@ app.listen(PORT, () => {
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.use("/res", express.static(__dirname + "/public"));
+app.use("/", express.static(__dirname + "/public"));
 app.use("/dependency", express.static(__dirname + "/node_modules"));
 
 //To Bypass CORS Policy Problem on Google Chrome
@@ -23,7 +23,7 @@ app.all('/', function (req, res) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 });
 
-app.get("/public/index.html", (req, res) => {
+app.get("/index.html", (req, res) => {
     res.status(200);
     res.sendFile(__dirname + "/public/index.html");
 });

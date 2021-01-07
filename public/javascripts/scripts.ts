@@ -1,8 +1,13 @@
-//import {User} from "./Users";
-//import {users} from "./Users";
-
-window.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
+//Event Listener for the Submit User Button
+document.getElementById("submitBtn").addEventListener("click",(event)=>{
+    submitNewUser();
+});
+//Event Listener for the Update User Button
+document.getElementById("updateBtn").addEventListener("click",(event)=>{
+    getUpdateTxt();
+});
 
 });
 document.addEventListener('keypress', (event) => {
@@ -32,18 +37,20 @@ class User {
 //Array from Object User
 let users = new Array<User>();//Array from Object Users
 //public variables
-let fName, lName, email, password;//public String Variables
+let fName:String, lName:String, email:String, password:String;//public String Variables
 //-------------------------submitNewUser-----------------------------------
 //The function for the Button "Submit"
 function submitNewUser() {
+    let form = document.getElementById("formNewUser") as HTMLFormElement;
+    form.submit();
     fName = (<HTMLInputElement>document.getElementById("vorName")).value;
     lName = (<HTMLInputElement>document.getElementById("nachName")).value;
     email = (<HTMLInputElement>document.getElementById("email")).value;
     password = (<HTMLInputElement>document.getElementById("passWort")).value;
     //if there is Values
-    if (fName && lName && email && password) { //(""===null===false)
+    if (fName && lName && email && password) { //(""===null===false)?
         if (users.some(user => user.email === email)) {
-            alert("User already exists in the Databse!");
+            alert("User already exists in the Database!");
         } else {
             sendDataToServer(new User(fName, lName, email, password));//The POST function Request
             console.log("New User: " + fName, lName, email, password);

@@ -20,13 +20,13 @@ app.use("/", express.static(__dirname + "/public"));
 app.use("/dependency", express.static(__dirname + "/node_modules"));
 
 //To Bypass CORS Policy Problem on Google Chrome
-app.all('/', function (req:express.Request, res:express.Response) {
+app.all('/', function (req: express.Request, res: express.Response) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 });
 
-app.get("/index.html", (req:express.Request, res:express.Response) => {
-    res.status(200).json({msg:"Hompage Loaded!"});
+app.get("/index.html", (req: express.Request, res: express.Response) => {
+    res.status(200).json({msg: "Hompage Loaded!"});
     res.sendFile(__dirname + "/public/index.html");
 });
 
@@ -46,16 +46,18 @@ users.push(u4);
  **/
 
 //get all users
-app.get("/users", (req:express.Request, res:express.Response) => {
-    for (let i=0; i<users.length;i++){
-        delete users[i].password;
+app.get("/users", (req: express.Request, res: express.Response) => {
+    for (let i = 0; i < users.length; i++) {
+        securedUsers[i].vorName = users[i].vorName;
+        securedUsers[i].nachName = users[i].nachName;
+        securedUsers[i].email = users[i].email;
     }
-    res.status(200).json(users);
+    res.status(200).json(securedUsers);
     console.log('Users sent'); //Console Output Test
     console.log(users);
 });
 //get one user per email
-app.get("/users/user", (req:express.Request, res:express.Response) => {
+app.get("/users/user", (req: express.Request, res: express.Response) => {
     let userReq = req.body;
     //returns True if an Element (User) exists in the Array
     let found = users.some(user => user.email === userReq.email);
@@ -68,7 +70,7 @@ app.get("/users/user", (req:express.Request, res:express.Response) => {
 });
 
 //New User //submit new user
-app.post('/users/user', (req:express.Request, res:express.Response) => {
+app.post('/users/user', (req: express.Request, res: express.Response) => {
     //To Test if an Empty {JSON} Body sent (if NOT) then:
     if (req.body.vorName === "" || req.body.nachName === "" || req.body.passWort === "" || req.body.email === "") {
         console.log("User Data can not be empty ,Please full down all Fields!!");
@@ -80,13 +82,13 @@ app.post('/users/user', (req:express.Request, res:express.Response) => {
         const found = users.some(user => user.email === req.body.email.email);
         if (found) {
             console.log('the Email Address is already exists');
-            res.status.json({msg:"user can't be duplicated!!"});
+            res.status.json({msg: "user can't be duplicated!!"});
         } else {
-            let newUser= new User(req.body.vorName,req.body.nachName,req.body.email,req.body.password);
+            let newUser = new User(req.body.vorName, req.body.nachName, req.body.email, req.body.password);
             //if the User not exists //push him in the Array
             users.push(newUser);
             console.log(JSON.stringify(users));
-            res.status(201).json({msg:"new User submitted"});
+            res.status(201).json({msg: "new User submitted"});
         }
     }
 });
@@ -116,7 +118,7 @@ app.post("/users/update", (req:express.Request, res:express.Response) => {
 });*/
 
 //Put to Update user
-app.put("/users/update", (req:express.Request, res:express.Response) => {
+app.put("/users/update", (req: express.Request, res: express.Response) => {
     let userToUpdate = req.body;
     let found = users.some(user => user.email === userToUpdate.email);
     //cambio
@@ -139,7 +141,7 @@ app.put("/users/update", (req:express.Request, res:express.Response) => {
 });
 
 //delete User by finding Email
-app.delete("/users/user", (req:express.Request, res:express.Response) => {
+app.delete("/users/user", (req: express.Request, res: express.Response) => {
     let {email} = req.body;
     //find returns true for founded Object ,false for not founded
     let found = users.find(user => user.email === email);

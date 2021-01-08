@@ -15,15 +15,17 @@ class User {
     }
 }
 
-class SecuesUser{
+class SecuredUser {
     vorName: String;
     nachName: String;
     email: String;
-    constructor(firstname: String, lname: String, email: String) {
+
+    constructor(firstname: String, lastname: String, email: String) {
         this.vorName = firstname;
-        this.nachName = lname;
+        this.nachName = lastname;
         this.email = email;
     }
 }
+
 export {User};
-export {SecuesUser};
+export {SecuredUser};

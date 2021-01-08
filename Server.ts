@@ -1,13 +1,13 @@
 import * as express from "express";
 import {User} from './public/javascripts/Users';
-import {SecuesUser} from './public/javascripts/Users';
+import {SecuredUser} from './public/javascripts/Users';
 
 const app = express();
 const PORT = 3000;
 
 //Array from Object User
 let users = new Array<User>();
-let securedUsers = Array<SecuesUser>();
+let securedUsers = Array<SecuredUser>();
 //******************************
 app.listen(PORT, () => {
     console.log("Server auf http://localhost:3000 gestartet");
@@ -84,7 +84,7 @@ app.post('/users/user', (req: express.Request, res: express.Response) => {
             //if the User not exists //push him in the Array
             users.push(newUser);
             console.log(JSON.stringify(users));
-            res.status(201).json({msg: "new User submitted"});
+            res.status(201).json({msg: "new User created sucessfully!"});
         }
     }
 });

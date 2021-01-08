@@ -26,7 +26,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="after Life Correction">
       <change beforePath="$PROJECT_DIR$/Server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/scripts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/Users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/Users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/Users.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -743,13 +744,7 @@
       <workItem from="1609954014785" duration="4281000" />
       <workItem from="1610006023520" duration="5288000" />
       <workItem from="1610028806455" duration="7346000" />
-    </task>
-    <task id="LOCAL-00043" summary="Notes">
-      <created>1609191241583</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1609191241583</updated>
+      <workItem from="1610121679264" duration="508000" />
     </task>
     <task id="LOCAL-00044" summary="update und Delete Request">
       <created>1609191817920</created>
@@ -1087,7 +1082,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610040956581</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="after Life Correction">
+      <created>1610121774235</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1610121774236</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1252,10 +1254,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state width="1326" height="204" key="GridCell.Tab.3.right/0.0.1366.741@0.0.1366.741" timestamp="1609690209328" />
-    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog" timestamp="1609330379683">
+    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog" timestamp="1610121723853">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog/0.0.1366.741@0.0.1366.741" timestamp="1609330379683" />
+    <state x="467" y="75" width="421" height="582" key="RollbackChangesDialog/0.0.1366.741@0.0.1366.741" timestamp="1610121723853" />
     <state x="187" y="4" key="SettingsEditor" timestamp="1609681995954">
       <screen x="0" y="0" width="1366" height="741" />
     </state>

@@ -84,8 +84,7 @@ function submitNewUser() {
 
 //HTTP/AJAX POST/PUT Request
 function sendDataToServer(user1) {
-    let data = new FormData();
-    data.append("KEY", document.getElementById("formNewUser"));
+    let data =JSON.stringify(user1);
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {

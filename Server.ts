@@ -54,10 +54,9 @@ app.get("/users", (req: express.Request, res: express.Response) => {
     console.log(securedUsers);
 });
 //get one user per email
-app.get("/users/user", (req: express.Request, res: express.Response) => {
-    let userReq = req.body;
+app.get("/users/:email", (req: express.Request, res: express.Response) => {
     //returns True if an Element (User) exists in the Array
-    let found = users.some(user => user.email === userReq.email);
+    let found = users.some(user => user.email === req.params.email);
     if (found) {
         // resend the searched Object from the Array
         res.status(200).json(users.filter(user => user.email === req.params.email));

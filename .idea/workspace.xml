@@ -24,11 +24,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="after Life Correction">
+    <list default="true" id="4750b456-1a46-47a9-bda0-7b8b736331a1" name="Default Changelist" comment="axios requests /get and delete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/Users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/scripts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/javascripts/scripts.ts" afterDir="false" />
     </list>
@@ -748,14 +745,7 @@
       <workItem from="1610006023520" duration="5288000" />
       <workItem from="1610028806455" duration="7346000" />
       <workItem from="1610121679264" duration="2980000" />
-      <workItem from="1610184621478" duration="526000" />
-    </task>
-    <task id="LOCAL-00045" summary="Styling comments">
-      <created>1609241019633</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1609241019633</updated>
+      <workItem from="1610184621478" duration="1547000" />
     </task>
     <task id="LOCAL-00046" summary="sucessfull Get Request and Table with jQuery">
       <created>1609263897708</created>
@@ -1093,7 +1083,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610122271690</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="axios requests /get and delete">
+      <created>1610185478597</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1610185478597</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1130,7 +1127,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Notes" />
     <MESSAGE value="update und Delete Request" />
     <MESSAGE value="Styling comments" />
     <MESSAGE value="sucessfull Get Request and Table with jQuery" />
@@ -1155,7 +1151,8 @@
     <MESSAGE value="finishing Tester" />
     <MESSAGE value="Everything is fine" />
     <MESSAGE value="after Life Correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="after Life Correction" />
+    <MESSAGE value="axios requests /get and delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="axios requests /get and delete" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="44" width="687" height="645" key="#Options" timestamp="1608116565299">
@@ -1266,10 +1263,10 @@
       <screen x="0" y="0" width="1366" height="741" />
     </state>
     <state x="187" y="4" key="SettingsEditor/0.0.1366.741@0.0.1366.741" timestamp="1609681995954" />
-    <state x="278" y="105" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1610122275432">
+    <state x="278" y="105" width="1000" height="648" key="Vcs.Push.Dialog.v2" timestamp="1610185484575">
       <screen x="0" y="0" width="1366" height="741" />
     </state>
-    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1610122275432" />
+    <state x="278" y="105" width="800" height="522" key="Vcs.Push.Dialog.v2/0.0.1366.741@0.0.1366.741" timestamp="1610185484575" />
     <state x="391" y="147" width="1000" height="648" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609279901299" />
     <state x="100" y="99" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609330884326">
       <screen x="0" y="0" width="1366" height="741" />

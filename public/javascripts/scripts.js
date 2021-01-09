@@ -110,29 +110,29 @@ function updateUser() {
         document.getElementById("firstName").value = "";
         document.getElementById("lastName").value = "";
     }
-    //    document.getElementById(index.toString()).childNodes[0].nodeValue=fName;
 }
 /**Update (POST/PUT) Request*/
 function updateDataInTheServer(user) {
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-        }
+    var axios = require('axios');
+    var data = JSON.stringify({ user: user });
+    var config = {
+        method: 'post',
+        url: 'http://localhost:3000/users/update',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data: data
+    };
+    axios(config)
+        .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        axios.send(data);
+    })
+        .catch(function (error) {
+        console.log(error);
     });
-    xhr.open("PUT", "http://localhost:3000/users/update");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(user);
     //We need the HTTP Get for the New Array Table When any User being updated
-    $.ajax({
-        method: 'GET',
-        url: 'http://localhost:3000/users',
-        dataType: "json",
-        success: function (response) {
-            users = response;
-            buildTable(users);
-        }
-    });
+    getDataFromServer();
 }
 //-----------------------------------------------------------------------
 //-------------------------Delete User-----------------------------------
@@ -146,18 +146,7 @@ function deleteUser(DelButton) {
     deleteDataFromServer(email); //call AJAX Delete Methode
     $(DelButton).parents("tr").remove();
     //After the User Deletion ,we must get the New Database
-    $.ajax({
-        xhrFields: {
-            withCredentials: true
-        },
-        method: 'GET',
-        url: 'http://localhost:3000/users',
-        dataType: "json",
-        success: function (response) {
-            users = response;
-            buildTable(users);
-        }
-    });
+    getDataFromServer();
 }
 //AJAX Delete Request
 function deleteDataFromServer(email) {
@@ -227,4 +216,7 @@ function returnUserIndex(zeile) {
     document.getElementById("emailAdress").value = users[i].email.toString();
     return i;
 }
+/*********************************************************************************************************
+ *
+ * */
 //# sourceMappingURL=scripts.js.map

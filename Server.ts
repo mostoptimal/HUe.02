@@ -44,10 +44,10 @@ users.push(u3);
  **/
 //get all users
 app.get("/users", (req: express.Request, res: express.Response) => {
+
     for (let i = 0; i < users.length; i++) {
-        securedUsers[i].vorName = users[i].vorName;
-        securedUsers[i].nachName = users[i].nachName;
-        securedUsers[i].email = users[i].email;
+        let sUser=new SecuredUser(users[i].vorName,users[i].nachName,users[i].email);
+        securedUsers.push(sUser);
     }
     res.status(200).json(securedUsers);
     console.log('Users sent'); //Console Output Test

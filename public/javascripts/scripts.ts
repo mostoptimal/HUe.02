@@ -1,26 +1,32 @@
+
 window.onload=function() {
     console.log('DOM fully loaded and parsed');
-    document.getElementById("formNewUser").addEventListener("submit",()=>{
-        submitNewUser();
+    document.getElementById("submitBtn").addEventListener("click",()=>{
+        let form=document.getElementById("formNewUser").innerText;
+        submitNewUser(form);
+        console.log(form);
+        //submitNewUser(JSON.stringify(form));
+
+        //sendDataToServer(document.getElementById("formNewUser").innerText);
+        //Event Listener for the Update User Button
+        document.getElementById("updateBtn").addEventListener("click",(event)=>{
+            updateUser();
+        });
     });
 //Event Listener for the Submit User Button
 /*document.getElementById("submitBtn").addEventListener("click",(event)=>{
     submitNewUser();
 });*/
-//Event Listener for the Update User Button
-document.getElementById("updateBtn").addEventListener("click",(event)=>{
 
-});
-
+    document.addEventListener('keypress', (event) => {
+        if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("submitBtn").click();
+        }
+    });
 }
-document.addEventListener('keypress', (event) => {
-    if (event.keyCode === 13) {
-        // Cancel the default action, if needed
-        event.preventDefault();
-        // Trigger the button element with a click
-        document.getElementById("submitBtn").click();
-    }
-});
 
 //Object User
 class User {
@@ -43,7 +49,7 @@ let users = new Array<User>();//Array from Object Users
 let fName:String, lName:String, email:String, password:String;//public String Variables
 //-------------------------submitNewUser-----------------------------------
 //The function for the Button "Submit"
-function submitNewUser() {
+function submitNewUser(form) {
 
     //let form = document.getElementById("formNewUser") as HTMLFormElement;
 
@@ -59,8 +65,6 @@ function submitNewUser() {
             sendDataToServer(new User(fName, lName, email, password));//The POST function Request
             console.log("New User: " + fName, lName, email, password);
             //users.push(new User(fName, lName, email, password));
-            console.log(users);
-            JSON.stringify(users);//turn it to String
             console.log(users);//to test the Result in Console
             (<HTMLInputElement>document.getElementById("vorName")).value = "";
             (<HTMLInputElement>document.getElementById("nachName")).value = "";
@@ -145,7 +149,6 @@ function updateDataInTheServer(user) {
     });
 }
 
-//-------------------------Update User-----------------------------------
 //-----------------------------------------------------------------------
 //-------------------------Delete User-----------------------------------
 /**Delete the Row (Frontend) from the Table
@@ -172,50 +175,52 @@ function deleteUser(DelButton) {
         }
     });
 }
-
 //AJAX Delete Request
 function deleteDataFromServer(email) {
     console.log("email to delete is: " + email);
+    let axios = require('axios');
     let data = JSON.stringify({email: email});
-    let xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-            console.log(this.responseText);
-        }
-    });
-    xhr.open("DELETE", "http://localhost:3000/users/user");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(data);
-    //alert(`User ${email} deleted`);
-    //Change the Alert according the Response Status from Server
-    if (xhr.status === 200) {
-        console.log("200 " + JSON.stringify(xhr.responseText));
-        alert(JSON.stringify(xhr.responseText));
-    } else {
-        if (xhr.status === 400) {
-            console.log("400 " + JSON.stringify(xhr.responseText));
-            alert(JSON.stringify(xhr.responseText)); //must not be real //maybe there is always the right user
-        }
-    }
-}
 
+    let config = {
+        method: 'delete',
+        url: 'http://localhost:3000/users/user',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data : data
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
 //-------------------------Delete User-----------------------------------
 //-----------------------------------------------------------------------
-//-------------------------Delete User-----------------------------------
-/**Get jQuery Request*/
-$.ajax({
-    xhrFields: {
-        withCredentials: true
-    },
-    method: 'GET',
-    url: 'http://localhost:3000/users',
-    dataType: "json",
-    success: function (response) {
-        users = response;
-        buildTable(users);
-    }
-});
+//-------------------------GET Request-----------------------------------
+//HTTP/AJAX/axios GET Request
+function getDataFromServer() {
+    let axios = require('axios');
+
+    let config = {
+        method: 'get',
+        url: 'http://localhost:3000/users',
+        headers: { }
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            users = response;
+            buildTable(users);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
 //--------------------------------Build Table-----------------------------------------
 // Users Table in index.html
 function buildTable(data: Array<User>) {
@@ -244,34 +249,3 @@ function returnUserIndex(zeile) {
     (<HTMLInputElement>document.getElementById("emailAdress")).value = users[i].email.toString();
     return i;
 }
-
-//---------------------------------------------------------
-//HTTP/AJAX GET Request NOT USED
-function getDataFromServer() {
-    let xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-            console.log(this.responseText);
-        }
-    });
-    xhr.open("GET", "http://localhost:3000/users");
-    xhr.send();
-}
-
-//-------------------------submitNewUser-----------------------------------
-/**show the Table of Users Button:"Show Users Infos"
- * NO MORE IN USE BUT DIDN'T Delete this Old warrior*/
-/*
-function showAllUsersInTable() {
-    users=JSON.parse(getDataFromServer());//GET Request methode
-    (<HTMLInputElement>document.getElementById("formNewUser")).value = '';
-    let table = "<table><thead><tr><th >Vorname</th><th>Nachname</th><th>Email</th></tr></thead>";
-    for (let i=0; i<users.length;i++){
-        table +="<tr><td>"+users[i].vorName+"</td><td>"+users[i].nachName+"</td><td>"+users[i].email+"</td></tr>";
-    }
-    table += "</table>";
-    console.log(table);
-    document.getElementById("usersTable").innerHTML = table;
-}
-*/

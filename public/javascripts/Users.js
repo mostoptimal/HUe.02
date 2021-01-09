@@ -22,4 +22,3 @@ var SecuredUser = /** @class */ (function () {
     return SecuredUser;
 }());
 exports.SecuredUser = SecuredUser;
-//# sourceMappingURL=Users.js.map
